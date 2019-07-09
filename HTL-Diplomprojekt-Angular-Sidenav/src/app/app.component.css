@@ -1,0 +1,25 @@
+.container {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.container .mat-drawer{
+  min-width: 250px;
+}
+
+.container .mat-drawer .mat-button{
+  display:block;
+  width:100%;
+  text-align:left;
+}
+
+
+mat-icon {
+
+  transform: scale(2);
+
+}
+
