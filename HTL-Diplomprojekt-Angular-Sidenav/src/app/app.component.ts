@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { HammerGestureConfig } from '@angular/platform-browser';
-
-import { trigger, transition, animate, style } from '@angular/animations';
-
 
 @Component({
   selector: 'app-root',
@@ -12,16 +8,5 @@ import { trigger, transition, animate, style } from '@angular/animations';
 })
 
 
-  
 export class AppComponent {
-  
-  
-  
-
-  constructor() {}
-
-  
-
-
-
 }

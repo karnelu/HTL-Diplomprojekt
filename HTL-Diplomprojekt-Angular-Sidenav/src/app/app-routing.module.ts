@@ -1,30 +1,18 @@
+import { TermineComponent } from './termine/termine.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GeschaeftspartnerComponent } from './geschaeftspartner/geschaeftspartner.component';
+import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
 
 
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    loadChildren: './dashboard/dashboard.module#DashboardModule'
-  },
-  {
-    path: 'geschaeftspartner',
-    loadChildren: './geschaeftspartner/geschaeftspartner.module#GeschaeftspartnerModule'
-  },
-  {
-    path: 'fahrzeuge',
-    loadChildren: './fahrzeuge/fahrzeuge.module#FahrzeugeModule'
-  },
-  {
-    path: 'termine',
-    loadChildren: './termine/termine.module#TermineModule'
-  },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full',
-  },
-
+  { path: 'dashboard', component: DashboardComponent, },
+  { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, },
+  { path: 'fahrzeuge', component: FahrzeugeComponent, },
+  { path: 'termine', component: TermineComponent, },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
 
 ];
 
