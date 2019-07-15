@@ -1,0 +1,31 @@
+<mat-drawer-container class = "container">
+  <mat-drawer #drawer class = "sidenav">
+    <img src="assets/img/VU3_logo_iso_36px.png">
+  <div class ="chevron_right-icon">
+      <button mat-button (click)="drawer.toggle()" routerLink="/dashboard">dashboard
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      <button  mat-button (click)="drawer.toggle()" routerLink="/geschaeftspartner">Geschäftspartner
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      <button  mat-button (click)="drawer.toggle()" routerLink="/fahrzeuge">Fahrzeuge
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      <button  mat-button (click)="drawer.toggle()" routerLink="/termine"> Termine
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+  </div>
+  </mat-drawer>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <div class ="material-icon">
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon >menu</mat-icon>
+          </button>
+        <span class = "Title" > test </span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+<router-outlet></router-outlet>
+</mat-drawer-container>
+

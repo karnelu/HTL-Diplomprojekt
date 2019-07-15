@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./termine.component.css']
 })
 export class TermineComponent implements OnInit {
-
+  test = 'left';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSwipe() {
+    console.log(this.test);
   }
 
 }

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Components
@@ -15,6 +15,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FahrzeugeComponent,
     GeschaeftspartnerComponent,
     TermineComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
