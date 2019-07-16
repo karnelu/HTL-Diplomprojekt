@@ -1,5 +1,7 @@
 package com.porscheinformatik.htl;
 
+import com.porscheinformatik.htl.entities.Termin;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -14,7 +16,7 @@ public class ICS_Generator {
     private DateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
     private DateFormat timeformat = new SimpleDateFormat("HHmmss");
 
-    private String version =    "VERSION:2.0 \r\n";
+    private String version =    "VERSION:2.0\r\n";
     private String prodid =     "PRODID:server@projectname.com\r\n";
     private String calBegin =   "BEGIN:VCALENDAR\r\n";
     private String calEnd =     "END:VCALENDAR\r\n";
@@ -22,13 +24,16 @@ public class ICS_Generator {
     private String eventEnd =   "END:VEVENT\r\n";
 
     private String start_time, end_time, start_date, end_date;
-    private String location="", summary="", description="";
+    private String location, summary, description;
 
-    public ICS_Generator(Date start_date, Date end_date, Date start_time, Date end_time){
-        this.start_date= dateformat.format(start_date);
-        this.start_time= timeformat.format(start_time);
-        this.end_date= dateformat.format(end_date);
-        this.end_time= timeformat.format(end_time);
+    public ICS_Generator(Termin termin){
+        this.start_date= dateformat.format(termin.getStart_date());
+        this.start_time= timeformat.format(termin.getStart_time());
+        this.end_date= dateformat.format(termin.getEnd_date());
+        this.end_time= timeformat.format(termin.getEnd_time());
+        this.description=termin.getDescription();
+        this.summary=termin.getTitle();
+        this.location=termin.getLocation();
     }
 
     public void setLocation(String location) {
@@ -43,21 +48,21 @@ public class ICS_Generator {
         this.description = description;
     }
 
-    public void write(String name){
+    public void write(){
         try {
-            StringBuilder builder = new StringBuilder();
-            builder.append(name);
-            builder.append(".ics");
 
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            String[] currdate = timeStamp.split("_");
             String uid = "UID:"+start_date+start_time+"@projectname.com\r\n";
+
+            StringBuilder builder = new StringBuilder();
+            builder.append(timeStamp);
+            builder.append(".ics");
 
             File ics = new File(builder.toString());
             if (!ics.exists()) {
                 ics.createNewFile();
             }
-
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            String[] currdate = timeStamp.split("_");
 
             FileWriter fw = new FileWriter(ics.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);

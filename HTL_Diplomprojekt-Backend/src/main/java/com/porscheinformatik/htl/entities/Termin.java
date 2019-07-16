@@ -19,7 +19,7 @@ public class Termin {
     @Column(name = "TITEL")
     private String title;
     @Column(name = "ACTION")
-    private String action;
+    private String location="";
     @Column(name = "START_DATE")
     private Date start_date;
     @Column(name = "START_TIME")
@@ -29,7 +29,7 @@ public class Termin {
     @Column(name = "END_TIME")
     private Date end_time;
     @Column(name = "DESCRIPTION")
-    private String description;
+    private String description="";
 
     @ManyToOne
     @JoinColumn(name = "GP_ID")
@@ -39,13 +39,12 @@ public class Termin {
     @JoinColumn(name = "VHC_ID")
     private Vehicle vehicle;
 
-    public Termin(Date start_date, Date end_date, Date start_time, Date end_time, String title, String action){
+    public Termin(Date start_date, Date end_date, Date start_time, Date end_time, String title){
         this.start_date=start_date;
         this.end_date=end_date;
         this.start_time=start_time;
         this.end_time=end_time;
         this.title=title;
-        this.action=action;
     }
 
     public Long getId() {
@@ -60,12 +59,12 @@ public class Termin {
         this.title = title;
     }
 
-    public String getAction() {
-        return action;
+    public String getLocation() {
+        return location;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Date getStart_date() {
@@ -126,6 +125,6 @@ public class Termin {
 
     @Override
     public String toString() {
-        return "Termin: " + start_date + ";" + end_date + ";" + start_time +";" + end_time + ";" + title + ";" + action;
+        return "Termin: " + start_date + ";" + end_date + ";" + start_time +";" + end_time + ";" + title + ";" + location;
     }
 }
