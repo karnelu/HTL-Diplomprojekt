@@ -1,6 +1,7 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Vehicle {
@@ -25,6 +26,9 @@ public class Vehicle {
     private String fueltype;
     @Column(name = "COLOR")
     private String color;
+
+    @OneToMany(mappedBy = "vehicle")
+    private List<Termin> terminList;
 
     public Vehicle(String brand, String model){
         this.brand=brand;
@@ -97,6 +101,10 @@ public class Vehicle {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public List<Termin> getTerminlist(){
+        return terminList;
     }
 
     @Override
