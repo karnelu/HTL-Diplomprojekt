@@ -11,12 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
+import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     GeschaeftspartnerComponent,
     TermineComponent,
     ToolbarComponent,
+    QrScannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
+    MatListModule,
 
   ],
   providers: [],

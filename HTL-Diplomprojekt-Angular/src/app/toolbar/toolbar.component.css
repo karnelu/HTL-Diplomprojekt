@@ -6,57 +6,23 @@
   bottom:0;
 }
 
-.container .mat-drawer{
-  min-width: 250px;
+.container .sidenav{
+  width: 84.44444%;
 }
 
-.container .mat-drawer img{
-  position: relative;
-  top: 16px;
-  left: 16px;
+.header{
+  height: 128px;
 }
 
-.container .mat-drawer .mat-button{
-  display:block;
-  width:100%;
-  text-align:left;
-  position: relative;
-  top:30px;
+.header img{
+  padding-top: 16px;
+  padding-left: 16px;
 }
 
-.chevron_right-icon .mat-icon{
-  position: absolute;
-  top: 6px;
-  right: 0;
+.header h4{
+  padding-left: 16px;
 }
 
-.material-icon{
-  color: white;
+.mat-list-item span{
+  padding-left: 32px;
 }
-
-.Title{
-  position: relative;
-  flex: 1 1 auto;
-}
-
-
-
-
-/* position:
-    static:     it is always positioned according to the normal flow of the page
-    relative:   Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position
-    fixed:      which means it always stays in the same place even if the page is scrolled.
-    absolute:   is positioned relative to the nearest positioned ancestor
-    sticky:     A sticky element toggles between relative and fixed, depending on the scroll position.
-
-    bottom:	Sets the bottom margin edge for a positioned box
-    clip:	Clips an absolutely positioned element
-    left:	Sets the left margin edge for a positioned box
-    position:	Specifies the type of positioning for an element
-    right:	Sets the right margin edge for a positioned box
-    top:	Sets the top margin edge for a positioned box
-    z-index:	Sets the stack order of an element
-
-    https://www.w3schools.com/css/css_positioning.asp
-
-*/

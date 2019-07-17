@@ -1,3 +1,4 @@
+import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 import { TermineComponent } from './termine/termine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, },
   { path: 'fahrzeuge', component: FahrzeugeComponent, },
   { path: 'termine', component: TermineComponent, },
+  { path: 'qr-scanner', component: QrScannerComponent, },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
+
 
 ];
 
