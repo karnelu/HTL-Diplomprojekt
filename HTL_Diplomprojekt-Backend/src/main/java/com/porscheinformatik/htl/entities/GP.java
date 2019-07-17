@@ -1,6 +1,7 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class GP {
@@ -24,6 +25,9 @@ public class GP {
     private String zip;
     @Column(name = "COUNTRY")
     private String country;
+
+    @OneToMany(mappedBy = "gp")
+    private List<Termin> terminList;
 
     public GP (String firstname, String surename, String email){
         this.firstname=firstname;
@@ -89,6 +93,10 @@ public class GP {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public List<Termin> getTerminList(){
+        return terminList;
     }
 
     @Override
