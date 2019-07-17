@@ -9,12 +9,12 @@ import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent, },
-  { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, },
-  { path: 'fahrzeuge', component: FahrzeugeComponent, },
-  { path: 'termine', component: TermineComponent, },
-  { path: 'qr-scanner', component: QrScannerComponent, },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full', },
+  { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
+  { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: {title: 'Geschäftspartner' }},
+  { path: 'fahrzeuge', component: FahrzeugeComponent, data: {title: 'Fahrzeuge'}},
+  { path: 'termine', component: TermineComponent, data: {title: 'Termine'}},
+  { path: 'qr-scanner', component: QrScannerComponent, data: {title: 'QR-Scanner'}},
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: 'Dashboard' }},
 
 
 ];

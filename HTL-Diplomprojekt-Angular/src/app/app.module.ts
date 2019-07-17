@@ -1,4 +1,4 @@
-import { BrowserModule} from '@angular/platform-browser';
+import { BrowserModule, Title} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Components
@@ -6,7 +6,6 @@ import { TermineComponent } from './termine/termine.component';
 import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
 import { GeschaeftspartnerComponent } from './geschaeftspartner/geschaeftspartner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 // Material Section
 import { MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -44,7 +43,7 @@ import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
     MatListModule,
 
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
