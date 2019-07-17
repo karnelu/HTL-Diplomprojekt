@@ -6,6 +6,20 @@
   bottom:0;
 }
 
+.container-toolbar{
+  height: 56px;
+}
+
+mat-toolbar{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.mat-toolbar-row, span{
+  padding: 0px;
+}
+
 .container .sidenav{
   width: 84.44444%;
 }

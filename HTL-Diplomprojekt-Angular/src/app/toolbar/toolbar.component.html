@@ -1,38 +1,38 @@
 <mat-drawer-container class="container">
-  <mat-drawer #drawer class="sidenav">
-    <header class="header">
-      <img src="assets/img/VU3_logo_iso_36px.png">
-      <h4>CROSS 3 for Smartphone</h4>
-    </header>
-    <mat-divider></mat-divider>
-    <mat-action-list>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/dashboard">
-        <mat-icon>dashboard</mat-icon> <span>Dashboard</span>
-      </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/geschaeftspartner">
-        <mat-icon>group</mat-icon><span>Geschäftspartner</span>
-      </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/fahrzeuge">
-        <mat-icon>directions_car</mat-icon><span>Fahrzeuge</span>
-      </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/termine">
-        <mat-icon>date_range</mat-icon><span>Termine</span>
-      </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/qr-scanner">
-        <img src="https://img.icons8.com/material-sharp/24/000000/qr-code.png">
-        <span>QR-Scanner</span>
-      </button>
-    </mat-action-list>
-  </mat-drawer>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <div class="material-icon">
-        <button mat-icon-button (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
+    <div class="container-toolbar">
+      <mat-toolbar class="mat-elevation-z7" color="primary">
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span> {{gettitle()}} </span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <mat-drawer #drawer class="sidenav">
+      <header class="header">
+        <img class= "header_logo" src="assets/img/VU3_logo_iso_36px.png">
+        <h4>CROSS 3 for Smartphone</h4>
+      </header>
+      <mat-divider></mat-divider>
+      <mat-action-list>
+        <button mat-list-item (click)="drawer.toggle()" routerLink="/dashboard">
+          <mat-icon>dashboard</mat-icon> <span>Dashboard</span>
         </button>
-        <span> {{gettitle()}} </span>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
+        <button mat-list-item (click)="drawer.toggle()" routerLink="/geschaeftspartner">
+          <mat-icon>group</mat-icon><span>Geschäftspartner</span>
+        </button>
+        <button mat-list-item (click)="drawer.toggle()" routerLink="/fahrzeuge">
+          <mat-icon>directions_car</mat-icon><span>Fahrzeuge</span>
+        </button>
+        <button mat-list-item (click)="drawer.toggle()" routerLink="/termine">
+          <mat-icon>date_range</mat-icon><span>Termine</span>
+        </button>
+        <button mat-list-item (click)="drawer.toggle()" routerLink="/qr-scanner">
+          <img src="https://img.icons8.com/material-sharp/24/000000/qr-code.png">
+          <span>QR-Scanner</span>
+        </button>
+      </mat-action-list>
+    </mat-drawer>
   <router-outlet></router-outlet>
 </mat-drawer-container>
