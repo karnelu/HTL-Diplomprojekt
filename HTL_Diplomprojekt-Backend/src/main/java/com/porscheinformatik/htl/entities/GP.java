@@ -41,7 +41,7 @@ public class GP {
         return gpId;
     }
 
-    public String getFirstname() {
+    public String getName() {
         return name;
     }
 
@@ -65,7 +65,7 @@ public class GP {
         return country;
     }
 
-    public void setFirstname(String firstname) {
+    public void setName(String Name) {
         this.name = name;
     }
 
