@@ -35,3 +35,14 @@
   /* Für die position, sollte nur eine vorläufige Lösung sein */
   margin-top: 4vh;
 }
+
+.profile{
+  height: 70%;
+  width: 10%;
+}
+
+mat-expansion-panel{
+  margin-left: 16px;
+  height: 110px;
+  width: 110px;
+}

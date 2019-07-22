@@ -23,8 +23,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {MatExpansionModule} from '@angular/material/expansion';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FahrzeugeDetailComponent } from './fahrzeuge-detail/fahrzeuge-detail.component';
@@ -58,7 +61,11 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
     MatCardModule,
     ScrollingModule,
     ScrollDispatchModule,
+<<<<<<< HEAD
     MatExpansionModule
+=======
+    MatExpansionModule,
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
 
   ],
   providers: [Title],

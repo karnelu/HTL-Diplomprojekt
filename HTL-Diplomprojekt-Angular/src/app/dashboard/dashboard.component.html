@@ -1,48 +1,80 @@
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+<<<<<<< HEAD
     <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
       <mat-card-content>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         {{GP.name}}
+=======
+    <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <h3>Zuletzt gescannte Fahrzeuge</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+<<<<<<< HEAD
     <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
       <mat-card-content>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         {{GP.name}}
+=======
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/fahrzeuge-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <h3>Hier gehört noch etwas rein</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+<<<<<<< HEAD
     <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
       <mat-card-content>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <span>
           {{GP.name}}
         </span>
+=======
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <h3>Hier gehört noch etwas rein</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+<<<<<<< HEAD
     <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
       <mat-card-content>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         {{GP.name}}
+=======
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>

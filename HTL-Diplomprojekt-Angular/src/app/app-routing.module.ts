@@ -1,3 +1,4 @@
+import { FahrzeugeDetailComponent } from './fahrzeuge-detail/fahrzeuge-detail.component';
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 import { TermineComponent } from './termine/termine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
 
 
 const routes: Routes = [
+<<<<<<< HEAD
   { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
   { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: {title: 'Geschäftspartner' }},
   { path: 'detail/:id', component: GeschaeftspartnerDetailComponent, data: {title: 'Geschäftspartner-Detail' }},
@@ -18,6 +20,23 @@ const routes: Routes = [
   { path: 'qr-scanner', component: QrScannerComponent, data: {title: 'QR-Scanner'}},
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: 'Dashboard' }},
 
+=======
+  { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
+  {
+    path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: { title: 'Geschäftspartner' },
+    /*   children: [
+        {
+          path: 'detail', component: GeschaeftspartnerDetailComponent , data: { title: 'Geschäftspartner-Detail' },
+        },
+      ] */
+  },
+  { path: 'geschaeftspartner-detail', component: GeschaeftspartnerDetailComponent, data: { title: 'Geschäftspartner-Detail' } },
+  { path: 'fahrzeuge', component: FahrzeugeComponent, data: { title: 'Fahrzeuge' } },
+  { path: 'fahrzeuge-detail', component: FahrzeugeDetailComponent, data: { title: 'Fahrzeuge-detail' } },
+  { path: 'termine', component: TermineComponent, data: { title: 'Termine' } },
+  { path: 'qr-scanner', component: QrScannerComponent, data: { title: 'QR-Scanner' } },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
+>>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
 
 ];
 
