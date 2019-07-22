@@ -1,12 +1,37 @@
-.container_1{
-  height: 194.666667px;
+/* Folgendes Problem:
+  Wir haben einen Container worin sich unsere Cards befindne, diese Cards sollten zentriert in unseren Container dargestellt werden, das Problem dabei ist,
+  wir können diese Cards nicht zentrieren.
+  Zusätzlich kam die frage auf, wie man die Container und Cards designen soll, damit es auf jedem Handy funktioniert.
+*/
+.card_container {
+  /* Container sollte über eine definierte Standart größer Verfügen */
+  /* 250px ist bis jetzt eine Vorläufige Lösungen, denn es sollte auf allen devices gut aussehen */
+  height: 250px;
+  /* Diese calc ist eine Responsive höge, 100vh ist die Gesamt Höhe unseres Handys (100vh)
+   minus unserer Toolbarhöhe (56px) durch 2.5 was ein definierter Standartwert ist, das bedeutet auf jeden handy sollten 2,5 containers dargestellt werden. */
+  /* height: calc((100vh - 56px)/2.5); */
+  width: 100vw;
 }
 
-.container_2{
-  height: 194.666667px;
+.card{
+  margin-left: 16px;
+  height: 110px;
+  width: 110px;
 }
 
-.container_3{
-  height: 194.666667px;
+.card_container .example-viewport .cdk-virtual-scroll-content-wrapper{
+  display: flex;
+  flex-direction: row;
 }
 
+.example-viewport{
+  height: 148px;
+  scroll-padding-bottom: 0;
+}
+
+.card_container h3{
+  margin: 0;
+  padding: 16px;
+  /* Für die position, sollte nur eine vorläufige Lösung sein */
+  margin-top: 4vh;
+}

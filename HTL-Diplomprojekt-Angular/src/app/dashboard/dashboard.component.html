@@ -1,9 +1,28 @@
-<div class="container_1">
-  <mat-card></mat-card>
+<div class="card_container">
+  <h3>Zuletzt verwendete Geschäftspartner</h3>
+    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+      <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+    </cdk-virtual-scroll-viewport>
 </div>
-<div class="container_2">
-  <mat-card></mat-card>
+<mat-divider></mat-divider>
+<div class="card_container">
+  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+  </cdk-virtual-scroll-viewport>
 </div>
-<div class="container_3">
-  <mat-card></mat-card>
+<mat-divider></mat-divider>
+<div class="card_container">
+  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+  </cdk-virtual-scroll-viewport>
 </div>
+<mat-divider></mat-divider>
+<div class="card_container">
+  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+  </cdk-virtual-scroll-viewport>
+</div>
+<mat-divider></mat-divider>
