@@ -6,11 +6,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GeschaeftspartnerComponent } from './geschaeftspartner/geschaeftspartner.component';
 import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
+import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/geschaeftspartner-detail.component';
 
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
   { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: {title: 'Geschäftspartner' }},
+  { path: 'detail/:id', component: GeschaeftspartnerDetailComponent, data: {title: 'Geschäftspartner-Detail' }},
   { path: 'fahrzeuge', component: FahrzeugeComponent, data: {title: 'Fahrzeuge'}},
   { path: 'termine', component: TermineComponent, data: {title: 'Termine'}},
   { path: 'qr-scanner', component: QrScannerComponent, data: {title: 'QR-Scanner'}},

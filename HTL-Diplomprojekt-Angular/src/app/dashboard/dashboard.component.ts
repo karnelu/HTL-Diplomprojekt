@@ -1,6 +1,8 @@
 
 import { Component, OnInit, Input, Output, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { GeschaeftspartnerService } from '../geschaeftspartner.service';
 import { animate, transition, trigger, keyframes } from '@angular/animations';
+import { GP } from '../GP';
 /* import {Hero } from './hero';
 import { HEROES } from './mock-heroes';
  */
@@ -16,19 +18,17 @@ import { HEROES } from './mock-heroes';
 
 export class DashboardComponent implements OnInit {
 
-  /* hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }; */
+  geschaeftspartner: GP[] = [];
 
-  items = Array.from({length: 20}).map((_, i) => `Item #${i}`)
-  /* heroes = HEROES; */
+  constructor(private geschaeftspartnerService: GeschaeftspartnerService) { }
 
-  constructor() { }
   ngOnInit() {
+    this.getGP();
   }
 
-
+  getGP(): void {
+    this.geschaeftspartnerService.getGP().subscribe(geschaeftspartner => this.geschaeftspartner = geschaeftspartner);
+  }
 
 
 }

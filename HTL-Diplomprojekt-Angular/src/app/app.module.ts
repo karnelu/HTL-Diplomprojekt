@@ -22,6 +22,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,6 +58,7 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
     MatCardModule,
     ScrollingModule,
     ScrollDispatchModule,
+    MatExpansionModule
 
   ],
   providers: [Title],

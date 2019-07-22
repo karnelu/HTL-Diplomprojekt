@@ -1,28 +1,49 @@
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
-    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
-    </cdk-virtual-scroll-viewport>
-</div>
-<mat-divider></mat-divider>
-<div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+    <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
+      <mat-card-content>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        {{GP.name}}
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+    <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
+      <mat-card-content>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        {{GP.name}}
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+    <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
+      <mat-card-content>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <span>
+          {{GP.name}}
+        </span>
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
+<div class="card_container">
+  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+    <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartner">
+      <mat-card-content>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        {{GP.name}}
+      </mat-card-content>
+    </mat-card>
+  </cdk-virtual-scroll-viewport>
+</div>
