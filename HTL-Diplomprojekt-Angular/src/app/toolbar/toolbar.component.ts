@@ -41,6 +41,10 @@ export class ToolbarComponent implements OnInit {
   }
 
 
+  getrouter(){
+    return this.router;
+  }
+
 }
 
 

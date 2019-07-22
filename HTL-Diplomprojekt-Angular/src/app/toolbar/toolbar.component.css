@@ -1,42 +1,41 @@
 .container {
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.container-toolbar{
+.container-toolbar {
   height: 56px;
 }
 
-mat-toolbar{
+mat-toolbar {
   position: fixed;
   top: 0;
   z-index: 1000;
 }
 
-.mat-toolbar-row, span{
+.mat-toolbar-row {
   padding: 0px;
 }
 
-.container .sidenav{
-  width: 84.44444%;
+.container .sidenav {
+  width: calc((100vw - 56px));
 }
 
-.header{
+.header {
   height: 128px;
 }
 
-.header img{
+.header img {
   padding-top: 16px;
   padding-left: 16px;
 }
 
-.header h4{
+.header h4 {
   padding-left: 16px;
 }
-
-.mat-list-item span{
+.mat-list-item span {
   padding-left: 32px;
 }

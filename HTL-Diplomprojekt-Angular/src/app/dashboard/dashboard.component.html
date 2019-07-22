@@ -1,28 +1,52 @@
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
-    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
-    </cdk-virtual-scroll-viewport>
-</div>
-<mat-divider></mat-divider>
-<div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+    <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <h3>Zuletzt gescannte Fahrzeuge</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/fahrzeuge-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>
 <div class="card_container">
-  <h3>Zuletzt verwendete Geschäftspartner</h3>
+  <h3>Hier gehört noch etwas rein</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items"> {{item}}</mat-card>
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+      </mat-card-content>
+    </mat-card>
+  </cdk-virtual-scroll-viewport>
+</div>
+<mat-divider></mat-divider>
+<div class="card_container">
+  <h3>Hier gehört noch etwas rein</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      [routerLink]="['/geschaeftspartner-detail']">
+      <mat-card-content>
+        <img class="profile" mat-card-image src="assets/img/baseline_person_black_48dp.png" alt="photo">
+        <p>{{item}}</p>
+      </mat-card-content>
+    </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
 <mat-divider></mat-divider>

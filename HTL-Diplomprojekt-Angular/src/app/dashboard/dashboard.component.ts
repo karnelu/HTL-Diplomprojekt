@@ -16,19 +16,15 @@ import { HEROES } from './mock-heroes';
 
 export class DashboardComponent implements OnInit {
 
-  /* hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }; */
+  items = Array.from({length: 20}).map((_, i) => `Item #${i}`);
 
-  items = Array.from({length: 20}).map((_, i) => `Item #${i}`)
-  /* heroes = HEROES; */
+
+  clicked(){
+    console.log('I have been clicked');
+  }
 
   constructor() { }
   ngOnInit() {
   }
-
-
-
 
 }
