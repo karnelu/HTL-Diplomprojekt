@@ -11,10 +11,8 @@ public class GP {
     @Column(name = "GP_ID")
     private Long gpId;
 
-    @Column(name = "FIRSTNAME")
-    private String firstname;
-    @Column(name = "SURENAME")
-    private String surename;
+    @Column(name = "NAME")
+    private String name;
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "TEL")
@@ -29,9 +27,13 @@ public class GP {
     @OneToMany(mappedBy = "gp")
     private List<Termin> terminList;
 
-    public GP (String firstname, String surename, String email){
-        this.firstname=firstname;
-        this.surename=surename;
+    @Lob
+    private byte[] picture;
+
+    public GP(){}
+
+    public GP (String name, String email){
+        this.name=name;
         this.email=email;
     }
 
@@ -39,12 +41,8 @@ public class GP {
         return gpId;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getSurename() {
-        return surename;
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
@@ -67,12 +65,8 @@ public class GP {
         return country;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setSurename(String surename) {
-        this.surename = surename;
+    public void setName(String Name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
@@ -99,8 +93,16 @@ public class GP {
         return terminList;
     }
 
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
     @Override
     public String toString() {
-        return "GP: "+firstname+";"+surename+";"+email+";"+address+";"+zip+";"+country;
+        return "GP: "+name+";"+email+";"+address+";"+zip+";"+country;
     }
 }
