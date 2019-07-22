@@ -21,6 +21,8 @@ public class GP {
     private String address;
     @Column(name = "ZIP")
     private String zip;
+    @Column(name="CITY")
+    private String city;
     @Column(name = "COUNTRY")
     private String country;
 
@@ -31,6 +33,16 @@ public class GP {
     private byte[] picture;
 
     public GP(){}
+
+    public GP (String name, String email, String telephone, String address, String zip, String city, String country){
+        this.name=name;
+        this.email=email;
+        this.telephone=telephone;
+        this.address=address;
+        this.zip=zip;
+        this.city=city;
+        this.country=country;
+    }
 
     public GP (String name, String email){
         this.name=name;
