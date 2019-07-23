@@ -1,6 +1,6 @@
 import { GP } from './GP';
 
-export const GESCHAEFTSPARTNER: GP[] = [
+export const GESCHAEFTSPARTNER_List: GP[] = [
   {id: 1, name: 'Lieferant A', email: 'lieferantA@gmail.com', tel: 11111, address: 'Musterstr. 1', city: 'Salzburg', zip: 5020, country: 'Austria'},
   {id: 2, name: 'Lieferant B', email: 'lieferantB@gmail.com', tel: 22222, address: 'Musterstr. 2', city: 'Salzburg', zip: 5020, country: 'Austria'},
   {id: 3, name: 'Lieferant C', email: 'lieferantC@gmail.com', tel: 33333, address: 'Musterstr. 3', city: 'Salzburg', zip: 5020, country: 'Austria'},

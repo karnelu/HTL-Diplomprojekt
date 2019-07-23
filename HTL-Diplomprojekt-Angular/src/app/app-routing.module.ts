@@ -11,16 +11,6 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
 
 
 const routes: Routes = [
-<<<<<<< HEAD
-  { path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
-  { path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: {title: 'Geschäftspartner' }},
-  { path: 'detail/:id', component: GeschaeftspartnerDetailComponent, data: {title: 'Geschäftspartner-Detail' }},
-  { path: 'fahrzeuge', component: FahrzeugeComponent, data: {title: 'Fahrzeuge'}},
-  { path: 'termine', component: TermineComponent, data: {title: 'Termine'}},
-  { path: 'qr-scanner', component: QrScannerComponent, data: {title: 'QR-Scanner'}},
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: {title: 'Dashboard' }},
-
-=======
   { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
   {
     path: 'geschaeftspartner', component: GeschaeftspartnerComponent, data: { title: 'Geschäftspartner' },
@@ -36,7 +26,6 @@ const routes: Routes = [
   { path: 'termine', component: TermineComponent, data: { title: 'Termine' } },
   { path: 'qr-scanner', component: QrScannerComponent, data: { title: 'QR-Scanner' } },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
->>>>>>> c8797ab59b252d7f43119fa80b263c203e63a93e
 
 ];
 

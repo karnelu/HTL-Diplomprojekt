@@ -18,12 +18,12 @@ export class GeschaeftspartnerDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getOneGP();
+    this.getGP();
   }
 
-  getOneGP(): void {
+  getGP(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.geschaeftspartnerService.getOneGP(id)
+    this.geschaeftspartnerService.getGP(id)
       .subscribe(gp => this.gp = gp);
   }
 
