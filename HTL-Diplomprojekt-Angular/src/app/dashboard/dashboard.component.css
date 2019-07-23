@@ -15,8 +15,10 @@
 
 .card{
   margin-left: 16px;
-  height: 110px;
-  width: 110px;
+/*   height: 110px;
+  width: 110px; */
+  height: 135px;
+  min-width: 100px
 }
 
 .card_container .example-viewport .cdk-virtual-scroll-content-wrapper{
@@ -25,7 +27,10 @@
 }
 
 .example-viewport{
-  height: 148px;
+  /* height: 148px; */
+
+
+  height: 170px;
   scroll-padding-bottom: 0;
 }
 
@@ -37,12 +42,10 @@
 }
 
 .profile{
-  height: 70%;
-  width: 10%;
+  border: 1px solid black;
+  max-height: 128px;
+  max-width: 128x;
 }
 
-mat-expansion-panel{
-  margin-left: 16px;
-  height: 110px;
-  width: 110px;
-}
+
+
