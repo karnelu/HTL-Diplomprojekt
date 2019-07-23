@@ -1,11 +1,11 @@
 <div class="card_container">
   <h3>Zuletzt verwendete Geschäftspartner</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+    <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartnerList" (click)="clicked()"
       [routerLink]="['/geschaeftspartner-detail']">
       <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
         <mat-card-content>
-            <p>{{item}}</p>
+            <p>{{GP.name}}</p>
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
@@ -14,11 +14,11 @@
 <div class="card_container">
   <h3>Zuletzt gescannte Fahrzeuge</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
-      [routerLink]="['/fahrzeuge-detail']">
+      <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartnerList" (click)="clicked()"
+      [routerLink]="['/fahrzeug-detail']">
       <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
         <mat-card-content>
-            <p>{{item}}</p>
+            <p>{{GP.name}}</p>
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
@@ -27,11 +27,11 @@
 <div class="card_container">
   <h3>Hier gehört noch etwas rein</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartnerList" (click)="clicked()"
       [routerLink]="['/geschaeftspartner-detail']">
       <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
       <mat-card-content>
-          <p>{{item}}</p>
+          <p>{{GP.name}}</p>
     </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
@@ -40,13 +40,12 @@
 <div class="card_container">
   <h3>Hier gehört noch etwas rein</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let item of items" (click)="clicked()"
+      <mat-card class="card" *cdkVirtualFor="let GP of geschaeftspartnerList" (click)="clicked()"
       [routerLink]="['/geschaeftspartner-detail']">
       <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
         <mat-card-content>
-            <p>{{item}}</p>
+            <p>{{GP.name}}</p>
       </mat-card-content>
     </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
-<mat-divider></mat-divider>

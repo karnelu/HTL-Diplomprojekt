@@ -1,4 +1,7 @@
+import { GeschaeftspartnerService } from './../geschaeftspartner.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GP } from '../GP';
 
 @Component({
   selector: 'app-geschaeftspartner-detail',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeschaeftspartnerDetailComponent implements OnInit {
 
-  constructor() { }
+  gp: GP;
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private geschaeftspartnerService: GeschaeftspartnerService
+  ) { }
+
+  ngOnInit(): void {
+    this.getGP();
+  }
+
+  getGP(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.geschaeftspartnerService.getGP(id)
+      .subscribe(gp => this.gp = gp);
   }
 
 }

@@ -6,7 +6,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Components
 import { TermineComponent } from './termine/termine.component';
 import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
+import { FahrzeugDetailComponent } from './fahrzeug-detail/fahrzeug-detail.component';
 import { GeschaeftspartnerComponent } from './geschaeftspartner/geschaeftspartner.component';
+import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/geschaeftspartner-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
@@ -25,8 +27,8 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {MatExpansionModule} from '@angular/material/expansion';
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FahrzeugeDetailComponent } from './fahrzeuge-detail/fahrzeuge-detail.component';
-import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/geschaeftspartner-detail.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
     TermineComponent,
     ToolbarComponent,
     QrScannerComponent,
-    FahrzeugeDetailComponent,
+    FahrzeugDetailComponent,
     GeschaeftspartnerDetailComponent,
   ],
   imports: [
@@ -56,8 +58,7 @@ import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/ges
     MatCardModule,
     ScrollingModule,
     ScrollDispatchModule,
-    MatExpansionModule,
-
+    MatExpansionModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

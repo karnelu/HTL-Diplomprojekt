@@ -1,6 +1,8 @@
 
 import { Component, OnInit, Input, Output, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { GeschaeftspartnerService } from '../geschaeftspartner.service';
 import { animate, transition, trigger, keyframes } from '@angular/animations';
+import { GP } from '../GP';
 /* import {Hero } from './hero';
 import { HEROES } from './mock-heroes';
  */
@@ -16,15 +18,21 @@ import { HEROES } from './mock-heroes';
 
 export class DashboardComponent implements OnInit {
 
-  items = Array.from({length: 20}).map((_, i) => `Item #${i}`);
+  geschaeftspartnerList: GP[] = [];
+
+  constructor(private geschaeftspartnerService: GeschaeftspartnerService) { }
 
 
   clicked(){
     console.log('I have been clicked');
   }
 
-  constructor() { }
   ngOnInit() {
+    this.getGPlist();
+  }
+
+  getGPlist(): void {
+    this.geschaeftspartnerService.getGPlist().subscribe(geschaeftspartnerList => this.geschaeftspartnerList = geschaeftspartnerList);
   }
 
 }

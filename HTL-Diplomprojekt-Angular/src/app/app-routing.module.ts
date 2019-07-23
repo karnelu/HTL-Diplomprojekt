@@ -1,4 +1,4 @@
-import { FahrzeugeDetailComponent } from './fahrzeuge-detail/fahrzeuge-detail.component';
+import { FahrzeugDetailComponent } from './fahrzeug-detail/fahrzeug-detail.component';
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 import { TermineComponent } from './termine/termine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   { path: 'geschaeftspartner-detail', component: GeschaeftspartnerDetailComponent, data: { title: 'Geschäftspartner-Detail' } },
   { path: 'fahrzeuge', component: FahrzeugeComponent, data: { title: 'Fahrzeuge' } },
-  { path: 'fahrzeuge-detail', component: FahrzeugeDetailComponent, data: { title: 'Fahrzeuge-detail' } },
+  { path: 'fahrzeug-detail', component: FahrzeugDetailComponent, data: { title: 'Fahrzeug-detail' } },
   { path: 'termine', component: TermineComponent, data: { title: 'Termine' } },
   { path: 'qr-scanner', component: QrScannerComponent, data: { title: 'QR-Scanner' } },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },
