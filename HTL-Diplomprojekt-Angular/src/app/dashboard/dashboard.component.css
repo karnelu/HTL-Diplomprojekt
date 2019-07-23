@@ -7,7 +7,7 @@
   /* Container sollte über eine definierte Standart größer Verfügen */
   /* 250px ist bis jetzt eine Vorläufige Lösungen, denn es sollte auf allen devices gut aussehen */
   height: 250px;
-  /* Diese calc ist eine Responsive höge, 100vh ist die Gesamt Höhe unseres Handys (100vh)
+  /* Diese calc ist eine Responsive höhe, 100vh ist die Gesamt Höhe unseres Handys (100vh)
    minus unserer Toolbarhöhe (56px) durch 2.5 was ein definierter Standartwert ist, das bedeutet auf jeden handy sollten 2,5 containers dargestellt werden. */
   /* height: calc((100vh - 56px)/2.5); */
   width: 100vw;

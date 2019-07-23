@@ -1,23 +1,26 @@
 <mat-drawer-container class="container">
   <div class="container-toolbar">
     <mat-toolbar class="mat-elevation-z7" color="primary">
-      <mat-toolbar-row *ngIf="getrouter().url !== '/geschaeftspartner-detail' && getrouter().url !== '/fahrzeuge-detail'">
+      <!-- Wenn geschaeftspartner-detail und fahrzeuge-detail ungleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
+      <mat-toolbar-row *ngIf="getrouter().url !== '/business-partner-detail' && getrouter().url !== '/vehicle-detail'">
         <button mat-icon-button (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
         <span> {{gettitle()}} </span>
       </mat-toolbar-row>
-      <mat-toolbar-row *ngIf="getrouter().url === '/geschaeftspartner-detail' || getrouter().url ===  '/fahrzeuge-detail'">
-        <button mat-icon-button (click)="''" [routerLink]="['/']">
+       <!-- Wenn geschaeftspartner-detail oder fahrzeuge-detail gleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
+      <mat-toolbar-row *ngIf="getrouter().url === '/business-partner-detail' || getrouter().url ===  '/vehicle-detail'">
+        <button mat-icon-button (click)="goBack()">
           <mat-icon>keyboard_backspace</mat-icon>
         </button>
         <span> {{gettitle()}} </span>
-        <button mat-icon-button (click)="''" [routerLink]="['/search']">
+        <button mat-icon-button (click)="goBack()">
           <mat-icon class="standard_search">search</mat-icon>
         </button>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
+  <!-- Ab hier beginnt der Inhalt von Sidenav -->
   <mat-drawer #drawer class="sidenav">
     <header class="header">
       <img class="header_logo" src="assets/img/VU3_logo_iso_36px.png">
@@ -28,18 +31,15 @@
       <button mat-list-item (click)="drawer.toggle()" routerLink="/dashboard">
         <mat-icon>dashboard</mat-icon> <span>Dashboard</span>
       </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/geschaeftspartner">
-        <mat-icon>group</mat-icon><span>Geschäftspartner</span>
+      <button mat-list-item (click)="drawer.toggle()" routerLink="/business-partner">
+        <mat-icon>group</mat-icon><span>Business Partners</span>
       </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/fahrzeuge">
-        <mat-icon>directions_car</mat-icon><span>Fahrzeuge</span>
-      </button>
-      <button mat-list-item (click)="drawer.toggle()" routerLink="/termine">
-        <mat-icon>date_range</mat-icon><span>Termine</span>
+      <button mat-list-item (click)="drawer.toggle()" routerLink="/vehicle">
+        <mat-icon>directions_car</mat-icon><span>Vehicles</span>
       </button>
       <button mat-list-item (click)="drawer.toggle()" routerLink="/qr-scanner">
         <img src="https://img.icons8.com/material-sharp/24/000000/qr-code.png">
-        <span>QR-Scanner</span>
+        <span>QR Scanner</span>
       </button>
     </mat-action-list>
   </mat-drawer>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute, Routes, RouterModule } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,14 +10,12 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./toolbar.component.css']
 })
 
-
-
 export class ToolbarComponent implements OnInit {
-
 
   title = 'angularTitle';
 
-  constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
+  }
 
   ngOnInit() {
     const appTitle = this.titleService.getTitle();
@@ -35,14 +34,16 @@ export class ToolbarComponent implements OnInit {
       });
   }
 
-
   gettitle() {
     return this.titleService.getTitle();
   }
 
-
-  getrouter(){
+  getrouter() {
     return this.router;
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

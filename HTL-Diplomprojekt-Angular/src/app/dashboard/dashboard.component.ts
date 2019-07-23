@@ -1,11 +1,9 @@
-
+import { Vehicle } from './../vehicle';
+import { VehicleService } from './../services/vehicle.service';
 import { Component, OnInit, Input, Output, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { GeschaeftspartnerService } from '../geschaeftspartner.service';
-import { animate, transition, trigger, keyframes } from '@angular/animations';
-import { GP } from '../GP';
-/* import {Hero } from './hero';
-import { HEROES } from './mock-heroes';
- */
+import {BusinessPartner } from '../business-partner';
+import { BusinessPartnerService } from '../services/business-partner.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,9 +16,13 @@ import { HEROES } from './mock-heroes';
 
 export class DashboardComponent implements OnInit {
 
-  geschaeftspartnerList: GP[] = [];
+  businessPartners: BusinessPartner[] = [];
+  vehicles: Vehicle[] = [];
 
-  constructor(private geschaeftspartnerService: GeschaeftspartnerService) { }
+  constructor(
+    private businessPartnerService: BusinessPartnerService,
+    private vehicleService: VehicleService,
+    ) { }
 
 
   clicked(){
@@ -28,11 +30,16 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getGPlist();
+    this.getBusinessPartners();
+    this.getVehicles();
   }
 
-  getGPlist(): void {
-    this.geschaeftspartnerService.getGPlist().subscribe(geschaeftspartnerList => this.geschaeftspartnerList = geschaeftspartnerList);
+  getBusinessPartners(): void {
+    this.businessPartnerService.getBusinessPartners().subscribe(businessPartners => this.businessPartners = businessPartners);
+  }
+
+  getVehicles(): void {
+    this.vehicleService.getVehicles().subscribe(vehicles => this.vehicles = vehicles);
   }
 
 }
