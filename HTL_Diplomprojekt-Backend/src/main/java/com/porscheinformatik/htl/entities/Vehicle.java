@@ -7,21 +7,25 @@ import java.util.List;
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "VHC_ID")
     private Long vhc_Id;
+    @Column(name = "VIN")
+    private String vin;
+    @Column(name = "LICENSE_PLATE")
+    private String license_plate;
     @Column(name = "BRAND")
     private String brand;
     @Column(name = "MODEL")
     private String model;
-    @Column(name = "MILEAGE")
+    @Column(name = "KM_READING")
     private String mileage;
-    @Column(name = "BUILD_YEAR")
-    private String buildyear;
-    @Column(name = "HP")
+    @Column(name = "PRODUCTION_YEAR")
+    private String production_year;
+    @Column(name = "ENGINE_POWER")
     private Integer hp;
-    @Column(name = "CONDITION")
-    private String condition;
+    @Column(name = "VHC_STATUS")
+    private String status;
     @Column(name = "FUELTYPE")
     private String fueltype;
     @Column(name = "COLOR")
@@ -52,7 +56,7 @@ public class Vehicle {
     }
 
     public String getBuildyear() {
-        return buildyear;
+        return production_year;
     }
 
     public Integer getHp() {
@@ -60,7 +64,7 @@ public class Vehicle {
     }
 
     public String getCondition() {
-        return condition;
+        return status;
     }
 
     public String getFueltype() {
@@ -84,7 +88,7 @@ public class Vehicle {
     }
 
     public void setBuildyear(String buildyear) {
-        this.buildyear = buildyear;
+        this.production_year = buildyear;
     }
 
     public void setHp(Integer hp) {
@@ -92,7 +96,7 @@ public class Vehicle {
     }
 
     public void setCondition(String condition) {
-        this.condition = condition;
+        this.status = condition;
     }
 
     public void setFueltype(String fueltype) {
@@ -109,6 +113,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle: "+brand+";"+model+";"+mileage+";"+buildyear+";"+hp+";"+color;
+        return "Vehicle: "+brand+";"+model+";"+mileage+";"+production_year+";"+hp+";"+color;
     }
 }
