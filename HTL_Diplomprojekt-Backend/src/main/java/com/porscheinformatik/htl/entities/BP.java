@@ -7,9 +7,9 @@ import java.util.List;
 public class BP {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "GP_ID")
-    private Long gpId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BP_ID")
+    private Long bpId;
 
     @Column(name = "NAME")
     private String name;
@@ -26,11 +26,8 @@ public class BP {
     @Column(name = "COUNTRY")
     private String country;
 
-    @OneToMany(mappedBy = "gp")
+    @OneToMany(mappedBy = "bp")
     private List<Appointment> terminList;
-
-    @Lob
-    private byte[] picture;
 
     public BP(){}
 
@@ -50,7 +47,7 @@ public class BP {
     }
 
     public Long getGpId() {
-        return gpId;
+        return bpId;
     }
 
     public String getName() {
@@ -103,14 +100,6 @@ public class BP {
 
     public List<Appointment> getTerminList(){
         return terminList;
-    }
-
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
     }
 
     @Override

@@ -13,27 +13,27 @@ import javax.validation.ConstraintViolationException;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/geschaeftspartner")
+@RequestMapping("/business-partner")
 public class BPController {
 
     private Information inf;
 
     @Autowired
-    private BPRepository gpRepository;
+    private BPRepository bpRepository;
 
-    @GetMapping("/{id}")
-    public BP getGP(@PathVariable Long id) {
-        return gpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+    @GetMapping("/{id}/detail")
+    public BP getBP(@PathVariable Long id) {
+        return bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
     }
 
-    @PostMapping("/update")
+    @PostMapping("/{id}/update")
     @ResponseBody
-    public Information updateGP(@RequestBody BP bp) {
+    public Information updateBP(@RequestBody BP bp) {
         try {
             if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
             else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
             else if(MailValidation.isValid(bp.getEmail())){
-                gpRepository.save(bp);
+                bpRepository.save(bp);
                 inf.addMessage("Successfully updated!");
             } else inf.addMessage("Email is not valid!");
         } catch (ConstraintViolationException ex) {
@@ -51,12 +51,12 @@ public class BPController {
 
     @PostMapping("/new")
     @ResponseBody
-    public Information createGP(@RequestBody BP bp) {
+    public Information createBP(@RequestBody BP bp) {
         try {
             if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
              else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
              else if (MailValidation.isValid(bp.getEmail())){
-                 gpRepository.save(bp);
+                 bpRepository.save(bp);
             }
         } catch (ConstraintViolationException ex) {
             String message;

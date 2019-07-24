@@ -19,10 +19,10 @@ public class DemoApplication {
 
 
 	@Bean
-	public CommandLineRunner loadData(BPRepository gpRepository){
+	public CommandLineRunner loadData(BPRepository bpRepository){
 		return (args) -> {
 
-			if (gpRepository.findAll() == null){
+			if (bpRepository.findAll().isEmpty()){
 				try {
 					BufferedReader reader = new BufferedReader(new FileReader("D:/Dipl/HTL-Diplomprojekt/HTL_Diplomprojekt-Backend/src/main/java/com/porscheinformatik/htl/gp_init.csv"));
 
@@ -32,8 +32,7 @@ public class DemoApplication {
 					while ((line=reader.readLine()) != null) {
 						String[] data = line.split(",");
 						BP bp = new BP(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
-						gpRepository.save(bp);
-
+						bpRepository.save(bp);
 					}
 
 					reader.close();
@@ -41,10 +40,6 @@ public class DemoApplication {
 					e.printStackTrace();
 				}
 			}
-
-
-
-
 		};
 	}
 
