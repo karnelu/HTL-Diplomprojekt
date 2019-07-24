@@ -1,7 +1,7 @@
 <div class="card_container">
   <h3>Last Scanned Vehicles</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card class="card" *cdkVirtualFor="let vehicle of vehicles" (click)="clicked()">
+      <mat-card class="card" *cdkVirtualFor="let vehicle of vehicles" (click)="clicked()" [routerLink]="['/vehicle', vehicle.id]">
       <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
         <mat-card-content>
             <p>{{vehicle.brand}} {{vehicle.model}}</p>
