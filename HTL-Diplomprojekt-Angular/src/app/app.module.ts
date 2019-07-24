@@ -6,13 +6,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Components
 import { VehicleComponent } from './vehicle/vehicle.component';
-import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
-
 import { BusinessPartnerComponent } from './business-partner/./business-partner.component';
-import { BusinessPartnerDetailComponent } from './business-partner-detail/business-partner-detail.component';
+import { BusinessPartnerDetailComponent } from './business-partner/business-partner-detail/business-partner-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
+import { QrScannerComponent } from './vehicle/qr-scanner/qr-scanner.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -28,6 +26,9 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BusinessPartnerModule } from './business-partner/business-partner.module';
+import { VehicleModule } from './vehicle/vehicle.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 
@@ -38,15 +39,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     DashboardComponent,
     VehicleComponent,
-    VehicleDetailComponent,
     BusinessPartnerComponent,
-    BusinessPartnerDetailComponent,
     ToolbarComponent,
-    QrScannerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    BusinessPartnerModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
 
@@ -60,7 +58,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     ScrollingModule,
     ScrollDispatchModule,
-    MatExpansionModule
+    MatExpansionModule,
+    VehicleModule,
+    DashboardModule,
+    AppRoutingModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent]

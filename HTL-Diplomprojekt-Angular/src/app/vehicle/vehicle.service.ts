@@ -1,5 +1,5 @@
-import { Vehicle } from './../vehicle';
-import { VEHICLES } from './../mock-vehicles';
+import { Vehicle } from './vehicle';
+import { VEHICLES } from './mock-vehicles';
 import { Observable , of} from 'rxjs';
 import { Injectable } from '@angular/core';
 
