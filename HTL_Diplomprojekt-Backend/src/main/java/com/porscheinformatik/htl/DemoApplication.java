@@ -1,20 +1,14 @@
 package com.porscheinformatik.htl;
 
-import com.porscheinformatik.htl.entities.GP;
-import com.porscheinformatik.htl.repositories.GPRepository;
+import com.porscheinformatik.htl.entities.BP;
+import com.porscheinformatik.htl.repositories.BPRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -25,7 +19,7 @@ public class DemoApplication {
 
 
 	@Bean
-	public CommandLineRunner loadData(GPRepository gpRepository){
+	public CommandLineRunner loadData(BPRepository gpRepository){
 		return (args) -> {
 
 			if (gpRepository.findAll() == null){
@@ -37,8 +31,8 @@ public class DemoApplication {
 					String line;
 					while ((line=reader.readLine()) != null) {
 						String[] data = line.split(",");
-						GP gp = new GP(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
-						gpRepository.save(gp);
+						BP bp = new BP(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
+						gpRepository.save(bp);
 
 					}
 

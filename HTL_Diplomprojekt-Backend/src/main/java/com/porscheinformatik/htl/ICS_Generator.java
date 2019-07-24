@@ -1,6 +1,6 @@
 package com.porscheinformatik.htl;
 
-import com.porscheinformatik.htl.entities.Termin;
+import com.porscheinformatik.htl.entities.Appointment;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,7 +15,7 @@ public class ICS_Generator {
     private String start_time, end_time, start_date, end_date;
     private String location, summary, description;
 
-    public ICS_Generator(Termin termin){
+    public ICS_Generator(Appointment termin){
         DateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
         DateFormat timeformat = new SimpleDateFormat("HHmmss");
 

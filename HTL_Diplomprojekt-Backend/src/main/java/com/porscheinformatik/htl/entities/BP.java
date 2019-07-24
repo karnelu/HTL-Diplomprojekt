@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class GP {
+public class BP {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,14 +27,14 @@ public class GP {
     private String country;
 
     @OneToMany(mappedBy = "gp")
-    private List<Termin> terminList;
+    private List<Appointment> terminList;
 
     @Lob
     private byte[] picture;
 
-    public GP(){}
+    public BP(){}
 
-    public GP (String name, String email, String telephone, String address, String zip, String city, String country){
+    public BP(String name, String email, String telephone, String address, String zip, String city, String country){
         this.name=name;
         this.email=email;
         this.telephone=telephone;
@@ -44,7 +44,7 @@ public class GP {
         this.country=country;
     }
 
-    public GP (String name, String email){
+    public BP(String name, String email){
         this.name=name;
         this.email=email;
     }
@@ -101,7 +101,7 @@ public class GP {
         this.country = country;
     }
 
-    public List<Termin> getTerminList(){
+    public List<Appointment> getTerminList(){
         return terminList;
     }
 
@@ -115,6 +115,6 @@ public class GP {
 
     @Override
     public String toString() {
-        return "GP: "+name+";"+email+";"+address+";"+zip+";"+country;
+        return "BP: "+name+";"+email+";"+address+";"+zip+";"+country;
     }
 }

@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.zip.DataFormatException;
 
 @Entity
-public class Termin {
+public class Appointment {
 
     private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private DateFormat timeFormat = new SimpleDateFormat("HH:mm");
@@ -33,13 +32,13 @@ public class Termin {
 
     @ManyToOne
     @JoinColumn(name = "GP_ID")
-    private GP gp;
+    private BP bp;
 
     @ManyToOne
     @JoinColumn(name = "VHC_ID")
     private Vehicle vehicle;
 
-    public Termin(Date start_date, Date end_date, Date start_time, Date end_time, String title){
+    public Appointment(Date start_date, Date end_date, Date start_time, Date end_time, String title){
         this.start_date=start_date;
         this.end_date=end_date;
         this.start_time=start_time;
@@ -107,12 +106,12 @@ public class Termin {
         this.description = description;
     }
 
-    public GP getGp() {
-        return gp;
+    public BP getBp() {
+        return bp;
     }
 
-    public void setGp(GP gp) {
-        this.gp = gp;
+    public void setBp(BP bp) {
+        this.bp = bp;
     }
 
     public Vehicle getVehicle() {
@@ -125,6 +124,6 @@ public class Termin {
 
     @Override
     public String toString() {
-        return "Termin: " + start_date + ";" + end_date + ";" + start_time +";" + end_time + ";" + title + ";" + location;
+        return "Appointment: " + start_date + ";" + end_date + ";" + start_time +";" + end_time + ";" + title + ";" + location;
     }
 }

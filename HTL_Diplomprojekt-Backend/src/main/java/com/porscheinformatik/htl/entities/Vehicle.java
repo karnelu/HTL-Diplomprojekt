@@ -28,7 +28,7 @@ public class Vehicle {
     private String color;
 
     @OneToMany(mappedBy = "vehicle")
-    private List<Termin> terminList;
+    private List<Appointment> terminList;
 
     public Vehicle(String brand, String model){
         this.brand=brand;
@@ -103,7 +103,7 @@ public class Vehicle {
         this.color = color;
     }
 
-    public List<Termin> getTerminlist(){
+    public List<Appointment> getTerminlist(){
         return terminList;
     }
 
