@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { BusinessPartnerService } from '../business-partner.service';
+import {ChangeDetectionStrategy,  ViewEncapsulation} from '@angular/core';
+
 
 @Component({
   selector: 'app-business-partner-last-used',
@@ -10,6 +12,8 @@ import { BusinessPartnerService } from '../business-partner.service';
 export class BusinessPartnerLastUsedComponent implements OnInit {
 
   businessPartners: BusinessPartner[] = [];
+
+
 
   constructor(private businessPartnerService: BusinessPartnerService) { }
 

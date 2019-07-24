@@ -1,11 +1,13 @@
-<div class="card_container">
-  <h3>Last Used Business Partners</h3>
+
+
+<div class="cdk-virtual-scroll-data-source-example">
+    <h3>Last Used Business Partners</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card class="card" *cdkVirtualFor="let businessPartner of businessPartners" (click)="clicked()">
-      <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
-        <mat-card-content>
-            <p>{{businessPartner.name}}</p>
-      </mat-card-content>
-    </mat-card>
-  </cdk-virtual-scroll-viewport>
-</div>
+        <mat-card class="card" *cdkVirtualFor="let businessPartner of businessPartners" (click)="clicked()">
+          <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
+            <mat-card-content>
+                <p>{{businessPartner.name}}</p>
+          </mat-card-content>
+        </mat-card>
+      </cdk-virtual-scroll-viewport>
+  </div>

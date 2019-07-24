@@ -2,14 +2,14 @@
   <div class="container-toolbar">
     <mat-toolbar class="mat-elevation-z7" color="primary">
       <!-- Wenn geschaeftspartner-detail und fahrzeuge-detail ungleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
-      <mat-toolbar-row *ngIf="getrouter().url !== '/business-partner-detail' && getrouter().url !== '/vehicle-detail'">
+      <mat-toolbar-row *ngIf="getrouter().url !== '/business-partner/1' && getrouter().url !== '/vehicle/1'">
         <button mat-icon-button (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
         <span> {{gettitle()}} </span>
       </mat-toolbar-row>
        <!-- Wenn geschaeftspartner-detail oder fahrzeuge-detail gleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
-      <mat-toolbar-row *ngIf="getrouter().url === '/business-partner-detail' || getrouter().url ===  '/vehicle-detail'">
+      <mat-toolbar-row *ngIf="getrouter().url === '/business-partner/1' || getrouter().url ===  '/vehicle/1'">
         <button mat-icon-button (click)="goBack()">
           <mat-icon>keyboard_backspace</mat-icon>
         </button>
