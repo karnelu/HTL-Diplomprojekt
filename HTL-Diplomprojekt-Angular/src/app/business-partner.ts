@@ -1,4 +1,4 @@
-export class GP {
+export class BusinessPartner {
   id: number;
   name: string;
   email: string;

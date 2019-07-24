@@ -1,14 +1,15 @@
+
 // Modules
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Components
-import { TermineComponent } from './termine/termine.component';
-import { FahrzeugeComponent } from './fahrzeuge/fahrzeuge.component';
-import { FahrzeugDetailComponent } from './fahrzeug-detail/fahrzeug-detail.component';
-import { GeschaeftspartnerComponent } from './geschaeftspartner/geschaeftspartner.component';
-import { GeschaeftspartnerDetailComponent } from './geschaeftspartner-detail/geschaeftspartner-detail.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+
+import { BusinessPartnerComponent } from './business-partner/./business-partner.component';
+import { BusinessPartnerDetailComponent } from './business-partner-detail/business-partner-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
@@ -24,9 +25,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
@@ -34,13 +37,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     DashboardComponent,
-    FahrzeugeComponent,
-    GeschaeftspartnerComponent,
-    TermineComponent,
+    VehicleComponent,
+    VehicleDetailComponent,
+    BusinessPartnerComponent,
+    BusinessPartnerDetailComponent,
     ToolbarComponent,
     QrScannerComponent,
-    FahrzeugDetailComponent,
-    GeschaeftspartnerDetailComponent,
   ],
   imports: [
     BrowserModule,
