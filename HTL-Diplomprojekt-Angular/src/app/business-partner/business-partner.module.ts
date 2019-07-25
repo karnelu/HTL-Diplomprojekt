@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule, MatIconModule,} from '@angular/material';
 
 
 
@@ -25,6 +26,8 @@ import { BusinessPartnerDetailComponent } from './business-partner-detail/busine
     ScrollDispatchModule,
     MatCardModule,
     FlexLayoutModule,
+    MatIconModule,
+    MatButtonModule,
     BusinessPartnerRoutingModule,
   ]
 })

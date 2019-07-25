@@ -9,7 +9,7 @@ import { Vehicle } from '../vehicle';
 })
 export class VehicleLastScannedComponent implements OnInit {
   vehicles: Vehicle[] = [];
-
+  expanded;
   constructor(private vehicleService: VehicleService) {}
 
   clicked() {

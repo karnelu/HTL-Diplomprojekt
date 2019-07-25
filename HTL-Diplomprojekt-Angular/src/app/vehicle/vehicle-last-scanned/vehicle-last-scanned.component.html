@@ -1,11 +1,16 @@
-<div class="cdk-virtual-scroll-data-source-example">
+<div class ="cdk-virtual-scroll-data-source-example" >
     <h3>Last Used Vehicles</h3>
-  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
-        <mat-card class="card" *cdkVirtualFor="let vehicle of vehicles" (click)="clicked()">
-          <img class="profile" mat-card-image src="assets/img/PICA.jpg" alt="photo">
-            <mat-card-content>
-                <p>{{vehicle.brand}} {{vehicle.model}}</p>
-          </mat-card-content>
-        </mat-card>
-      </cdk-virtual-scroll-viewport>
-  </div>
+    <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="example-viewport">
+      <mat-card [ngClass]="{expanded: expanded}"  *cdkVirtualFor="let vehicle of vehicles" >
+        <img mat-card-image src="assets/img/PICA.jpg" alt="photo" (click)="clicked()"  routerLink="/vehicle/{{vehicle.id}}">
+      <mat-card-content>
+        <mat-card-actions>{{vehicle.brand}} {{vehicle.model}}
+      <button mat-icon-button>
+          <mat-icon *ngIf="!expanded" (click)="expanded=!expanded">expand_more</mat-icon>
+          <mat-icon *ngIf="expanded" (click)="expanded=!expanded">expand_less</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+    </mat-card>
+    </cdk-virtual-scroll-viewport>
+</div>

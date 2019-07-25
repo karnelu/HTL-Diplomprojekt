@@ -1,7 +1,9 @@
 .cdk-virtual-scroll-data-source-example .example-viewport {
-  height: 200px;
+  height: 300px;
+  /* normal -> height: 200px */
+  /* If expanded then height: 400px */
   width: 100vw;
-
+  scroll-padding-bottom: 0;
 }
 
 .cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
@@ -11,18 +13,8 @@
 
 
 h3{
-  padding-left:16px;
+  padding-top: 16px;
+  padding-left: 16px;
 }
 
 
-.card{
-  height: 135px;
-  width: 100px;
-  margin-left: 16px;
-}
-
-.profile
-{
-  height: 128px;
-  width: 128;
-}

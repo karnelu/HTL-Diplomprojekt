@@ -1,0 +1,12 @@
+mat-card {
+  height: 165px;
+  width: 100px;
+  margin-left: 16px;
+  transition: 1s;
+
+}
+mat-card.expanded{
+  height: 300px;
+}
+
+

@@ -12,7 +12,7 @@ import {ChangeDetectionStrategy,  ViewEncapsulation} from '@angular/core';
 export class BusinessPartnerLastUsedComponent implements OnInit {
 
   businessPartners: BusinessPartner[] = [];
-
+  expanded;
 
 
   constructor(private businessPartnerService: BusinessPartnerService) { }
