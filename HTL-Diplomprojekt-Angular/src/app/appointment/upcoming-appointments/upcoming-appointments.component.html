@@ -1,0 +1,9 @@
+<div class ="appointment-container">
+    <h2>Termine</h2>
+    <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="appointment-viewport">
+      <mat-card class ="appointment-card" *cdkVirtualFor="let item of items">
+    </mat-card>
+    </cdk-virtual-scroll-viewport>
+</div>
+
+

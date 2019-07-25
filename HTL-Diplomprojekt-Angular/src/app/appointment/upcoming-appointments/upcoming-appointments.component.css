@@ -1,0 +1,22 @@
+.appointment-container .appointment-viewport {
+  height: 100px;
+  width: 100%;
+  scroll-padding-bottom: 0;
+}
+
+.appointment-container .appointment-viewport .cdk-virtual-scroll-content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+
+h2{
+  padding-left: 16px;
+}
+
+
+.appointment-card{
+  height: 50px;
+  min-width: 200px;
+}
+

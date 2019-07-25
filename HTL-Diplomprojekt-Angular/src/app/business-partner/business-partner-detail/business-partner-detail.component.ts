@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 })
 export class BusinessPartnerDetailComponent implements OnInit {
 
+  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
 
   businessPartner: BusinessPartner;
 
