@@ -9,11 +9,13 @@ import { Vehicle } from '../vehicle';
 })
 export class VehicleLastScannedComponent implements OnInit {
   vehicles: Vehicle[] = [];
-  expanded;
+  expanded = [];
+
   constructor(private vehicleService: VehicleService) {}
 
   clicked() {
     console.log("I have been clicked");
+
   }
 
   ngOnInit() {
@@ -25,4 +27,6 @@ export class VehicleLastScannedComponent implements OnInit {
       .getVehicles()
       .subscribe(vehicles => (this.vehicles = vehicles));
   }
+
+
 }
