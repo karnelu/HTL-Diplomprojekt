@@ -26,9 +26,13 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { FlexLayoutModule } from '@angular/flex-layout';
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { BusinessPartnerModule } from './business-partner/business-partner.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -63,6 +67,8 @@ import { AppointmentModule } from './appointment/appointment.module';
     ScrollingModule,
     ScrollDispatchModule,
     MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
     VehicleModule,
     DashboardModule,
     AppointmentModule,

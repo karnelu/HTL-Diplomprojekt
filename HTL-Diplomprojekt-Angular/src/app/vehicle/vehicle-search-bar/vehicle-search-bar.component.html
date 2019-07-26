@@ -1,0 +1,25 @@
+<form class="search-container">
+  <mat-form-field appearance="outline" floatLabel="never" type="text">
+    <mat-icon *ngIf="!vehicleSearchValue" matPrefix>search</mat-icon>
+    <mat-icon matPrefix *ngIf="vehicleSearchValue" routerLink="/vehicle">arrow_back</mat-icon>
+    <input matInput [formControl]="vehicleSearchControl" [matAutocomplete]="auto" placeholder="Search"
+      [(ngModel)]="vehicleSearchValue">
+    <mat-icon matSuffix (click)="onClickDelete()">close</mat-icon>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand">
+        {{ vehicle.brand }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<form class="search-container">
+  <mat-form-field appearance="outline" floatLabel="never" type="text">
+    <input matInput [formControl]="vehicleSearchControl" [matAutocomplete]="auto" placeholder="Search" [(ngModel)]="vehicleSearchValue">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand">
+        {{ vehicle.brand }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
