@@ -37,6 +37,7 @@ import { BusinessPartnerModule } from './business-partner/business-partner.modul
 import { VehicleModule } from './vehicle/vehicle.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppointmentModule } from './appointment/appointment.module';
+import { ToolbarModule } from './toolbar/toolbar.module';
 
 
 
@@ -50,6 +51,7 @@ import { AppointmentModule } from './appointment/appointment.module';
     BusinessPartnerComponent,
     ToolbarComponent,
   ],
+  exports:[ToolbarComponent],
   imports: [
     BrowserModule,
     BusinessPartnerModule,
@@ -76,6 +78,10 @@ import { AppointmentModule } from './appointment/appointment.module';
 
 
     AppRoutingModule,
+
+
+
+
 
   ],
   providers: [Title],
