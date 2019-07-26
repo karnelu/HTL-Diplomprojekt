@@ -1,6 +1,6 @@
 <mat-drawer-container class="container">
   <div class="container-toolbar">
-    <mat-toolbar class="mat-elevation-z7" color="primary">
+    <mat-toolbar class="mat-elevation-z2" color="primary">
       <!-- Wenn geschaeftspartner-detail und fahrzeuge-detail ungleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
       <mat-toolbar-row *ngIf="getrouter().url !== '/business-partner/1' && getrouter().url !== '/vehicle/1'">
         <button mat-icon-button (click)="drawer.toggle()">
