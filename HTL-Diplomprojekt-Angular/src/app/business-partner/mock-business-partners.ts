@@ -10,4 +10,4 @@ export const BUSINESSPARTNERS: BusinessPartner[] = [
   { id: 7, name: 'Lieferant G', email: 'lieferantG@gmail.com', tel: 77777, address: 'Musterstr. 7', city: 'Salzburg', zip: 5020, country: 'Austria' },
   { id: 8, name: 'Lieferant H', email: 'lieferantH@gmail.com', tel: 88888, address: 'Musterstr. 8', city: 'Salzburg', zip: 5020, country: 'Austria' },
   { id: 9, name: 'Lieferant I', email: 'lieferantI@gmail.com', tel: 99999, address: 'Musterstr. 9', city: 'Salzburg', zip: 5020, country: 'Austria' }
-];
+]

@@ -1,6 +1,9 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,6 +28,8 @@ public class BP {
     private String city;
     @Column(name = "COUNTRY")
     private String country;
+    @Column(name="LASTUSED")
+    private Date lastUsed;
 
     @OneToMany(mappedBy = "bp")
     private List<Appointment> terminList;
@@ -39,6 +44,7 @@ public class BP {
         this.zip=zip;
         this.city=city;
         this.country=country;
+        this.lastUsed = Calendar.getInstance().getTime();
     }
 
     public BP(String name, String email){
@@ -49,6 +55,17 @@ public class BP {
     public Long getGpId() {
         return bpId;
     }
+
+    public void setTimeStampBefore(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.WEEK_OF_YEAR, -2);
+        this.lastUsed = cal.getTime();
+    }
+
+    public void setTimeStamp(){
+        this.lastUsed = Calendar.getInstance().getTime();
+    }
+    public Date getLast_used(){return lastUsed;}
 
     public String getName() {
         return name;

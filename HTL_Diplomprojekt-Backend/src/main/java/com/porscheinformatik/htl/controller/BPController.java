@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.util.Calendar;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -23,7 +25,17 @@ public class BPController {
 
     @GetMapping("/{id}/detail")
     public BP getBP(@PathVariable Long id) {
-        return bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        bp.setTimeStamp();
+        bpRepository.save(bp);
+        return bp;
+    }
+
+    @GetMapping("/getLastUsed")
+    public List<BP> getLastUsed(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
+        return bpRepository.findBylastUsedGreaterThan(cal.getTime());
     }
 
     @PostMapping("/{id}/update")
