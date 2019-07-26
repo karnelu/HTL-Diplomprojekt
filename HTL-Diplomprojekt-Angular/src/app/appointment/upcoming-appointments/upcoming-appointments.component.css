@@ -1,22 +1,23 @@
-.appointment-container .appointment-viewport {
-  height: 100px;
-  width: 100%;
-  scroll-padding-bottom: 0;
-}
-
-.appointment-container .appointment-viewport .cdk-virtual-scroll-content-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-
-h2{
+h2 {
   padding-left: 16px;
 }
 
-
-.appointment-card{
-  height: 50px;
-  min-width: 200px;
+.appointment-card {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
 }
 
+.mat-card-avatar {
+  margin-bottom: auto;
+  margin-top: auto;
+  text-align: center;
+}
+
+.mat-raised-button {
+  text-align: inherit;
+}
+.container-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

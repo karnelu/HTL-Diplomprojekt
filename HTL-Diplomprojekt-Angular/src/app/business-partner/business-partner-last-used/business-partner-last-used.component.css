@@ -3,10 +3,7 @@ mat-card {
   width: 100px;
   margin-left: 16px;
   transition: 1s;
-
 }
-mat-card.expanded{
+mat-card.expanded {
   height: 250px;
 }
-
-

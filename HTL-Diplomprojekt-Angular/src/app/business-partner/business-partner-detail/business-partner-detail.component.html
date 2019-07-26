@@ -1,40 +1,35 @@
-
-<div class ="container-business-partner-detail">
-
+<div class="container-business-partner-detail">
   <mat-card class="business-partner-detail-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{businessPartner.name}}</mat-card-title>
-    <mat-card-subtitle>Write something</mat-card-subtitle>
-  </mat-card-header>
-  <mat-list>
-
-        <h3 mat-subheader>Kontakt</h3>
-        <mat-list-item>
-          <mat-icon mat-list-icon>email</mat-icon>
-          <h4 mat-line>{{businessPartner.email}}</h4>
-        </mat-list-item>
-        <mat-list-item>
-            <mat-icon mat-list-icon>phone_android</mat-icon>
-            <h4 mat-line>{{businessPartner.tel}}</h4>
-        </mat-list-item>
-        <h3 mat-subheader>Adresse</h3>
-        <mat-list-item>
-          <mat-icon mat-list-icon class="home-icon">home</mat-icon>
-          <h4 mat-line>{{businessPartner.address}}</h4>
-          <p mat-line> {{businessPartner.zip}}  {{businessPartner.city}} </p>
-          <p mat-line> {{businessPartner.country}} </p>
-        </mat-list-item>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{businessPartner.name}}</mat-card-title>
+      <mat-card-subtitle>Write something</mat-card-subtitle>
+    </mat-card-header>
+    <mat-list>
+      <h3 mat-subheader>Kontakt</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon>email</mat-icon>
+        <h4 mat-line>{{businessPartner.email}}</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>phone_android</mat-icon>
+        <h4 mat-line>{{businessPartner.tel}}</h4>
+      </mat-list-item>
+      <h3 mat-subheader>Adresse</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="home-icon">home</mat-icon>
+        <h4 mat-line>{{businessPartner.address}}</h4>
+        <p mat-line> {{businessPartner.zip}} {{businessPartner.city}} </p>
+        <p mat-line> {{businessPartner.country}} </p>
+      </mat-list-item>
     </mat-list>
-    <button mat-raised-button>
+    <mat-card-actions>
+      <button mat-button>
         <mat-icon>edit</mat-icon>
         EDIT
-    </button>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>
 <mat-divider class="container-divider"></mat-divider>
-
-
-
 <app-upcoming-appointments></app-upcoming-appointments>
-

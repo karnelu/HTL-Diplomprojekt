@@ -5,7 +5,9 @@ import { ScrollingModule} from '@angular/cdk/scrolling';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppointmentRoutingModule } from './appointment-routing.module';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material';
 import {MatDividerModule} from '@angular/material/divider';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 
@@ -18,8 +20,14 @@ import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-
     CommonModule,
 
 
-    ScrollingModule,MatDividerModule,
-    FlexLayoutModule,ScrollDispatchModule,MatCardModule,
+    ScrollingModule,
+    MatDividerModule,
+    FlexLayoutModule,
+    ScrollDispatchModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
 
     AppointmentRoutingModule,
   ],

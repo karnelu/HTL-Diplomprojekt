@@ -9,7 +9,7 @@ export class UpcomingAppointmentsComponent implements OnInit {
 
 
 
-  items = Array.from({length: 20}).map((_, i) => `Item #${i}`);
+  items = Array.from({length: 5}).map((_, i) => `Item #${i}`);
 
   constructor() { }
 

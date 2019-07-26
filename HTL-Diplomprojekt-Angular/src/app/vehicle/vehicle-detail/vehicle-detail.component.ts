@@ -20,7 +20,7 @@ export class VehicleDetailComponent implements OnInit {
     private router: Router,
     private vehicleService: VehicleService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getVehicle();

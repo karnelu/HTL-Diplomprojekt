@@ -8,9 +8,9 @@ describe('BusinessPartnerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BusinessPartnerComponent ]
+      declarations: [BusinessPartnerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

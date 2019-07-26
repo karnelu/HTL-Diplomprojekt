@@ -1,9 +1,31 @@
-<div class ="appointment-container">
-    <h2>Termine</h2>
-    <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="appointment-viewport">
-      <mat-card class ="appointment-card" *cdkVirtualFor="let item of items">
-    </mat-card>
-    </cdk-virtual-scroll-viewport>
+<div class="appointment-container">
+  <h2>Termine</h2>
+  <mat-card class="appointment-card" *ngFor="let item of items">
+    <mat-card-header>
+      <mat-icon class="today" mat-card-avatar>today</mat-icon>
+      <mat-card-title> Termin 1 </mat-card-title>
+      <mat-card-subtitle> Probefahrt </mat-card-subtitle>
+    </mat-card-header>
+    <mat-list>
+      <h3 mat-subheader>Beschreibung</h3>
+      <mat-list-item>
+        <mat-icon mat-list-icon> event_busy</mat-icon>
+        <h4 mat-line>12.12.2019</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>schedule</mat-icon>
+        <h4 mat-line>12:45</h4>
+      </mat-list-item>
+    </mat-list>
+    <mat-card-actions>
+      <button mat-button>
+        <mat-icon>edit</mat-icon>
+        EDIT
+      </button>
+      <button mat-button>
+        <mat-icon>email</mat-icon>
+        SEND
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>
-
-

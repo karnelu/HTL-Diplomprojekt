@@ -8,9 +8,9 @@ describe('BusinessPartnerLastUsedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BusinessPartnerLastUsedComponent ]
+      declarations: [BusinessPartnerLastUsedComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

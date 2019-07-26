@@ -1,45 +1,22 @@
-.business-partner-detail-card{
-
+.business-partner-detail-card {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-/* .container-termin{
-   height:  calc(40vh);
-} */
-
-h2{
- padding-top: 16px;
- padding-left: 16px;
-}
-
-.termin-card{
-  margin-left: 16px;
-  margin-right: 16px;
+h2 {
+  padding-top: 16px;
+  padding-left: 16px;
 }
 
 .example-header-image {
-  background-image: url('/assets/img/PICA.jpg');
+  background-image: url("/assets/img/PICA.jpg");
   background-size: cover;
 }
 
-
-
-.business-partner-detail-card .home-icon{
-
+.business-partner-detail-card .home-icon {
   padding-bottom: 44px;
-
 }
-.container-divider{
+.container-divider {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-
-
-
-
-
-
-
-
-

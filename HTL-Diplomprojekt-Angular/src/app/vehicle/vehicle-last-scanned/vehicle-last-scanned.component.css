@@ -4,7 +4,6 @@ mat-card {
   margin-left: 16px;
   transition: 1s;
 }
-mat-card.expanded{
-  height:  250px;
+mat-card.expanded {
+  height: 250px;
 }
-

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { BusinessPartnerService } from '../business-partner.service';
-import {ChangeDetectionStrategy,  ViewEncapsulation} from '@angular/core';
+import { ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 
 @Component({

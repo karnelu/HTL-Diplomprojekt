@@ -6,14 +6,14 @@
   scroll-padding-bottom: 0;
 }
 
-.cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+.cdk-virtual-scroll-data-source-example
+  .example-viewport
+  .cdk-virtual-scroll-content-wrapper {
   display: flex;
   flex-direction: row;
 }
 
-
-h3{
+h3 {
   padding-top: 16px;
   padding-left: 16px;
 }
-

@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class BusinessPartnerDetailComponent implements OnInit {
 
-  items = Array.from({length: 10}).map((_, i) => `Item #${i}`);
+  items = Array.from({ length: 10 }).map((_, i) => `Item #${i}`);
 
   businessPartner: BusinessPartner;
 
@@ -21,7 +21,7 @@ export class BusinessPartnerDetailComponent implements OnInit {
     private router: Router,
     private businessPartnerService: BusinessPartnerService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getBusinessPartner();

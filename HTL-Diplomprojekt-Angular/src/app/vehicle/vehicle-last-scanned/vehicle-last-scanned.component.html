@@ -1,16 +1,17 @@
-<div class ="cdk-virtual-scroll-data-source-example"  >
-    <h3>Last Used Vehicles</h3>
-    <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="example-viewport">
-      <mat-card *cdkVirtualFor="let vehicle of vehicles; let i = index" [ngClass]="{expanded: expanded[i]}"  >
-        <img mat-card-image src="assets/img/PICA.jpg" alt="photo" (click)="clicked()"  routerLink="/vehicle/{{vehicle.id}}">
+<div class="cdk-virtual-scroll-data-source-example">
+  <h3>Last Used Vehicles</h3>
+  <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
+    <mat-card *cdkVirtualFor="let vehicle of vehicles; let i = index" [ngClass]="{expanded: expanded[i]}">
+      <img mat-card-image src="assets/img/PICA.jpg" alt="photo" (click)="clicked()"
+        routerLink="/vehicle/{{vehicle.id}}">
       <mat-card-content>
         <mat-card-actions>{{vehicle.brand}} {{vehicle.model}}
-      <button mat-icon-button>
-          <mat-icon *ngIf="!expanded[i]" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
-          <mat-icon *ngIf="expanded[i]" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
-      </button>
-    </mat-card-actions>
-  </mat-card-content>
+          <button mat-icon-button>
+            <mat-icon *ngIf="!expanded[i]" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
+            <mat-icon *ngIf="expanded[i]" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card-content>
     </mat-card>
-    </cdk-virtual-scroll-viewport>
+  </cdk-virtual-scroll-viewport>
 </div>

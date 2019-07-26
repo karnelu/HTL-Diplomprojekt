@@ -8,7 +8,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, data: { title: 'Dashboard' } },
-  { path: 'business-partner', component: BusinessPartnerComponent, data: { title: 'Business Partners' }},
+  { path: 'business-partner', component: BusinessPartnerComponent, data: { title: 'Business Partners' } },
   { path: 'vehicle', component: VehicleComponent, data: { title: 'Vehicles' } },
   { path: 'qr-scanner', component: QrScannerComponent, data: { title: 'QR Scanner' } },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full', data: { title: 'Dashboard' } },

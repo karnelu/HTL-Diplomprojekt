@@ -19,7 +19,7 @@ import { BusinessPartnerModule } from './../business-partner/business-partner.mo
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
-  declarations:[],
+  declarations: [],
   imports: [
     CommonModule,
     BusinessPartnerModule,

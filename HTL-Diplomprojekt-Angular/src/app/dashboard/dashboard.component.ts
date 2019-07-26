@@ -19,5 +19,5 @@ import { BusinessPartnerService } from "../business-partner/business-partner.ser
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
