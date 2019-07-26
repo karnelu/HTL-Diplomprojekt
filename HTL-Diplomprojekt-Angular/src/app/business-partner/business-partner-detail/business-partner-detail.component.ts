@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessPartnerService } from '../business-partner.service';
 import { switchMap } from "rxjs/operators";
 import { Location } from '@angular/common';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {BusinessPartnerEditComponent} from '../business-partner-edit/business-partner-edit.component';
+
+
 
 @Component({
   selector: 'app-business-partner-detail',
@@ -20,8 +24,20 @@ export class BusinessPartnerDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private businessPartnerService: BusinessPartnerService,
-    private location: Location
+    private location: Location,
+    private dialog: MatDialog,
   ) { }
+
+  openDialog() {
+    this.dialog.open(BusinessPartnerEditComponent , {
+      maxWidth: '100vw',
+      height: '100vh',
+      hasBackdrop: false,
+      panelClass: 'myapp-no-padding-dialog' ,
+       width: '100vw',
+
+    });
+  }
 
   ngOnInit() {
     this.getBusinessPartner();
@@ -36,8 +52,5 @@ export class BusinessPartnerDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-
 }
-
 
