@@ -1,7 +1,7 @@
 <div class ="cdk-virtual-scroll-data-source-example"  >
   <h3>Last Used Business Partners</h3>
   <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="example-viewport">
-    <mat-card *cdkVirtualFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}"  >
+    <mat-card *ngFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}"  >
       <img mat-card-image src="assets/img/PICA.jpg" alt="photo" (click)="clicked()"  routerLink="/business-partner/{{businessPartner.id}}">
     <mat-card-content>
       <mat-card-actions>{{businessPartner.name}}
@@ -14,3 +14,14 @@
   </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>
+<!--
+<div class ="cdk-virtual-scroll-data-source-example"  >
+    <h3>Last Used Business Partners</h3>
+    <cdk-virtual-scroll-viewport  orientation="horizontal" itemSize="10" class="example-viewport">
+      <li *ngFor="let businessPartner of businessPartners" >
+     {{businessPartner.name}}
+    </li>
+  </cdk-virtual-scroll-viewport>
+
+  </div>
+   -->

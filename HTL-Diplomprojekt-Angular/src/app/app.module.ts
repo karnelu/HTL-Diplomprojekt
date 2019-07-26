@@ -2,7 +2,9 @@
 // Modules
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
+
+
 
 // Components
 import { VehicleComponent } from './vehicle/vehicle.component';
@@ -26,6 +28,7 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -33,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BusinessPartnerModule } from './business-partner/business-partner.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { AppointmentModule } from './appointment/appointment.module';
 
 
 
@@ -67,7 +71,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
     MatInputModule,
     VehicleModule,
     DashboardModule,
+    AppointmentModule,
+
+
+
     AppRoutingModule,
+
   ],
   providers: [Title],
   bootstrap: [AppComponent]

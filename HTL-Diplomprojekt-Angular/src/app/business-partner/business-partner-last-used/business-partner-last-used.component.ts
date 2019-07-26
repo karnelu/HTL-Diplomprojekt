@@ -11,7 +11,7 @@ import {ChangeDetectionStrategy,  ViewEncapsulation} from '@angular/core';
 })
 export class BusinessPartnerLastUsedComponent implements OnInit {
 
-  businessPartners: BusinessPartner[] = [];
+  businessPartners: BusinessPartner[];
   expanded = [];
 
 
