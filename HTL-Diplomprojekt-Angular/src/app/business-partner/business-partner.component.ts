@@ -12,4 +12,5 @@ export class BusinessPartnerComponent implements OnInit {
   ngOnInit() {
   }
 
+
 }

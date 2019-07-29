@@ -1,0 +1,33 @@
+
+.dialog-container{
+ margin: 16px;
+}
+
+.example-header-image {
+  background-image: url("/assets/img/PICA.jpg");
+ /*  background-image: url("/assets/img/baseline_camera_alt_black_48dp.png"); */
+  background-size: cover;
+  border: 1px solid black;
+}
+
+.example-header-image2{
+  background-image: url("/assets/img/baseline_camera_alt_black_48dp.png");
+  background-size: cover;
+}
+
+.example-form {
+  width: 100%;
+}
+
+
+.description-icon{
+  padding-right: 12px;
+}
+.example-full-width {
+
+  width: 100%;
+}
+
+.home-container{
+  padding-left: 36px;
+}

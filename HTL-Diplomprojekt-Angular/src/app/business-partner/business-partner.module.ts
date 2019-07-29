@@ -11,8 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // Angular Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -55,6 +55,8 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
     MatSidenavModule,
     MatDialogModule,
     MatToolbarModule,
+    MatInputModule,
+    MatFormFieldModule,
     // Angular Flex
     FlexLayoutModule,
 

@@ -26,5 +26,9 @@ export class BusinessPartnerEditComponent implements OnInit {
   }
 
 
+  clicked() {
+    console.log("I have been clicked");
+  }
+
 }
 
