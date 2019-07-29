@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataVehicleService }  from './in-memory-data-vehicle.service';
 
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 import { VehicleLastScannedComponent } from './vehicle-last-scanned/vehicle-last-scanned.component';
@@ -20,6 +23,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +44,16 @@ import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-b
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
+
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataVehicleService, { dataEncapsulation: false }
+    ),
+
     ReactiveFormsModule,
 
     FlexLayoutModule,
@@ -55,6 +69,7 @@ import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-b
     MatInputModule,
     MatFormFieldModule,
     MatAutocompleteModule,
+    MatSelectModule,
 
     VehicleRoutingModule
   ],
