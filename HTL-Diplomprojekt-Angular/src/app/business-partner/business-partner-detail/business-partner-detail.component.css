@@ -20,3 +20,8 @@ h2 {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+
+
+.myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}

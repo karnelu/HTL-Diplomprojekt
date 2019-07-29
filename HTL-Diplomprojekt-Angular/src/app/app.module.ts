@@ -35,6 +35,7 @@ import { BusinessPartnerModule } from './business-partner/business-partner.modul
 import { VehicleModule } from './vehicle/vehicle.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppointmentModule } from './appointment/appointment.module';
+import { ToolbarModule } from './toolbar/toolbar.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -51,6 +52,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     BusinessPartnerComponent,
     ToolbarComponent,
   ],
+  exports:[ToolbarComponent],
   imports: [
     BrowserModule,
     
@@ -79,6 +81,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
     AppRoutingModule,
+
+
+
+
 
   ],
   providers: [Title],

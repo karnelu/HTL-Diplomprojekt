@@ -5,11 +5,17 @@ import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
+import com.porscheinformatik.htl.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.util.Calendar;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -21,9 +27,20 @@ public class BPController {
     @Autowired
     private BPRepository bpRepository;
 
+
     @GetMapping("/{id}/detail")
     public BP getBP(@PathVariable Long id) {
-        return bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        bp.setTimeStamp();
+        bpRepository.save(bp);
+        return bp;
+    }
+
+    @GetMapping("/getLastUsed")
+    public List<BP> getLastUsed(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
+        return bpRepository.findBylastUsedGreaterThan(cal.getTime());
     }
 
     @PostMapping("/{id}/update")
@@ -70,4 +87,13 @@ public class BPController {
         }
         return inf;
     }
+
+    @PostMapping("/{id}/upload")
+    @ResponseBody
+    public String handleFileUpload(@RequestParam("image") MultipartFile file) {
+        StorageService storageService = new StorageService();
+        storageService.store(file);
+        return "You successfully uploaded " + file.getOriginalFilename() + "!";
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 @Entity
@@ -30,6 +32,8 @@ public class Vehicle {
     private String fueltype;
     @Column(name = "COLOR")
     private String color;
+    @Column(name = "SCANNED")
+    private String scanned;
 
     @OneToMany(mappedBy = "vehicle")
     private List<Appointment> terminList;
@@ -37,7 +41,12 @@ public class Vehicle {
     public Vehicle(String brand, String model){
         this.brand=brand;
         this.model=model;
+        this.scanned = new SimpleDateFormat("yyyy:MM:dd").format(Calendar.getInstance().getTime());
     }
+
+    public void setScanned(){this.scanned = new SimpleDateFormat("yyyy:MM:dd").format(Calendar.getInstance().getTime());}
+
+    public String getScanned(){return scanned;}
 
     public Long getVhc_Id() {
         return vhc_Id;

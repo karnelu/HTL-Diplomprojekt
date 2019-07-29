@@ -1,2 +1,5 @@
 /* @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
  */
+ .myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}
