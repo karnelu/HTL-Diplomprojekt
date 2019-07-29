@@ -12,7 +12,7 @@ public class BP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BP_ID")
-    private Long bpId;
+    private Long bpID;
 
     @Column(name = "NAME")
     private String name;
@@ -34,6 +34,9 @@ public class BP {
     @OneToMany(mappedBy = "bp")
     private List<Appointment> terminList;
 
+    @Column(name="Image")
+    private String imageDir;
+
     public BP(){}
 
     public BP(String name, String email, String telephone, String address, String zip, String city, String country){
@@ -52,8 +55,8 @@ public class BP {
         this.email=email;
     }
 
-    public Long getGpId() {
-        return bpId;
+    public Long getbpID() {
+        return bpID;
     }
 
     public void setTimeStampBefore(){
@@ -91,6 +94,9 @@ public class BP {
         return country;
     }
 
+    public String getCity(){return city;
+    }
+
     public void setName(String Name) {
         this.name = name;
     }
@@ -117,6 +123,14 @@ public class BP {
 
     public List<Appointment> getTerminList(){
         return terminList;
+    }
+
+    public void setImageDir(String path){
+        this.imageDir = path;
+    }
+
+    public String getImageDir(){
+        return imageDir;
     }
 
     @Override

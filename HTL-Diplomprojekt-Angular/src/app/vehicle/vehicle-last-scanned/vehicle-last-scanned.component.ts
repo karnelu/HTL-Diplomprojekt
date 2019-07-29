@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { VehicleService } from '../vehicle.service';
 import { Vehicle } from '../vehicle';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-vehicle-last-scanned",
@@ -8,7 +9,7 @@ import { Vehicle } from '../vehicle';
   styleUrls: ["./vehicle-last-scanned.component.css"]
 })
 export class VehicleLastScannedComponent implements OnInit {
-  vehicles: Vehicle[] = [];
+  vehicles$: Observable<Vehicle[]>;
   expanded = [];
 
   constructor(private vehicleService: VehicleService) {}
@@ -18,14 +19,12 @@ export class VehicleLastScannedComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit() { 
     this.getVehicles();
   }
 
   getVehicles(): void {
-    this.vehicleService
-      .getVehicles()
-      .subscribe(vehicles => (this.vehicles = vehicles));
+    this.vehicles$ = this.vehicleService.getVehicles();
   }
 
 

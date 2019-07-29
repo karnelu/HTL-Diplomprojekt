@@ -13,12 +13,11 @@ export class VehicleSearchBarComponent implements OnInit {
   vehicleSearchControl = new FormControl();
   vehicles: Vehicle[] = [];
   vehicleSearchValue: string;
-  options: string[] = ['One', 'Two', 'Three'];
 
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit() {
-    this.getVehicles;
+    this.getVehicles();
   }
 
   onClickDelete() {

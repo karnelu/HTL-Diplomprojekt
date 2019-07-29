@@ -1,5 +1,5 @@
 export class BusinessPartner {
-  id: number;
+  bpID: number;
   name: string;
   email: string;
   tel: number;
