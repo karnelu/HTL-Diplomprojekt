@@ -2,6 +2,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppointmentModule } from './../appointment/appointment.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
@@ -9,7 +10,7 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 // Angular Animations
@@ -60,11 +61,12 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
     // Angular Animations
     BrowserAnimationsModule,
 
-
+    // Http
+    HttpClientModule,
 
     // Routing
     BusinessPartnerRoutingModule,
   ],
-  entryComponents:[BusinessPartnerEditComponent],
+  entryComponents: [BusinessPartnerEditComponent],
 })
 export class BusinessPartnerModule { }

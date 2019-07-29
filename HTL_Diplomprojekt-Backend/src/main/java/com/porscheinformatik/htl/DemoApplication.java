@@ -24,7 +24,7 @@ public class DemoApplication {
 
 			if (bpRepository.findAll().isEmpty()){
 				try {
-					BufferedReader reader = new BufferedReader(new FileReader("D:/Dipl/HTL-Diplomprojekt/HTL_Diplomprojekt-Backend/src/main/java/com/porscheinformatik/htl/gp_init.csv"));
+					BufferedReader reader = new BufferedReader(new FileReader("D:/Workspace/HTL-Diplomprojekt/HTL_Diplomprojekt-Backend/src/main/java/com/porscheinformatik/htl/gp_init.csv"));
 
 					// Reading first line..
 					String[] header = reader.readLine().split(",");

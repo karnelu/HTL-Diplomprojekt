@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-/* import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog'; */
+import { HttpClient } from '@angular/common/http';
+import { BusinessPartnerService } from '../business-partner.service';
 
 
 
@@ -13,11 +14,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusinessPartnerEditComponent implements OnInit {
 
-  constructor(/* @Inject(MAT_DIALOG_DATA) private data: DialogData */) { }
+
+
+  constructor(private businessPartnerService: BusinessPartnerService) { }
 
   ngOnInit() {
   }
 
-
+  onFileSelected(event) {
+    this.businessPartnerService.onUpload(<File>event.target.files[0]);
   }
+
+
+}
 

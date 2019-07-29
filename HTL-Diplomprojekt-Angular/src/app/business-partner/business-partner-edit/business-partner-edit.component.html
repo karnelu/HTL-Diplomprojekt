@@ -1,16 +1,6 @@
+<app-toolbar-fullscreen-dialog></app-toolbar-fullscreen-dialog>
 
 
-  <app-toolbar-fullscreen-dialog></app-toolbar-fullscreen-dialog>
-<button mat-button [mat-dialog-close] = "true">close</button>
 
-<!-- <div class="container-toolbar">
-  <mat-toolbar class="mat-elevation-z2" color="primary">
-    <mat-toolbar-row>
-      <button mat-icon-button [mat-dialog-close]="true">
-        <mat-icon>clear</mat-icon>
-      </button>
-      <span>Edit </span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
- -->
+<input type ="file" (change) = "onFileSelected($event)" >
+<button type="button" (click)="onUpload()">Upload</button>
