@@ -32,6 +32,11 @@ export class VehicleDetailComponent implements OnInit {
       .subscribe(vehicle => this.vehicle = vehicle);
   }
 
+  save(): void {
+    this.vehicleService.updateVehicle(this.vehicle)
+      .subscribe(() => this.goBack());
+  }
+
   goBack(): void {
     this.location.back();
   }

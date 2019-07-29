@@ -9,10 +9,8 @@ import { NgModule } from '@angular/core';
 // Components
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { BusinessPartnerComponent } from './business-partner/./business-partner.component';
-import { BusinessPartnerDetailComponent } from './business-partner/business-partner-detail/business-partner-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { QrScannerComponent } from './vehicle/qr-scanner/qr-scanner.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -38,6 +36,9 @@ import { VehicleModule } from './vehicle/vehicle.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppointmentModule } from './appointment/appointment.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 
 
@@ -52,7 +53,7 @@ import { AppointmentModule } from './appointment/appointment.module';
   ],
   imports: [
     BrowserModule,
-    BusinessPartnerModule,
+    
     BrowserAnimationsModule,
     FlexLayoutModule,
 
@@ -69,6 +70,8 @@ import { AppointmentModule } from './appointment/appointment.module';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    
+    BusinessPartnerModule,
     VehicleModule,
     DashboardModule,
     AppointmentModule,

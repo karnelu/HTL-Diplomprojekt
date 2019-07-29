@@ -1,7 +1,15 @@
 <div *ngIf="vehicle">
   <h2>{{vehicle.brand | uppercase}} {{vehicle.model}} Details</h2>
-  <div><span>id: </span>{{vehicle.id}}</div>
   <div>
-
-    <button (click)="goBack()">go back</button>
+    <span>id: </span>{{vehicle.id}}
   </div>
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="vehicle.kmReading" placeholder="Km Reading">
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-button (click)="goBack()">go back</button>
+    <button mat-button (click)="save()">save</button>
+  </div>
+</div>
