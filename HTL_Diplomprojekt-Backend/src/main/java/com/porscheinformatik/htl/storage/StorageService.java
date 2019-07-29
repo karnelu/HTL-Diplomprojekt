@@ -20,6 +20,7 @@ public class StorageService {
 
     public void store(MultipartFile file){
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
+
         try{
             if(file.isEmpty()){
                 //throw new StorageException("Failed to store empty file " + filename);
@@ -32,7 +33,6 @@ public class StorageService {
             try(InputStream inputStream = file.getInputStream()){
                 Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
             }
-
 
         } catch (IOException e) {
             //throw new StorageException("Failed to store file " + filename, e);
