@@ -15,11 +15,13 @@ import java.nio.file.StandardCopyOption;
 public class StorageService {
 
     private final Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner");
+    private String location;
 
     public  StorageService() {}
 
     public void store(MultipartFile file){
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
+        location=rootLocation +filename;
 
         try{
             if(file.isEmpty()){
@@ -37,6 +39,10 @@ public class StorageService {
         } catch (IOException e) {
             //throw new StorageException("Failed to store file " + filename, e);
         }
+    }
+
+    public String getImageLocation(){
+        return location;
     }
 
 }

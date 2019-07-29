@@ -33,6 +33,7 @@ public class BPController {
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         bp.setTimeStamp();
         bpRepository.save(bp);
+        System.out.println("Yes");
         return bp;
     }
 
@@ -90,9 +91,12 @@ public class BPController {
 
     @PostMapping("/{id}/upload")
     @ResponseBody
-    public String handleFileUpload(@RequestParam("image") MultipartFile file) {
+    public String handleFileUpload(@RequestParam("image") MultipartFile file, @PathVariable Long id) {
         StorageService storageService = new StorageService();
         storageService.store(file);
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        bp.setImageDir(storageService.getImageLocation());
+        bpRepository.save(bp);
         return "You successfully uploaded " + file.getOriginalFilename() + "!";
     }
 
