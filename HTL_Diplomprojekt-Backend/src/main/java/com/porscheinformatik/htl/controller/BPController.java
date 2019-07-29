@@ -5,9 +5,13 @@ import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
+import com.porscheinformatik.htl.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.Calendar;
@@ -22,6 +26,7 @@ public class BPController {
 
     @Autowired
     private BPRepository bpRepository;
+
 
     @GetMapping("/{id}/detail")
     public BP getBP(@PathVariable Long id) {
@@ -82,4 +87,13 @@ public class BPController {
         }
         return inf;
     }
+
+    @PostMapping("/{id}/upload")
+    @ResponseBody
+    public String handleFileUpload(@RequestParam("image") MultipartFile file) {
+        StorageService storageService = new StorageService();
+        storageService.store(file);
+        return "You successfully uploaded " + file.getOriginalFilename() + "!";
+    }
+
 }

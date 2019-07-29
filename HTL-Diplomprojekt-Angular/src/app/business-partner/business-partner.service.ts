@@ -10,20 +10,22 @@ import { BusinessPartner } from './business-partner';
 })
 export class BusinessPartnerService {
 
+  baseURL = 'http://localhost:8080/business-partner/'
+
   constructor(private http: HttpClient) { }
 
   getBusinessPartners(): Observable<BusinessPartner[]> {
-    return of(BUSINESSPARTNERS);
+    return this.http.get<BusinessPartner[]>(this.baseURL + 'getLastUsed');
   }
 
   getBusinessPartner(id: number): Observable<BusinessPartner> {
-    return of(BUSINESSPARTNERS.find(businessPartner => businessPartner.id === id));
+    return this.http.get<BusinessPartner>(this.baseURL + ':id/detail')
   }
 
   onUpload(selectedFile: File) {
     const formData = new FormData();
     formData.append('image', selectedFile, selectedFile.name);
-    this.http.post('http://localhost:8080/business-partner/id/upload', formData).subscribe(res => {
+    this.http.post(this.baseURL + 'id/upload', formData).subscribe(res => {
       console.log(res);
     });
   }

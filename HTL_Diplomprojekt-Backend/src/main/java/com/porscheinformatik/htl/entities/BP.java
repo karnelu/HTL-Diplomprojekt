@@ -12,7 +12,7 @@ public class BP {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BP_ID")
-    private Long bpId;
+    private Long bpID;
 
     @Column(name = "NAME")
     private String name;
@@ -52,8 +52,8 @@ public class BP {
         this.email=email;
     }
 
-    public Long getGpId() {
-        return bpId;
+    public Long getbpID() {
+        return bpID;
     }
 
     public void setTimeStampBefore(){
