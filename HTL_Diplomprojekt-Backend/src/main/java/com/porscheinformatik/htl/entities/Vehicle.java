@@ -92,11 +92,11 @@ public class Vehicle {
         return kmreading;
     }
 
-    public String getBuildyear() {
+    public String getProductionyear() {
         return production_year;
     }
 
-    public Integer getHp() {
+    public Integer getEnginepower() {
         return hp;
     }
 
@@ -124,7 +124,7 @@ public class Vehicle {
         this.kmreading = kmreading;
     }
 
-    public void setBuildyear(String buildyear) {
+    public void setProductionyear(String buildyear) {
         this.production_year = buildyear;
     }
 

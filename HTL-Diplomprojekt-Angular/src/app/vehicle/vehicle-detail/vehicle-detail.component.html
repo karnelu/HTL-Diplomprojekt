@@ -1,11 +1,11 @@
 <div *ngIf="vehicle">
   <h2>{{vehicle.brand | uppercase}} {{vehicle.model}} Details</h2>
   <div>
-    <span>id: </span>{{vehicle.id}}
+    <span>id: </span>{{vehicle.vhcID}}
   </div>
   <div>
     <mat-form-field>
-      <input matInput [(ngModel)]="vehicle.kmReading" placeholder="Km Reading">
+      <input matInput [(ngModel)]="vehicle.kmreading" placeholder="Km Reading">
     </mat-form-field>
   </div>
   <div>
