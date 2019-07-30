@@ -12,5 +12,5 @@ import java.util.List;
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
     List<Vehicle> findByScannedGreaterThan(Date scanned);
-
+    List<Vehicle> findByBrandContaining(String name);
 }

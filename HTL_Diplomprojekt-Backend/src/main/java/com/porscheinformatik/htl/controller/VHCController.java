@@ -73,4 +73,9 @@ public class VHCController {
         return inf;
     }
 
+    @GetMapping("/search")
+    public List<Vehicle> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
+        return vhcRepo.findByBrandContaining(query);
+    }
+
 }

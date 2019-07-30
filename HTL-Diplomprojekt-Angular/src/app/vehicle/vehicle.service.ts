@@ -9,7 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class VehicleService {
 
-  private vehiclesUrl = 'http://localhost:8080/vehicle';  // URL to web api
+  private vehiclesUrl = 'http://localhost:8080/vehicle';
+  private searchURL = 'http://localhost:8080/vehicle/search?type=name&q=';
 
   constructor(private http: HttpClient,) { }
 
@@ -27,6 +28,11 @@ export class VehicleService {
   updateVehicle (vehicle: Vehicle): Observable<any> {
   return this.http.post(this.vehiclesUrl, vehicle, this.httpOptions);
   }
+
+  searchVHC(query: String): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(this.searchURL + query);
+  }
+
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

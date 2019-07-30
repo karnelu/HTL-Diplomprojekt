@@ -3,6 +3,7 @@ package com.porscheinformatik.htl.controller;
 import com.porscheinformatik.htl.Information;
 import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
+import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
 import com.porscheinformatik.htl.storage.StorageService;
@@ -99,5 +100,7 @@ public class BPController {
         bpRepository.save(bp);
         return "You successfully uploaded " + file.getOriginalFilename() + "!";
     }
+
+
 
 }
