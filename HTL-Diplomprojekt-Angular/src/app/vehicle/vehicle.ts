@@ -1,13 +1,13 @@
 export class Vehicle {
   vhcID: number;
   vin: string;
-  licence_plate: string;
+  licencePlate: string;
   brand: string;
   model: string;
-  kmreading: number;
-  productionyear: number;
-  enginepower: string;
-  fueltype: string;
+  kmReading: number;
+  productionYear: number;
+  enginePower: string;
+  fuelType: string;
   condition: string;
   color: string;
 }

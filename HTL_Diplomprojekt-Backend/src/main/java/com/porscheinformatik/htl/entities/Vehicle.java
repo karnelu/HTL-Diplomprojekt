@@ -62,11 +62,11 @@ public class Vehicle {
         this.scanned = cal.getTime();
     }
 
-    public String getLicense_plate() {
+    public String getLicensePlate() {
         return license_plate;
     }
 
-    public void setLicense_plate(String license_plate) {
+    public void setLicensePlate(String license_plate) {
         this.license_plate = license_plate;
     }
 
@@ -88,15 +88,15 @@ public class Vehicle {
         return model;
     }
 
-    public String getKmreading() {
+    public String getKmReading() {
         return kmreading;
     }
 
-    public String getProductionyear() {
+    public String getProductionYear() {
         return production_year;
     }
 
-    public Integer getEnginepower() {
+    public Integer getEnginePower() {
         return hp;
     }
 
@@ -104,7 +104,7 @@ public class Vehicle {
         return status;
     }
 
-    public String getFueltype() {
+    public String getFuelType() {
         return fueltype;
     }
 

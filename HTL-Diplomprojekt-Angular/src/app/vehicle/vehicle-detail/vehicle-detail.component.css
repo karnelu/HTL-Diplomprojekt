@@ -1,0 +1,29 @@
+.vehicle-detail-card {
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  
+  h2 {
+    padding-top: 16px;
+    padding-left: 16px;
+  }
+  
+  .example-header-image {
+    background-image: url("/assets/img/PICA.jpg");
+    background-size: cover;
+  }
+  
+  .vehicle-detail-card .home-icon {
+    padding-bottom: 44px;
+  }
+  .container-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .myapp-no-padding-dialog .mat-dialog-container {
+    padding: 0;
+  }
+  

@@ -1,8 +1,6 @@
 package com.porscheinformatik.htl.controller;
 
 import com.porscheinformatik.htl.Information;
-import com.porscheinformatik.htl.MailValidation;
-import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.VHCNotFoundException;
 import com.porscheinformatik.htl.repositories.VehicleRepository;
@@ -42,7 +40,7 @@ public class VHCController {
     @ResponseBody
     public Information updateVHC(@PathVariable Long id, @RequestParam Vehicle vhc){
             if(!vhc.validateVIN()) inf.addMessage("VIN not Valid");
-            else if(vhc.getLicense_plate().isEmpty()) inf.addMessage("Licenseplate is empty");
+            else if(vhc.getLicensePlate().isEmpty()) inf.addMessage("Licenseplate is empty");
             else {
                 vhcRepo.save(vhc);
                 inf.addMessage("Successfully Updated");
@@ -55,7 +53,7 @@ public class VHCController {
     public Information createBP(@RequestBody Vehicle vhc) {
         try {
             if(!vhc.validateVIN()) inf.addMessage("VIN not Valid");
-            else if(vhc.getLicense_plate().isEmpty()) inf.addMessage("Licenseplate is empty");
+            else if(vhc.getLicensePlate().isEmpty()) inf.addMessage("Licenseplate is empty");
             else {
                 vhcRepo.save(vhc);
                 inf.addMessage("Successfully Added");

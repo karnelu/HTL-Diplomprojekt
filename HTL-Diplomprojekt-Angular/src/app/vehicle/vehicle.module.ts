@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ToolbarModule } from '../toolbar/toolbar.module';
 
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
 import { VehicleLastScannedComponent } from './vehicle-last-scanned/vehicle-last-scanned.component';
@@ -23,10 +23,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-bar.component';
+import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 
 
 
@@ -37,7 +40,8 @@ import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-b
     VehicleDetailComponent,
     VehicleLastScannedComponent,
     QrScannerComponent,
-    VehicleSearchBarComponent
+    VehicleSearchBarComponent,
+    VehicleEditComponent
   ],
   imports: [
     CommonModule,
@@ -45,12 +49,9 @@ import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-b
     FormsModule,
 
     HttpClientModule,
-    HttpClientInMemoryWebApiModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
 
     ReactiveFormsModule,
+    ToolbarModule,
 
     FlexLayoutModule,
     MatButtonModule,
@@ -66,13 +67,16 @@ import { VehicleSearchBarComponent } from './vehicle-search-bar/vehicle-search-b
     MatFormFieldModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatDialogModule,
 
     VehicleRoutingModule
   ],
   exports: [
     VehicleLastScannedComponent,
     VehicleDetailComponent,
-    VehicleSearchBarComponent
-  ]
+    VehicleSearchBarComponent,
+    VehicleEditComponent
+  ],
+  entryComponents: [VehicleEditComponent]
 })
 export class VehicleModule { }

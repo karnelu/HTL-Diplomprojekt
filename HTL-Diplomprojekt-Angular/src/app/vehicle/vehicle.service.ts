@@ -2,7 +2,7 @@ import { Vehicle } from './vehicle';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,11 @@ export class VehicleService {
   private vehiclesUrl = 'http://localhost:8080/vehicle';
   private searchURL = 'http://localhost:8080/vehicle/search?type=name&q=';
 
-  constructor(private http: HttpClient, ) { }
+  httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+  constructor(private http: HttpClient,) { }
 
   getVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(this.vehiclesUrl + '/getLastScanned');
@@ -32,10 +36,4 @@ export class VehicleService {
   searchVHC(query: String): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(this.searchURL + query);
   }
-
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
 }
