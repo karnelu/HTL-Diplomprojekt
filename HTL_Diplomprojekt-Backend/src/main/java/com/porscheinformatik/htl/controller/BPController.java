@@ -9,9 +9,7 @@ import com.porscheinformatik.htl.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.Calendar;
@@ -46,7 +44,7 @@ public class BPController {
 
     @PostMapping("/{id}/update")
     @ResponseBody
-    public Information updateBP(@RequestBody BP bp) {
+    public Information updateBP(@RequestBody BP bp, @PathVariable Long id) {
         try {
             if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
             else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
@@ -99,5 +97,7 @@ public class BPController {
         bpRepository.save(bp);
         return "You successfully uploaded " + file.getOriginalFilename() + "!";
     }
+
+
 
 }

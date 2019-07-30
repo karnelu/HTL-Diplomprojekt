@@ -3,7 +3,7 @@
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
     <mat-card *cdkVirtualFor="let vehicle of vehicles$ | async ; let i = index" [ngClass]="{expanded: expanded[i]}">
       <img mat-card-image src="assets/img/PICA.jpg" alt="photo" (click)="clicked()"
-        routerLink="/vehicle/{{vehicle.id}}">
+        routerLink="/vehicle/{{vehicle.vhcID}}">
       <mat-card-content>
         <mat-card-actions>{{vehicle.brand}} {{vehicle.model}}
           <button mat-icon-button>

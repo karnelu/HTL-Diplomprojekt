@@ -17,16 +17,15 @@ export class VehicleSearchBarComponent implements OnInit {
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit() {
-    this.getVehicles();
   }
 
   onClickDelete() {
     this.vehicleSearchValue = null;
   }
 
-  getVehicles(): void {
+  getVehicles(query: String): void {
     this.vehicleService
-      .getVehicles()
-      .subscribe(vehicles => (this.vehicles = vehicles));
+      .searchVHC(query)
+      .subscribe(vehicles => this.vehicles = vehicles);
   }
 }

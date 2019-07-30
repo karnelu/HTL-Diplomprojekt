@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataVehicleService }  from './in-memory-data-vehicle.service';
 import { ToolbarModule } from '../toolbar/toolbar.module';
 
 import { QrScannerComponent } from './qr-scanner/qr-scanner.component';
@@ -51,13 +49,6 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
     FormsModule,
 
     HttpClientModule,
-    HttpClientInMemoryWebApiModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataVehicleService, { dataEncapsulation: false }
-    ),
 
     ReactiveFormsModule,
     ToolbarModule,

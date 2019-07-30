@@ -10,7 +10,7 @@
         <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
         <div><span>Production Year: {{vehicle.productionYear}}</span></div>
         <div><span>Engine Power: {{vehicle.enginePower}}</span></div>
-        <div><span>Vehicle Status: {{vehicle.vehicleStatus}}</span></div>
+        <div><span>Vehicle Status: {{vehicle.condition}}</span></div>
         <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
         <div><span>Fuel Type: {{vehicle.fuelType}}</span></div>
         <div><span>Color: {{vehicle.color}}</span></div>
@@ -28,11 +28,11 @@
 <!-- <div *ngIf="vehicle">
   <h2>{{vehicle.brand | uppercase}} {{vehicle.model}} Details</h2>
   <div>
-    <span>id: </span>{{vehicle.id}}
+    <span>id: </span>{{vehicle.vhcID}}
   </div>
   <div>
     <mat-form-field>
-      <input matInput [(ngModel)]="vehicle.kmReading" placeholder="Km Reading">
+      <input matInput [(ngModel)]="vehicle.kmreading" placeholder="Km Reading">
     </mat-form-field>
   </div>
   <div>

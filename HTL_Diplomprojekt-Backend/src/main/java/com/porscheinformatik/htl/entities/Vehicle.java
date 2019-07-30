@@ -1,9 +1,10 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Entity
 public class Vehicle {
@@ -11,7 +12,8 @@ public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "VHC_ID")
-    private Long vhc_Id;
+    private Long vhcID;
+
     @Column(name = "VIN")
     private String vin;
     @Column(name = "LICENSE_PLATE")
@@ -21,7 +23,7 @@ public class Vehicle {
     @Column(name = "MODEL")
     private String model;
     @Column(name = "KM_READING")
-    private String mileage;
+    private String kmreading;
     @Column(name = "PRODUCTION_YEAR")
     private String production_year;
     @Column(name = "ENGINE_POWER")
@@ -33,23 +35,49 @@ public class Vehicle {
     @Column(name = "COLOR")
     private String color;
     @Column(name = "SCANNED")
-    private String scanned;
+    private Date scanned;
 
     @OneToMany(mappedBy = "vehicle")
     private List<Appointment> terminList;
 
-    public Vehicle(String brand, String model){
+    public Vehicle(String brand, String model, String vin, String license_plate, String kmreading, String production_year, Integer hp, String status, String fueltype, String color){
         this.brand=brand;
         this.model=model;
-        this.scanned = new SimpleDateFormat("yyyy:MM:dd").format(Calendar.getInstance().getTime());
+        this.vin=vin;
+        this.license_plate=license_plate;
+        this.kmreading = kmreading;
+        this.production_year=production_year;
+        this.hp=hp;
+        this.status=status;
+        this.fueltype=fueltype;
+        this.color=color;
+        this.scanned = Calendar.getInstance().getTime();
     }
 
-    public void setScanned(){this.scanned = new SimpleDateFormat("yyyy:MM:dd").format(Calendar.getInstance().getTime());}
+    public Vehicle(){}
 
-    public String getScanned(){return scanned;}
+    public void setTimeStampBefore(){
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.WEEK_OF_YEAR, -2);
+        this.scanned = cal.getTime();
+    }
 
-    public Long getVhc_Id() {
-        return vhc_Id;
+    public String getLicensePlate() {
+        return license_plate;
+    }
+
+    public void setLicensePlate(String license_plate) {
+        this.license_plate = license_plate;
+    }
+
+    public void setTimeStamp(){
+        this.scanned = Calendar.getInstance().getTime();
+    }
+
+    public Date getScanned(){return scanned;}
+
+    public Long getVhcID() {
+        return vhcID;
     }
 
     public String getBrand() {
@@ -60,15 +88,15 @@ public class Vehicle {
         return model;
     }
 
-    public String getMileage() {
-        return mileage;
+    public String getKmReading() {
+        return kmreading;
     }
 
-    public String getBuildyear() {
+    public String getProductionYear() {
         return production_year;
     }
 
-    public Integer getHp() {
+    public Integer getEnginePower() {
         return hp;
     }
 
@@ -76,7 +104,7 @@ public class Vehicle {
         return status;
     }
 
-    public String getFueltype() {
+    public String getFuelType() {
         return fueltype;
     }
 
@@ -92,11 +120,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public void setMileage(String mileage) {
-        this.mileage = mileage;
+    public void setKmreading(String kmreading) {
+        this.kmreading = kmreading;
     }
 
-    public void setBuildyear(String buildyear) {
+    public void setProductionyear(String buildyear) {
         this.production_year = buildyear;
     }
 
@@ -122,6 +150,12 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle: "+brand+";"+model+";"+mileage+";"+production_year+";"+hp+";"+color;
+        return "Vehicle: "+brand+";"+model+";"+ kmreading +";"+production_year+";"+hp+";"+color;
+    }
+
+    public boolean validateVIN(){
+        String message;
+        if(!Pattern.matches("^[0-9A-Z&&[^IOQ]]{15}$", this.vin)) return false;
+        else return true;
     }
 }

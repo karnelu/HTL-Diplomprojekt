@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BPRepository extends JpaRepository<BP, Long> {
-
     List<BP> findBylastUsedGreaterThan(Date last_used);
 
 }

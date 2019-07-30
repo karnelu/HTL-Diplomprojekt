@@ -1,5 +1,5 @@
 export class Vehicle {
-  id: number;
+  vhcID: number;
   vin: string;
   licencePlate: string;
   brand: string;
@@ -8,6 +8,6 @@ export class Vehicle {
   productionYear: number;
   enginePower: string;
   fuelType: string;
-  vehicleStatus: string;
+  condition: string;
   color: string;
 }

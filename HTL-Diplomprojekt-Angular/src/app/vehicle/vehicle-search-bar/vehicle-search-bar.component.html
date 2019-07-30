@@ -3,7 +3,7 @@
     <mat-icon *ngIf="!vehicleSearchValue" matPrefix>search</mat-icon>
     <mat-icon matPrefix *ngIf="vehicleSearchValue" routerLink="/vehicle">arrow_back</mat-icon>
     <input #searchBox matInput [formControl]="vehicleSearchControl" [matAutocomplete]="auto" placeholder="Search"
-      (input)="vehicleSearch(searchBox.value)">
+      (input)="getVehicles(searchBox.value)">
     <mat-icon matSuffix (click)="onClickDelete()">close</mat-icon>
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand">
