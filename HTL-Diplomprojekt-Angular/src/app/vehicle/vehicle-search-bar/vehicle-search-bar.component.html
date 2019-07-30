@@ -6,8 +6,8 @@
       (input)="getVehicles(searchBox.value)">
     <mat-icon matSuffix (click)="onClickDelete()">close</mat-icon>
     <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand">
-        {{ vehicle.brand }}
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand" routerLink="/vehicle/{{vehicle.vhcID}}">
+        {{ vehicle.brand + ' ' + vehicle.model}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
