@@ -68,7 +68,7 @@ public class BP {
     public void setTimeStamp(){
         this.lastUsed = Calendar.getInstance().getTime();
     }
-    public Date getLast_used(){return lastUsed;}
+    public Date getLastUsed(){return lastUsed;}
 
     public String getName() {
         return name;

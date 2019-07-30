@@ -46,7 +46,7 @@ public class BPController {
 
     @PostMapping("/{id}/update")
     @ResponseBody
-    public Information updateBP(@RequestBody BP bp) {
+    public Information updateBP(@RequestBody BP bp, @PathVariable Long id) {
         try {
             if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
             else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");

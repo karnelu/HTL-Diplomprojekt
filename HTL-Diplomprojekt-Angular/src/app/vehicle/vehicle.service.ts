@@ -9,12 +9,12 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class VehicleService {
 
-  private vehiclesUrl = 'api/vehicles';  // URL to web api
+  private vehiclesUrl = 'http://localhost:8080/vehicle';  // URL to web api
 
   constructor(private http: HttpClient,) { }
 
   getVehicles (): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(this.vehiclesUrl);
+    return this.http.get<Vehicle[]>(this.vehiclesUrl+'/getLastScanned');
   }
 
   /** GET vehicle by id.*/
@@ -23,9 +23,9 @@ export class VehicleService {
   return this.http.get<Vehicle>(url);
   }
 
-  /** PUT: update the vehicle on the server */
+  /** Post: update the vehicle on the server */
   updateVehicle (vehicle: Vehicle): Observable<any> {
-  return this.http.put(this.vehiclesUrl, vehicle, this.httpOptions);
+  return this.http.post(this.vehiclesUrl, vehicle, this.httpOptions);
   }
 
   httpOptions = {
