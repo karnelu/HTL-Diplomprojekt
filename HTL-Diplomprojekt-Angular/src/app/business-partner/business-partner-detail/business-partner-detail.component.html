@@ -1,4 +1,4 @@
-<div class="container-business-partner-detail">
+<div *ngIf="businessPartner">
   <mat-card class="business-partner-detail-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
@@ -13,7 +13,7 @@
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>phone_android</mat-icon>
-        <h4 mat-line>{{businessPartner.tel}}</h4>
+        <h4 mat-line>{{businessPartner.telephone}}</h4>
       </mat-list-item>
       <h3 mat-subheader>Adresse</h3>
       <mat-list-item>

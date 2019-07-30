@@ -17,12 +17,13 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/business-partner")
 public class BPController {
-
+    
     private Information inf;
 
     @Autowired
@@ -45,16 +46,17 @@ public class BPController {
         return bpRepository.findBylastUsedGreaterThan(cal.getTime());
     }
 
-    @PostMapping("/{id}/update")
+    @PostMapping("/update")
     @ResponseBody
-    public Information updateBP(@RequestBody BP bp, @PathVariable Long id) {
+    public String updateBP(@RequestBody BP bp) {
+        String information = "";
         try {
             if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
             else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
             else if(MailValidation.isValid(bp.getEmail())){
                 bpRepository.save(bp);
-                inf.addMessage("Successfully updated!");
-            } else inf.addMessage("Email is not valid!");
+                information = "Successfully updated!";
+            } else information = "Email is not valid!";
         } catch (ConstraintViolationException ex) {
             String message;
             String path;
@@ -65,7 +67,7 @@ public class BPController {
                 inf.addMessage(path, path + " " + message);
             }
         }
-        return inf;
+        return information;
     }
 
     @PostMapping("/new")

@@ -7,7 +7,10 @@ import { Location } from '@angular/common';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {BusinessPartnerEditComponent} from '../business-partner-edit/business-partner-edit.component';
 
+export interface DialogData{
+  businessPartner: BusinessPartner;
 
+}
 
 @Component({
   selector: 'app-business-partner-detail',
@@ -29,13 +32,19 @@ export class BusinessPartnerDetailComponent implements OnInit {
   ) { }
 
   openDialog() {
-    this.dialog.open(BusinessPartnerEditComponent , {
+    const dialogRef = this.dialog.open(BusinessPartnerEditComponent , {
       maxWidth: '100vw',
       height: '100vh',
       hasBackdrop: false,
       panelClass: 'myapp-no-padding-dialog' ,
-       width: '100vw',
+      width: '100vw',
+      data: {businessPartner: this.businessPartner,}
 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.businessPartner = result;
     });
   }
 
@@ -48,6 +57,8 @@ export class BusinessPartnerDetailComponent implements OnInit {
     this.businessPartnerService.getBusinessPartner(id)
       .subscribe(businessPartner => this.businessPartner = businessPartner);
   }
+
+
 
   goBack(): void {
     this.location.back();

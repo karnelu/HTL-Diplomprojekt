@@ -1,49 +1,47 @@
 <app-toolbar-fullscreen-dialog></app-toolbar-fullscreen-dialog>
-<div class="dialog-container">
+<div *ngIf="data.businessPartner" class="dialog-container">
     <mat-card-header>
     <div mat-card-avatar class="example-header-image">  <div mat-card-avatar class="example-header-image2" (click)="clicked()"></div>
 
   </div>
-      <mat-card-title>Lieferant A</mat-card-title>
+      <mat-card-title>{{data.businessPartner.name}}</mat-card-title>
       <mat-card-subtitle>Write Something</mat-card-subtitle>
 
   </mat-card-header>
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>person</mat-icon>
-    <input matInput placeholder="Name">
+    <input matInput [(ngModel)] = "data.businessPartner.name" placeholder="Name">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>email</mat-icon>
-    <input matInput placeholder="Email">
+    <input matInput [(ngModel)] = "data.businessPartner.email"placeholder="Email">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>smartphone</mat-icon>
-    <input matInput placeholder="Tel.Nr">
+    <input matInput [(ngModel)] = "data.businessPartner.telephone"placeholder="Tel.Nr">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>home</mat-icon>
-    <input matInput placeholder="Straße">
+    <input matInput [(ngModel)] = "data.businessPartner.address"placeholder="Straße">
   </mat-form-field>
 
   <div class="home-container">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nr.">
+      <input matInput [(ngModel)] = "data.businessPartner.zip"placeholder="PLZ">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="PLZ">
+      <input matInput [(ngModel)] = "data.businessPartner.country"placeholder="Ort">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Ort">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Land">
+      <input matInput [(ngModel)] = "data.businessPartner.city"placeholder="Land">
     </mat-form-field>
   </div>
   <input type="file" (change)="onFileSelected($event)">
+  <button mat-button (click)="save()">Save</button>
 </div>
 
 

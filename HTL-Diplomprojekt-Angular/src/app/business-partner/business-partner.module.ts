@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppointmentModule } from './../appointment/appointment.module';
 import { NgModule } from '@angular/core';
@@ -45,6 +46,7 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
     CommonModule,
     AppointmentModule,
     ToolbarModule,
+    FormsModule,
     // Angular Material
     ScrollDispatchModule,
     MatDividerModule,
