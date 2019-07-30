@@ -34,14 +34,14 @@ public class BPController {
         bp.setTimeStamp();
         bpRepository.save(bp);
         System.out.println("Yes");
-        return bp;
+        return bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
     }
 
     @GetMapping("/getLastUsed")
     public List<BP> getLastUsed(){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.WEEK_OF_YEAR, -1);
-        return bpRepository.findBylastUsedGreaterThan(cal.getTime());
+        return bpRepository.findLastUsedOrderedDesc(cal.getTime());
     }
 
     @PostMapping("/update")
