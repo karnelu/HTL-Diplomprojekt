@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,15 +46,15 @@ public class BPController {
 
     @PostMapping("/update")
     @ResponseBody
-    public String updateBP(@RequestBody BP bp) {
-        String information = "";
+    public Map<String, String> updateBP(@RequestBody BP bp) {
+        HashMap<String, String> payload = new HashMap<>();
         try {
-            if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
-            else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
+            if (bp.getName().isEmpty()) payload.put("nopath", "Name can't be empty!");
+            else if (bp.getEmail().isEmpty()) payload.put("nopath", "Email can't be empty!");
             else if(MailValidation.isValid(bp.getEmail())){
                 bpRepository.save(bp);
-                information = "Successfully updated!";
-            } else information = "Email is not valid!";
+                payload.put("nopath","Successfully updated!");
+            } else payload.put("nopath","Email is not valid!");
         } catch (ConstraintViolationException ex) {
             String message;
             String path;
@@ -61,18 +62,19 @@ public class BPController {
                 path = cv.getPropertyPath().toString();
                 message = cv.getMessage();
                 path = Character.toUpperCase(path.charAt(0)) + path.substring(1);
-                inf.addMessage(path, path + " " + message);
+                payload.put(path, message);
             }
         }
-        return information;
+        return payload;
     }
 
     @PostMapping("/new")
     @ResponseBody
-    public Information createBP(@RequestBody BP bp) {
+    public Map<String, String> createBP(@RequestBody BP bp) {
+        HashMap<String, String> payload = new HashMap<>();
         try {
-            if (bp.getName().isEmpty()) inf.addMessage("Name can't be empty!");
-             else if (bp.getEmail().isEmpty()) inf.addMessage("Email can't be empty!");
+            if (bp.getName().isEmpty()) payload.put("nopath", "Name can't be empty!");
+             else if (bp.getEmail().isEmpty()) payload.put("nopath", "Email can't be empty!");
              else if (MailValidation.isValid(bp.getEmail())){
                  bpRepository.save(bp);
             }
@@ -83,23 +85,22 @@ public class BPController {
                 path = cv.getPropertyPath().toString();
                 message = cv.getMessage();
                 path = Character.toUpperCase(path.charAt(0)) + path.substring(1);
-                inf.addMessage(path, path + " " + message);
+                payload.put(path, message);
             }
         }
-        return inf;
+        return payload;
     }
 
     @PostMapping("/{id}/upload")
     @ResponseBody
-    public String handleFileUpload(@RequestParam("image") MultipartFile file, @PathVariable Long id) {
+    public Map<String, String> handleFileUpload(@RequestParam("image") MultipartFile file, @PathVariable Long id) {
+        HashMap<String, String> payload = new HashMap<>();
         StorageService storageService = new StorageService();
         storageService.store(file);
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         bp.setImageDir(storageService.getImageLocation());
         bpRepository.save(bp);
-        return "You successfully uploaded " + file.getOriginalFilename() + "!";
+        payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
+        return payload;
     }
-
-
-
 }
