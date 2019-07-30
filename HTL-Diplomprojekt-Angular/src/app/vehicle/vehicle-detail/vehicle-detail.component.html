@@ -1,4 +1,31 @@
 <div *ngIf="vehicle">
+  <div class="container-vehicle-detail">
+    <mat-card class="vehicle-detail-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{vehicle.brand}} {{vehicle.model}}</mat-card-title>
+        <mat-card-subtitle>{{vehicle.vehicleStatus}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
+        <div><span>Production Year: {{vehicle.productionYear}}</span></div>
+        <div><span>Engine Power: {{vehicle.enginePower}}</span></div>
+        <div><span>Vehicle Status: {{vehicle.vehicleStatus}}</span></div>
+        <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
+        <div><span>Fuel Type: {{vehicle.fuelType}}</span></div>
+        <div><span>Color: {{vehicle.color}}</span></div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="openEditDialog()">
+          <mat-icon>edit</mat-icon>
+          EDIT
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<!-- <div *ngIf="vehicle">
   <h2>{{vehicle.brand | uppercase}} {{vehicle.model}} Details</h2>
   <div>
     <span>id: </span>{{vehicle.id}}
@@ -12,4 +39,4 @@
     <button mat-button (click)="goBack()">go back</button>
     <button mat-button (click)="save()">save</button>
   </div>
-</div>
+</div> -->

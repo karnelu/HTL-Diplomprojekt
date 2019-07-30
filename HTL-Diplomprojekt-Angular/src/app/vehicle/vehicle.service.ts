@@ -2,7 +2,7 @@ import { Vehicle } from './vehicle';
 import { Observable , of} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class VehicleService {
 
   private vehiclesUrl = 'api/vehicles';  // URL to web api
+
+  httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
 
   constructor(private http: HttpClient,) { }
 
@@ -27,9 +31,4 @@ export class VehicleService {
   updateVehicle (vehicle: Vehicle): Observable<any> {
   return this.http.put(this.vehiclesUrl, vehicle, this.httpOptions);
   }
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
 }
