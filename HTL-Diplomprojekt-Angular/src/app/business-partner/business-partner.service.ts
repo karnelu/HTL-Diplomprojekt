@@ -34,10 +34,10 @@ export class BusinessPartnerService {
       catchError(this.handleError<BusinessPartner[]>('updateBusinessPartner', [])));
   }
 
-  onUpload(selectedFile: File) {
+  onUpload(selectedFile: File, id: number) {
     const formData = new FormData();
     formData.append('image', selectedFile, selectedFile.name);
-    this.http.post(this.baseURL + 'id/upload', formData).subscribe(res => {
+    this.http.post(this.baseURL + `${id}/upload`, formData).subscribe(res => {
       console.log(res);
     });
 

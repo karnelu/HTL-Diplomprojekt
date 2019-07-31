@@ -7,11 +7,22 @@ import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
 import com.porscheinformatik.htl.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -32,16 +43,14 @@ public class BPController {
     public BP getBP(@PathVariable Long id) {
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         bp.setTimeStamp();
-        bpRepository.save(bp);
-        System.out.println("Yes");
-        return bp;
+        return bpRepository.save(bp);
     }
 
     @GetMapping("/getLastUsed")
     public List<BP> getLastUsed(){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.WEEK_OF_YEAR, -1);
-        return bpRepository.findBylastUsedGreaterThan(cal.getTime());
+        return bpRepository.findLastUsedOrderedDesc(cal.getTime());
     }
 
     @PostMapping("/update")
@@ -98,9 +107,39 @@ public class BPController {
         StorageService storageService = new StorageService();
         storageService.store(file);
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
-        bp.setImageDir(storageService.getImageLocation());
+        bp.setImageDir(file.getOriginalFilename());
         bpRepository.save(bp);
         payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
         return payload;
+    }
+
+    @GetMapping("/{id}/download")
+    @ResponseBody
+    public HttpEntity<byte[]> getBPImage(@PathVariable Long id){
+        String path = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner").toString();
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        BufferedImage bufferedImage;
+        try {
+            File image = new File(path+"/"+bp.getImageDir());
+            if(!image.exists()){
+                File def = new File(path+"/default.jpg");
+                bufferedImage = ImageIO.read(def);
+            }
+            else {
+                bufferedImage = ImageIO.read(image);
+            }
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage, "png", bos);
+            byte[] img = bos.toByteArray();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_PNG);
+            headers.setContentLength(img.length);
+            return new HttpEntity<>(img, headers);
+        } catch (IOException e){
+            System.out.println(e);
+            return null;
+        }
     }
 }

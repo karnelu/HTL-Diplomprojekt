@@ -12,4 +12,7 @@ import java.util.List;
 public interface BPRepository extends JpaRepository<BP, Long> {
     List<BP> findBylastUsedGreaterThan(Date last_used);
 
+    @Query("select b from BP b where b.lastUsed > ?1 order by b.lastUsed desc")
+    List<BP> findLastUsedOrderedDesc(Date lastused);
+
 }
