@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { BusinessPartnerService } from '../business-partner.service';
@@ -14,8 +15,7 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   businessPartners: BusinessPartner[];
   expanded = [];
 
-
-  constructor(private businessPartnerService: BusinessPartnerService) { }
+  constructor(private businessPartnerService: BusinessPartnerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getBusinessPartners();
@@ -26,11 +26,6 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   }
 
   clicked() {
-    console.log("I have been clicked");
+    console.log('I have been clicked');
   }
-
-
-
-
-
 }
