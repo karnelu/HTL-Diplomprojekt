@@ -1,15 +1,26 @@
 <form class="search-container">
   <mat-form-field appearance="outline" floatLabel="never" type="text">
-    <mat-icon *ngIf="!vehicleSearchValue" matPrefix>search</mat-icon>
-    <mat-icon matPrefix *ngIf="vehicleSearchValue" routerLink="/vehicle">arrow_back</mat-icon>
-    <input #searchBox matInput [formControl]="vehicleSearchControl" [matAutocomplete]="auto" placeholder="Search"
-      (input)="getVehicles(searchBox.value)">
-    <mat-icon matSuffix (click)="onClickDelete()">close</mat-icon>
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand" routerLink="/vehicle/{{vehicle.vhcID}}">
-        {{ vehicle.brand + ' ' + vehicle.model}}
-      </mat-option>
-    </mat-autocomplete>
+    <mat-icon matPrefix>search</mat-icon>
+    <input #searchBox matInput placeholder="Search" (input)="searchVehicle(searchBox.value)">
+    <mat-icon matSuffix *ngIf="searchBox.value" (click)="searchBox.value=''">close</mat-icon>
   </mat-form-field>
 </form>
 
+<div *ngIf="vehicles$ | async; let vehicles">
+  <div *ngIf="vehicles.length > 0">
+    <mat-card class="search-card" *ngFor="let vehicle of vehicles">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
+        <mat-card-subtitle>
+          <span>Production Year: {{vehicle.productionYear}} </span>
+          <span>Km Reading: {{vehicle.kmReading}} </span>
+          <span>Engine Power: {{vehicle.enginePower}} </span>
+          <span>Color: {{vehicle.color}} </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <mat-paginator class="sticky-paginator mat-elevation-z4" [length]="vehicles.length" [pageSizeOptions]="[5]" [hidePageSize]="true">
+    </mat-paginator>
+  </div>
+</div>

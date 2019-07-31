@@ -11,7 +11,7 @@ import { VehicleRoutingModule } from './vehicle-routing.module';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatSortModule, MatProgressSpinnerModule, MatTableModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
@@ -24,6 +24,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -68,6 +70,10 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
     MatAutocompleteModule,
     MatSelectModule,
     MatDialogModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
 
     VehicleRoutingModule
   ],
