@@ -29,7 +29,7 @@ export class BusinessPartnerEditComponent implements OnInit {
 
 
   onFileSelected(event) {
-    this.businessPartnerService.onUpload(<File>event.target.files[0]);
+    this.businessPartnerService.onUpload(<File>event.target.files[0], this.data.businessPartner.bpID);
 
   }
 
