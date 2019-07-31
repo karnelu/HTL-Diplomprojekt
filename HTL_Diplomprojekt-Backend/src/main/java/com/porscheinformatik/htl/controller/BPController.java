@@ -43,9 +43,7 @@ public class BPController {
     public BP getBP(@PathVariable Long id) {
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         bp.setTimeStamp();
-        bpRepository.save(bp);
-        System.out.println("Yes");
-        return bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        return bpRepository.save(bp);
     }
 
     @GetMapping("/getLastUsed")
@@ -120,9 +118,17 @@ public class BPController {
     public HttpEntity<byte[]> getBPImage(@PathVariable Long id){
         String path = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner").toString();
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        BufferedImage bufferedImage;
         try {
             File image = new File(path+"/"+bp.getImageDir());
-            BufferedImage bufferedImage = ImageIO.read(image);
+            if(!image.exists()){
+                File def = new File(path+"/default.jpg");
+                bufferedImage = ImageIO.read(def);
+            }
+            else {
+                bufferedImage = ImageIO.read(image);
+            }
+
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             ImageIO.write(bufferedImage, "png", bos);
             byte[] img = bos.toByteArray();
