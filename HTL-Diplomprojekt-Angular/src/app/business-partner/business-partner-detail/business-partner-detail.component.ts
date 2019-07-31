@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessPartnerService } from '../business-partner.service';
 import { switchMap } from "rxjs/operators";
 import { Location } from '@angular/common';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {BusinessPartnerEditComponent} from '../business-partner-edit/business-partner-edit.component';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BusinessPartnerEditComponent } from '../business-partner-edit/business-partner-edit.component';
 
-export interface DialogData{
+export interface DialogData {
   businessPartner: BusinessPartner;
 
 }
@@ -31,20 +31,23 @@ export class BusinessPartnerDetailComponent implements OnInit {
     private dialog: MatDialog,
   ) { }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(BusinessPartnerEditComponent , {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BusinessPartnerEditComponent, {
       maxWidth: '100vw',
       height: '100vh',
       hasBackdrop: false,
-      panelClass: 'myapp-no-padding-dialog' ,
+      panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
-      data: {businessPartner: this.businessPartner,}
+      data: { businessPartner: this.businessPartner, }
 
     });
-
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.beforeClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.businessPartner = result;
+      if (!result) {
+        this.businessPartner = result;
+      } else {
+        this.getBusinessPartner();
+      }
     });
   }
 
@@ -57,8 +60,6 @@ export class BusinessPartnerDetailComponent implements OnInit {
     this.businessPartnerService.getBusinessPartner(id)
       .subscribe(businessPartner => this.businessPartner = businessPartner);
   }
-
-
 
   goBack(): void {
     this.location.back();

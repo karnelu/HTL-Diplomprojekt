@@ -31,3 +31,21 @@
 .home-container{
   padding-left: 36px;
 }
+
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+  opacity: 0;
+  background-color: black;
+
+  z-index: -1;
+
+}
+
+.mat-card-avatar mat-icon{
+ padding-left: 8px;
+ padding-top: 8px;
+
+}
