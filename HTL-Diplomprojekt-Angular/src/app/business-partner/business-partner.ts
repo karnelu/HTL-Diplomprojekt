@@ -2,7 +2,7 @@ export class BusinessPartner {
   bpID: number;
   name: string;
   email: string;
-  tel: number;
+  telephone: number;
   address: string;
   city: string;
   zip: number;

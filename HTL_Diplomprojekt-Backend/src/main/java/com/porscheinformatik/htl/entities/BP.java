@@ -50,11 +50,6 @@ public class BP {
         this.lastUsed = Calendar.getInstance().getTime();
     }
 
-    public BP(String name, String email){
-        this.name=name;
-        this.email=email;
-    }
-
     public Long getbpID() {
         return bpID;
     }
@@ -97,7 +92,7 @@ public class BP {
     public String getCity(){return city;
     }
 
-    public void setName(String Name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -131,6 +126,12 @@ public class BP {
 
     public String getImageDir(){
         return imageDir;
+    }
+
+    public void setBpID(Long id){this.bpID=id;}
+
+    public void setCity(String city){
+        this.city=city;
     }
 
     @Override

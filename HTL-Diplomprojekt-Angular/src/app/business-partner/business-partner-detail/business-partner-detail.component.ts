@@ -4,10 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessPartnerService } from '../business-partner.service';
 import { switchMap } from "rxjs/operators";
 import { Location } from '@angular/common';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {BusinessPartnerEditComponent} from '../business-partner-edit/business-partner-edit.component';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BusinessPartnerEditComponent } from '../business-partner-edit/business-partner-edit.component';
 
+export interface DialogData {
+  businessPartner: BusinessPartner;
 
+}
 
 @Component({
   selector: 'app-business-partner-detail',
@@ -28,14 +31,23 @@ export class BusinessPartnerDetailComponent implements OnInit {
     private dialog: MatDialog,
   ) { }
 
-  openDialog() {
-    this.dialog.open(BusinessPartnerEditComponent , {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(BusinessPartnerEditComponent, {
       maxWidth: '100vw',
       height: '100vh',
       hasBackdrop: false,
-      panelClass: 'myapp-no-padding-dialog' ,
-       width: '100vw',
+      panelClass: 'myapp-no-padding-dialog',
+      width: '100vw',
+      data: { businessPartner: this.businessPartner, }
 
+    });
+    dialogRef.beforeClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (!result) {
+        this.businessPartner = result;
+      } else {
+        this.getBusinessPartner();
+      }
     });
   }
 

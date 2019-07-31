@@ -33,7 +33,16 @@ public class VHCController {
     public List<Vehicle> getLastUsedVHC(){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.WEEK_OF_YEAR, -1);
-        return vhcRepo.findByScannedGreaterThan(cal.getTime());
+        List<Vehicle> list = vhcRepo.findLastScanned(cal.getTime());
+        if(list.size() > 10){
+            int i = list.size()-1;
+            while(i>=10){
+                list.remove(i);
+                i--;
+            }
+        }
+
+        return list;
     }
 
     @PostMapping("/{id}/update")
@@ -50,7 +59,7 @@ public class VHCController {
 
     @PostMapping("/new")
     @ResponseBody
-    public Information createBP(@RequestBody Vehicle vhc) {
+    public Information createVHC(@RequestBody Vehicle vhc) {
         try {
             if(!vhc.validateVIN()) inf.addMessage("VIN not Valid");
             else if(vhc.getLicensePlate().isEmpty()) inf.addMessage("Licenseplate is empty");
@@ -73,7 +82,7 @@ public class VHCController {
 
     @GetMapping("/search")
     public List<Vehicle> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
-        return vhcRepo.findByBrandContaining(query);
+        return vhcRepo.findAllContaining(query);
     }
 
 }

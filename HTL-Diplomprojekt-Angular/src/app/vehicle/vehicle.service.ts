@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class VehicleService {
 
   private vehiclesUrl = 'http://localhost:8080/vehicle';
-  private searchVehicleURL = 'http://localhost:8080/vehicle/search?type=name&q=';
+  private searchVehicleURL = 'http://localhost:8080/vehicle/search?type=brand&q=';
 
   httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
