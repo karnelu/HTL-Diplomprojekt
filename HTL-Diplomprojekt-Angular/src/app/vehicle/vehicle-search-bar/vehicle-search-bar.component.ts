@@ -1,7 +1,10 @@
 import { VehicleService } from './../vehicle.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Vehicle } from '../vehicle';
 import { FormControl } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-vehicle-search-bar',
@@ -10,22 +13,43 @@ import { FormControl } from '@angular/forms';
 })
 export class VehicleSearchBarComponent implements OnInit {
 
-  vehicleSearchControl = new FormControl();
-  vehicles: Vehicle[] = [];
-  vehicleSearchValue: string;
+  vehicles$: Observable<Vehicle[]>;
+  private vehicleSearchTerms = new Subject<string>();
 
-  constructor(private vehicleService: VehicleService) { }
+  @ViewChild(MatPaginator, { static: true })
+  paginator: MatPaginator;
+  dataSource: MatTableDataSource<Vehicle> = new MatTableDataSource<Vehicle>();
+
+  constructor(
+    private vehicleService: VehicleService,
+    private changeDetectorRef: ChangeDetectorRef
+    ) {}
 
   ngOnInit() {
+    this.changeDetectorRef.detectChanges();
+    this.dataSource.paginator = this.paginator;
+    
+    this.vehicles$ = this.dataSource.connect();
+    this.vehicles$ = this.vehicleSearchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+ 
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+ 
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.vehicleService.searchVehicle(term)),
+    );
   }
 
-  onClickDelete() {
-    this.vehicleSearchValue = null;
+  ngOnDestroy() {
+    if (this.dataSource) { 
+      this.dataSource.disconnect(); 
+    }
   }
 
-  getVehicles(query: String): void {
-    this.vehicleService
-      .searchVHC(query)
-      .subscribe(vehicles => this.vehicles = vehicles);
+  searchVehicle(term: string): void {
+    this.vehicleSearchTerms.next(term);
   }
 }
+
