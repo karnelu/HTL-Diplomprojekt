@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessPartnerService } from '../business-partner.service';
@@ -18,6 +18,8 @@ export interface DialogData {
   styleUrls: ['./business-partner-detail.component.css']
 })
 export class BusinessPartnerDetailComponent implements OnInit {
+
+  @Output()
 
   items = Array.from({ length: 10 }).map((_, i) => `Item #${i}`);
 

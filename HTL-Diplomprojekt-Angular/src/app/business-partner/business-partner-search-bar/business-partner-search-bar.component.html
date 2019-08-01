@@ -1,0 +1,33 @@
+
+  <div class="search-field">
+      <form class="search-field-container">
+        <mat-form-field appearance="outline" floatLabel="never" type="text">
+          <mat-icon matPrefix>search</mat-icon>
+          <input #searchBox matInput placeholder="Search" (input)="searchBusinessPartner(searchBox.value)" autocomplete="off">
+          <mat-icon matSuffix *ngIf="searchBox.value" (click)="searchBusinessPartner(''); searchBox.value=''">close</mat-icon>
+        </mat-form-field>
+      </form>
+      </div>
+
+      <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+        <mat-card class="search-card" *cdkVirtualFor="let businessPartner of businessPartners$ | async" routerLink="/business-partner/{{businessPartner}}">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ businessPartner.brand + ' ' + businessPartner.model}}</mat-card-title>
+            <mat-card-subtitle>
+              <span>License Plate: {{businessPartner.licensePlate}} </span>
+              <span>Production Year: {{businessPartner.productionYear}} </span>
+              <span>Km Reading: {{businessPartner.kmReading}} </span>
+              <span>Engine Power: {{businessPartner.enginePower}} </span>
+              <span>Color: {{businessPartner.color}} </span>
+            </mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </cdk-virtual-scroll-viewport>
+
+      <mat-paginator class="sticky-paginator mat-elevation-z4" [pageSizeOptions]="[5]" [hidePageSize]="true">
+      </mat-paginator>
+
+
+
+

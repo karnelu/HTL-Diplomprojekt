@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusinessPartnerService } from '../business-partner.service';
 import { BusinessPartner } from '../business-partner';
@@ -13,6 +13,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./business-partner-edit.component.css']
 })
 export class BusinessPartnerEditComponent implements OnInit {
+
+
+  @Output() onSave: EventEmitter<any> = new EventEmitter();
 
   selectedFile: File = null;
 
@@ -38,6 +41,7 @@ export class BusinessPartnerEditComponent implements OnInit {
 
   save(): void {
 
+    this.onSave.emit(this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose()));
     if (this.fileSelected === true) {
       this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
       this.businessPartnerService.onUpload(this.selectedFile, this.data.businessPartner.bpID);

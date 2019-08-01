@@ -28,4 +28,6 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   clicked() {
     console.log('I have been clicked');
   }
+
+
 }

@@ -2,13 +2,27 @@
   <h3>Last Used Business Partners</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
     <mat-card *ngFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}">
-      <img mat-card-image src= "http://localhost:8080/business-partner/{{businessPartner.bpID}}/download" alt="photo" (click)="clicked()"
-        routerLink="/business-partner/{{businessPartner.bpID}}">
-      <div class="card-content">
-      <p>{{businessPartner.name}}</p>
+      <img mat-card-image src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/download" alt="photo"
+        (click)="clicked()" routerLink="/business-partner/{{businessPartner.bpID}}">
+      <div *ngIf="!expanded[i]" class="card-content">
+        <p class="card-content-name">{{businessPartner.name}}</p>
+        <mat-icon *ngIf="!expanded[i]" class="mat-icon-expand" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
+        <mat-icon *ngIf="expanded[i]" class="mat-icon-expand" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
+      </div>
+      <div *ngIf="expanded[i]" class="card-content">
+        <p class="card-content-name">{{businessPartner.name}}</p>
+        <mat-icon *ngIf="!expanded[i]" class="mat-icon-expand" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
+        <mat-icon *ngIf="expanded[i]" class="mat-icon-expand" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
+        <div class="card-description">
 
-      <mat-icon *ngIf="!expanded[i]" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
-       <mat-icon *ngIf="expanded[i]" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
+            <mat-icon mat-list-icon>email</mat-icon>
+            <p mat-line> {{businessPartner.telephone}}</p>
+
+            <mat-icon mat-list-icon>smartphone
+            </mat-icon>
+            <p mat-line> {{businessPartner.email}}}</p>
+
+        </div>
       </div>
     </mat-card>
   </cdk-virtual-scroll-viewport>

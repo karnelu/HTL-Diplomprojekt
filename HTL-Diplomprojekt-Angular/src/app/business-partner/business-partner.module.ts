@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppointmentModule } from './../appointment/appointment.module';
 import { NgModule } from '@angular/core';
@@ -30,6 +30,46 @@ import { BusinessPartnerEditComponent } from './business-partner-edit/business-p
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { ToolbarFullscreenDialogComponent } from '../toolbar/toolbar-fullscreen-dialog/toolbar-fullscreen-dialog.component';
 import { ToolbarModule } from '../toolbar/toolbar.module';
+import { BusinessPartnerSearchBarComponent } from './business-partner-search-bar/business-partner-search-bar.component';
+
+
+
+
+
+
+import { MatSortModule, MatProgressSpinnerModule, MatTableModule } from '@angular/material';
+
+import { MatMenuModule } from '@angular/material/menu';
+
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
+import { MatExpansionModule } from '@angular/material/expansion';
+
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BusinessPartnerDetailFabComponent } from './business-partner-detail-fab/business-partner-detail-fab.component';
+
+import {OverlayModule} from '@angular/cdk/overlay';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @NgModule({
@@ -37,16 +77,24 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
     BusinessPartnerDetailComponent,
     BusinessPartnerLastUsedComponent,
     BusinessPartnerEditComponent,
+    BusinessPartnerSearchBarComponent,
+    BusinessPartnerDetailFabComponent,
 
   ],
   exports: [
+    BusinessPartnerDetailComponent,
     BusinessPartnerLastUsedComponent,
+    BusinessPartnerEditComponent,
+    BusinessPartnerSearchBarComponent,
+    BusinessPartnerDetailFabComponent,
   ],
   imports: [
     CommonModule,
     AppointmentModule,
     ToolbarModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     // Angular Material
     ScrollDispatchModule,
     MatDividerModule,
@@ -59,6 +107,16 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
     MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatMenuModule,
+    ScrollingModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatPaginatorModule,OverlayModule,
+
     // Angular Flex
     FlexLayoutModule,
 
@@ -74,3 +132,5 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
   entryComponents: [BusinessPartnerEditComponent],
 })
 export class BusinessPartnerModule { }
+
+

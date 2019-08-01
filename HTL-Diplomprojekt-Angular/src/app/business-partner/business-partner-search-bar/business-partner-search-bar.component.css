@@ -1,0 +1,33 @@
+.search-field-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.search-field-container > * {
+  width: 100vw;
+}
+
+.search-field {
+  height: 56px;
+}
+
+.search-card {
+  margin: 8px;
+}
+
+.example-viewport {
+  height: calc(100vh - 170px);
+  width: 100vw;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.mat-card-avatar {
+  margin-bottom: auto;
+  margin-top: auto;
+}

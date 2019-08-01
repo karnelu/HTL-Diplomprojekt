@@ -1,36 +1,46 @@
 mat-card {
   height: 150px;
   margin-left: 16px;
-  transition: 1s;
+  transition: 0.4s;
 }
 mat-card.expanded {
   height: 250px;
 }
 
-.mat-card-image{
-
+.mat-card-image {
   height: 128px;
   width: 128px;
   margin-bottom: 0;
 }
 
-
-
-
-.card-content{
+.card-content {
   position: absolute;
   left: 8px;
   right: 8px;
 }
-.card-content p{
+.card-content .card-content-name {
   margin-bottom: 0;
   width: 88px;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
-.card-content mat-icon{
+.card-content .mat-icon-expand {
   position: absolute;
   left: 88px;
-  top:20px;
+  top: 20px;
+}
+
+.card-description {
+  padding-top: 16px;
+}
+.card-description mat-icon {
+  transform: scale(0.75);
+  position: relative;
+}
+.card-description p {
+  position: relative;
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }

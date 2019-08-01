@@ -15,10 +15,6 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 })
 export class VehicleSearchBarComponent implements OnInit {
 
-  
-
-  
-  
   private vehicleSearchTerms = new Subject<string>();
 
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
@@ -38,19 +34,19 @@ export class VehicleSearchBarComponent implements OnInit {
     this.vehicleSearchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
- 
+
       // ignore new term if same as previous term
       distinctUntilChanged(),
- 
+
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.vehicleService.searchVehicle(term))).subscribe(vehicles => this.dataSource.data = vehicles);
   }
 
 
-  
+
   ngOnDestroy() {
-    if (this.dataSource) { 
-      this.dataSource.disconnect(); 
+    if (this.dataSource) {
+      this.dataSource.disconnect();
     }
   }
 
