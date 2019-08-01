@@ -60,16 +60,17 @@ public class VHCController {
         return list;
     }
 
-    @PostMapping("/{id}/update")
+    @PostMapping("/update")
     @ResponseBody
-    public Information updateVHC(@PathVariable Long id, @RequestParam Vehicle vhc){
-            if(!vhc.validateVIN()) inf.addMessage("VIN not Valid");
-            else if(vhc.getLicensePlate().isEmpty()) inf.addMessage("Licenseplate is empty");
+    public Map<String, String>  updateVHC(@RequestBody Vehicle vhc){
+        HashMap<String, String> payload = new HashMap<>();
+            if(!vhc.validateVIN()) payload.put("nopath", "VIN not valid");
+            else if(vhc.getLicensePlate().isEmpty()) payload.put("nopath", "Licenseplate is empty");
             else {
                 vhcRepo.save(vhc);
-                inf.addMessage("Successfully Updated");
+                payload.put("nopath","Successfully updated!");
             }
-        return inf;
+        return payload;
     }
 
     @PostMapping("/new")
