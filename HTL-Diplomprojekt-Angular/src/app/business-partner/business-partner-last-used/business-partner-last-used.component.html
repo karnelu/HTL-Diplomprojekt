@@ -4,14 +4,12 @@
     <mat-card *ngFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}">
       <img mat-card-image src= "http://localhost:8080/business-partner/{{businessPartner.bpID}}/download" alt="photo" (click)="clicked()"
         routerLink="/business-partner/{{businessPartner.bpID}}">
-      <mat-card-content>
-        <mat-card-actions>{{businessPartner.name}}
-          <button mat-icon-button>
-            <mat-icon *ngIf="!expanded[i]" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
-            <mat-icon *ngIf="expanded[i]" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card-content>
+      <div class="card-content">
+      <p>{{businessPartner.name}}</p>
+
+      <mat-icon *ngIf="!expanded[i]" (click)="expanded[i]=!expanded[i]">expand_more</mat-icon>
+       <mat-icon *ngIf="expanded[i]" (click)="expanded[i]=!expanded[i]">expand_less</mat-icon>
+      </div>
     </mat-card>
   </cdk-virtual-scroll-viewport>
 </div>

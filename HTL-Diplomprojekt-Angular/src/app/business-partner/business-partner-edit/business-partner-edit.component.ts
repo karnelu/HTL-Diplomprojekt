@@ -48,7 +48,6 @@ export class BusinessPartnerEditComponent implements OnInit {
   }
 
 
-
   dialogclose(): void {
     this.dialogRef.close(this.data.businessPartner);
   }

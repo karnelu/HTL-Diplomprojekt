@@ -1,5 +1,5 @@
 mat-card {
-  height: 165px;
+  height: 150px;
   margin-left: 16px;
   transition: 1s;
 }
@@ -8,6 +8,29 @@ mat-card.expanded {
 }
 
 .mat-card-image{
-  min-height: 128px;
-  min-width: 128px;;
+
+  height: 128px;
+  width: 128px;
+  margin-bottom: 0;
+}
+
+
+
+
+.card-content{
+  position: absolute;
+  left: 8px;
+  right: 8px;
+}
+.card-content p{
+  margin-bottom: 0;
+  width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.card-content mat-icon{
+  position: absolute;
+  left: 88px;
+  top:20px;
 }

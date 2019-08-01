@@ -19,18 +19,14 @@
 
 /* Defining the Input invisible */
 .inputfile {
-  width: 0.1px;
-  height: 0.1px;
+  width: 0px;
+  height: 0px;
   opacity: 0;
   background-color: black;
   z-index: -1;
 }
 
+
+
 /* Positioning the Input "Button" in MatCardAvatar */
-label .mat-avatar-icon {
-  position: absolute;
-  left: 16px;
-  padding-left: 8px;
-  padding-top: 8px;
-  z-index: 10;
-}
+
