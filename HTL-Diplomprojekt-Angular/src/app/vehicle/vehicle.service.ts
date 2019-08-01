@@ -36,7 +36,7 @@ export class VehicleService {
 
   searchVehicle(query: string): Observable<Vehicle[]> {
     if (!query.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty vehicles array.
       return of([]);
     }
     return this.http.get<Vehicle[]>(this.searchVehicleURL + query).pipe(
