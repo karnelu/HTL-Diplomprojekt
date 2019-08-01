@@ -2,7 +2,7 @@
   <h3>Last Used Business Partners</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
     <mat-card *ngFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}">
-      <img mat-card-image src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/download" alt="photo"
+      <img mat-card-image src="http://localhost:8080/business-partner/{{businessPartner.bpID}}//download" alt="photo"
         (click)="clicked()" routerLink="/business-partner/{{businessPartner.bpID}}">
       <div *ngIf="!expanded[i]" class="card-content">
         <p class="card-content-name">{{businessPartner.name}}</p>

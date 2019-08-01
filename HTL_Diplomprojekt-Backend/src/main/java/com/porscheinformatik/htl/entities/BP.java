@@ -120,8 +120,8 @@ public class BP {
         return terminList;
     }
 
-    public void setImageDir(String path){
-        this.imageDir = path;
+    public void setImageDir(String name){
+        this.imageDir = name;
     }
 
     public String getImageDir(){

@@ -1,10 +1,7 @@
 <div *ngIf="businessPartner">
   <mat-card class="business-partner-detail-card">
     <mat-card-header>
-
-          <img matCardAvatar src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/download">
-
-
+          <img matCardAvatar src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/getAvatar">
       <mat-card-title>{{businessPartner.name}}</mat-card-title>
       <mat-card-subtitle>Write something</mat-card-subtitle>
     </mat-card-header>

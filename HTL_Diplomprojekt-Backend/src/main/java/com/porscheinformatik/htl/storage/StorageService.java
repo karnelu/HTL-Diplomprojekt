@@ -13,15 +13,13 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 public class StorageService {
-
-    private final Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner");
-    private String location;
+    private String filename;
 
     public  StorageService() {}
 
-    public void store(MultipartFile file){
-        String filename = StringUtils.cleanPath(file.getOriginalFilename());
-        location=rootLocation +filename;
+    public boolean storeBP(MultipartFile file, Long id){
+        Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner");
+        filename = "avatar_" +id.toString() + ".jpg";
 
         try{
             if(file.isEmpty()){
@@ -33,16 +31,42 @@ public class StorageService {
                 //                                + filename);
             }
             try(InputStream inputStream = file.getInputStream()){
-                Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(inputStream, rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+                return true;
             }
 
         } catch (IOException e) {
             //throw new StorageException("Failed to store file " + filename, e);
+            return false;
+        }
+    }
+
+    public boolean storeVHC(MultipartFile file, Long id){
+        Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/vehicle");
+        filename = "avatar_" +id.toString() + ".jpg";
+
+        try{
+            if(file.isEmpty()){
+                //throw new StorageException("Failed to store empty file " + filename);
+            }
+            if(filename.contains("..")) {
+                //throw new StorageException(
+                //                        "Cannot store file with relative path outside current directory "
+                //                                + filename);
+            }
+            try(InputStream inputStream = file.getInputStream()){
+                Files.copy(inputStream, rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+                return true;
+            }
+
+        } catch (IOException e) {
+            //throw new StorageException("Failed to store file " + filename, e);
+            return false;
         }
     }
 
     public String getImageLocation(){
-        return location;
+        return filename;
     }
 
 }

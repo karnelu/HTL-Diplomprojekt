@@ -15,8 +15,7 @@ import { Location } from '@angular/common';
 export class BusinessPartnerEditComponent implements OnInit {
 
 
-  @Output() onSave: EventEmitter<any> = new EventEmitter();
-
+  @Output() saveFkt = new EventEmitter<void>();
   selectedFile: File = null;
 
   // This Variable checks if you selected a File
@@ -40,8 +39,6 @@ export class BusinessPartnerEditComponent implements OnInit {
   }
 
   save(): void {
-
-    this.onSave.emit(this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose()));
     if (this.fileSelected === true) {
       this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
       this.businessPartnerService.onUpload(this.selectedFile, this.data.businessPartner.bpID);

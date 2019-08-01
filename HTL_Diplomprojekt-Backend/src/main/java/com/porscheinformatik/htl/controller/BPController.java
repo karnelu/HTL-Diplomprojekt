@@ -105,15 +105,19 @@ public class BPController {
     public Map<String, String> handleFileUpload(@RequestParam("image") MultipartFile file, @PathVariable Long id) {
         HashMap<String, String> payload = new HashMap<>();
         StorageService storageService = new StorageService();
-        storageService.store(file);
-        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
-        bp.setImageDir(file.getOriginalFilename());
-        bpRepository.save(bp);
-        payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
+        if (storageService.storeBP(file, id)){
+            BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+            bp.setImageDir(storageService.getImageLocation());
+            bpRepository.saveAndFlush(bp);
+            payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
+        } else {
+            payload.put("nopath", "Upload failed " + file.getOriginalFilename() + "!");
+        }
+
         return payload;
     }
 
-    @GetMapping("/{id}/download")
+    @GetMapping("/{id}/getAvatar")
     @ResponseBody
     public HttpEntity<byte[]> getBPImage(@PathVariable Long id){
         String path = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner").toString();
@@ -128,7 +132,6 @@ public class BPController {
             else {
                 bufferedImage = ImageIO.read(image);
             }
-
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             ImageIO.write(bufferedImage, "png", bos);
             byte[] img = bos.toByteArray();
