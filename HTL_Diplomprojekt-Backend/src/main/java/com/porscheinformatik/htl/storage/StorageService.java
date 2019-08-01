@@ -15,13 +15,12 @@ import java.nio.file.StandardCopyOption;
 public class StorageService {
 
     private final Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/business-partner");
-    private String location;
+    private String filename;
 
     public  StorageService() {}
 
-    public void store(MultipartFile file){
-        String filename = StringUtils.cleanPath(file.getOriginalFilename());
-        location=rootLocation +filename;
+    public boolean store(MultipartFile file, Long id){
+         filename = "avatar_" +id.toString() + ".jpg";
 
         try{
             if(file.isEmpty()){
@@ -34,15 +33,17 @@ public class StorageService {
             }
             try(InputStream inputStream = file.getInputStream()){
                 Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
+                return true;
             }
 
         } catch (IOException e) {
             //throw new StorageException("Failed to store file " + filename, e);
+            return false;
         }
     }
 
     public String getImageLocation(){
-        return location;
+        return filename;
     }
 
 }
