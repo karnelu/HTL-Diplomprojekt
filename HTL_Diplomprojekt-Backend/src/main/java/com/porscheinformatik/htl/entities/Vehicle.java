@@ -40,6 +40,9 @@ public class Vehicle {
     @OneToMany(mappedBy = "vehicle")
     private List<Appointment> terminList;
 
+    @Column(name="IMAGE")
+    private String imageDir;
+
     public Vehicle(String brand, String model, String vin, String license_plate, String kmreading, String production_year, Integer hp, String status, String fueltype, String color){
         this.brand=brand;
         this.model=model;
@@ -146,6 +149,14 @@ public class Vehicle {
 
     public List<Appointment> getTerminlist(){
         return terminList;
+    }
+
+    public void setImageDir(String name){
+        this.imageDir = name;
+    }
+
+    public String getImageDir(){
+        return imageDir;
     }
 
     @Override

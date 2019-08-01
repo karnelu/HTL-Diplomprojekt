@@ -105,7 +105,7 @@ public class BPController {
     public Map<String, String> handleFileUpload(@RequestParam("image") MultipartFile file, @PathVariable Long id) {
         HashMap<String, String> payload = new HashMap<>();
         StorageService storageService = new StorageService();
-        if (storageService.store(file, id)){
+        if (storageService.storeBP(file, id)){
             BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
             bp.setImageDir(storageService.getImageLocation());
             bpRepository.saveAndFlush(bp);

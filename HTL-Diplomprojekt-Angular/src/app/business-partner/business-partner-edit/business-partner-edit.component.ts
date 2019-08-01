@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusinessPartnerService } from '../business-partner.service';
 import { BusinessPartner } from '../business-partner';
@@ -14,6 +14,8 @@ import { Location } from '@angular/common';
 })
 export class BusinessPartnerEditComponent implements OnInit {
 
+
+  @Output() saveFkt = new EventEmitter<void>();
   selectedFile: File = null;
 
   // This Variable checks if you selected a File

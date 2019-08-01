@@ -43,11 +43,7 @@ export class BusinessPartnerDetailComponent implements OnInit {
     });
     dialogRef.beforeClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if (!result) {
-        this.businessPartner = result;
-      } else {
         this.getBusinessPartner();
-      }
     });
   }
 
