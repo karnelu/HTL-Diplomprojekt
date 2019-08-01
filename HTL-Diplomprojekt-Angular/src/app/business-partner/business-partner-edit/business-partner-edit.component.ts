@@ -7,7 +7,6 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dial
 import { DialogData } from '../business-partner-detail/business-partner-detail.component';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'app-business-partner-edit',
   templateUrl: './business-partner-edit.component.html',
@@ -15,38 +14,43 @@ import { Location } from '@angular/common';
 })
 export class BusinessPartnerEditComponent implements OnInit {
 
+  selectedFile: File = null;
+
+  // This Variable checks if you selected a File
+  fileSelected: boolean;
 
 
 
   constructor(
     private location: Location,
     public dialogRef: MatDialogRef<BusinessPartnerEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private businessPartnerService: BusinessPartnerService,  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private businessPartnerService: BusinessPartnerService, ) { }
 
   ngOnInit() {
-
-
   }
 
-
   onFileSelected(event) {
-    this.businessPartnerService.onUpload(<File>event.target.files[0], this.data.businessPartner.bpID);
+
+    this.selectedFile = <File>event.target.files[0];
+    this.fileSelected = true;
 
   }
 
   save(): void {
-    this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
+
+    if (this.fileSelected === true) {
+      this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
+      this.businessPartnerService.onUpload(this.selectedFile, this.data.businessPartner.bpID);
+    } else {
+      this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
+    }
+
   }
 
 
 
-  clicked() {
-    console.log("I have been clicked");
-  }
-  dialogclose(): void{
+  dialogclose(): void {
     this.dialogRef.close(this.data.businessPartner);
   }
-
-
 }
 

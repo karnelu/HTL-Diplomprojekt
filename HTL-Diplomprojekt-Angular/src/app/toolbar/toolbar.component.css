@@ -39,3 +39,7 @@ mat-toolbar {
 .mat-list-item span {
   padding-left: 32px;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}

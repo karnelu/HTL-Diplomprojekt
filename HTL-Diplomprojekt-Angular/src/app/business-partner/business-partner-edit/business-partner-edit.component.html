@@ -1,12 +1,15 @@
 <app-toolbar-fullscreen-dialog></app-toolbar-fullscreen-dialog>
 <div *ngIf="data.businessPartner" class="dialog-container">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"> <input type="file" name="file" id="file" class="inputfile"
-        (change)="onFileSelected($event)" />
+
+    <img matCardAvatar src="http://localhost:8080/business-partner/{{data.businessPartner.bpID}}/download">
+    <input type="file" name="file" id="file" class="inputfile"
+       (change)="onFileSelected($event)"  />
       <label for="file">
-        <mat-icon>camera_alt</mat-icon>
+        <mat-icon class="mat-avatar-icon">camera_alt</mat-icon>
       </label>
-    </div>
+
+
     <mat-card-title>{{data.businessPartner.name}}</mat-card-title>
     <mat-card-subtitle>Write Something</mat-card-subtitle>
   </mat-card-header>
@@ -42,5 +45,5 @@
       <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Land">
     </mat-form-field>
   </div>
-  <button mat-button (click)="save()"> Save</button>
+  <button mat-button  (click)="save()"> Save</button>
 </div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpEventType } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { BusinessPartner } from './business-partner';
@@ -37,21 +37,32 @@ export class BusinessPartnerService {
   onUpload(selectedFile: File, id: number) {
     const formData = new FormData();
     formData.append('image', selectedFile, selectedFile.name);
-    this.http.post(this.baseURL + `${id}/upload`, formData).subscribe(res => {
-      console.log(res);
-    });
+    this.http.post(this.baseURL + `${id}/upload`, formData, {
+      reportProgress: true,
+      observe: 'events',
+    })
+      .subscribe(res => {
+       /*  if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress' + Math.round(event.loaded / event.total) * 100 + '%');
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+        } */
+        console.log(res);
+
+      });
 
   }
-    handleError<T>(operation = 'operation', result ?: T) {
-      return (error: any): Observable<T> => {
 
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
+  handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
 
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-      };
-    }
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
 
 }

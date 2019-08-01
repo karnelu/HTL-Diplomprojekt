@@ -1,51 +1,36 @@
-
-.dialog-container{
- margin: 16px;
-}
-
-.example-header-image {
-  background-image: url("/assets/img/PICA.jpg");
- /*  background-image: url("/assets/img/baseline_camera_alt_black_48dp.png"); */
-  background-size: cover;
-  border: 1px solid black;
-}
-
-.example-header-image2{
-  background-image: url("/assets/img/baseline_camera_alt_black_48dp.png");
-  background-size: cover;
+.dialog-container {
+  margin: 16px;
 }
 
 .example-form {
   width: 100%;
 }
 
-
-.description-icon{
+.description-icon {
   padding-right: 12px;
 }
 .example-full-width {
-
   width: 100%;
 }
 
-.home-container{
+.home-container {
   padding-left: 36px;
 }
 
-
-
+/* Defining the Input invisible */
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
+  width: 0.1px;
+  height: 0.1px;
   opacity: 0;
   background-color: black;
-
   z-index: -1;
-
 }
 
-.mat-card-avatar mat-icon{
- padding-left: 8px;
- padding-top: 8px;
-
+/* Positioning the Input "Button" in MatCardAvatar */
+label .mat-avatar-icon {
+  position: absolute;
+  left: 16px;
+  padding-left: 8px;
+  padding-top: 8px;
+  z-index: 10;
 }

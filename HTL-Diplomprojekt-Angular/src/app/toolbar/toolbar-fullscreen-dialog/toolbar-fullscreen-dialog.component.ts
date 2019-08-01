@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+
+import { Component, OnInit, Input,} from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-fullscreen-dialog',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarFullscreenDialogComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
+
 
 }
