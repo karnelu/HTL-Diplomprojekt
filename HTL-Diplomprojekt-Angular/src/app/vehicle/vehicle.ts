@@ -1,7 +1,7 @@
 export class Vehicle {
   vhcID: number;
   vin: string;
-  licencePlate: string;
+  licensePlate: string;
   brand: string;
   model: string;
   kmReading: number;

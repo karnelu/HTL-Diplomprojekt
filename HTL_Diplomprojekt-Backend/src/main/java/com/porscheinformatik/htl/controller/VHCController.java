@@ -82,6 +82,7 @@ public class VHCController {
 
     @GetMapping("/search")
     public List<Vehicle> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
+        query.toLowerCase();
         return vhcRepo.findAllContaining(query);
     }
 

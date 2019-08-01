@@ -74,6 +74,7 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
     MatTableModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    
 
     VehicleRoutingModule
   ],

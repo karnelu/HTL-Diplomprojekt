@@ -38,7 +38,7 @@ export class BusinessPartnerDetailComponent implements OnInit {
       hasBackdrop: false,
       panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
-      data: { businessPartner: this.businessPartner, }
+      data: { businessPartner: this.businessPartner }
 
     });
     dialogRef.beforeClosed().subscribe(result => {

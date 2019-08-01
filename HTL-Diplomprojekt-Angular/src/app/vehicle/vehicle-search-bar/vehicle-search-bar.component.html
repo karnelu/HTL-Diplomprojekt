@@ -1,18 +1,21 @@
-<form class="search-container">
-  <mat-form-field appearance="outline" floatLabel="never" type="text">
-    <mat-icon matPrefix>search</mat-icon>
-    <input #searchBox matInput placeholder="Search" (input)="searchVehicle(searchBox.value)">
-    <mat-icon matSuffix *ngIf="searchBox.value" (click)="searchBox.value=''">close</mat-icon>
-  </mat-form-field>
-</form>
 
-<div *ngIf="vehicles$ | async; let vehicles">
-  <div *ngIf="vehicles.length > 0">
-    <mat-card class="search-card" *ngFor="let vehicle of vehicles">
+  <div class="search-field">
+  <form class="search-field-container">
+    <mat-form-field appearance="outline" floatLabel="never" type="text">
+      <mat-icon matPrefix>search</mat-icon>
+      <input #searchBox matInput placeholder="Search" (input)="searchVehicle(searchBox.value)" autocomplete="off">
+      <mat-icon matSuffix *ngIf="searchBox.value" (click)="searchVehicle(''); searchBox.value=''">close</mat-icon>
+    </mat-form-field>
+  </form>
+  </div>
+
+  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async" routerLink="/vehicle/{{vehicle.vhcID}}">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
         <mat-card-subtitle>
+          <span>License Plate: {{vehicle.licensePlate}} </span>
           <span>Production Year: {{vehicle.productionYear}} </span>
           <span>Km Reading: {{vehicle.kmReading}} </span>
           <span>Engine Power: {{vehicle.enginePower}} </span>
@@ -20,7 +23,12 @@
         </mat-card-subtitle>
       </mat-card-header>
     </mat-card>
-    <mat-paginator class="sticky-paginator mat-elevation-z4" [length]="vehicles.length" [pageSizeOptions]="[5]" [hidePageSize]="true">
-    </mat-paginator>
-  </div>
-</div>
+  </cdk-virtual-scroll-viewport>
+
+  <mat-paginator class="sticky-paginator mat-elevation-z4" [pageSizeOptions]="[5]" [hidePageSize]="true">
+  </mat-paginator>
+
+
+
+    
+  
