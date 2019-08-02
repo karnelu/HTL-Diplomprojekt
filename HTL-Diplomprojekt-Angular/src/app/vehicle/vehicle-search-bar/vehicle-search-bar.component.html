@@ -12,7 +12,7 @@
   <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
     <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async" routerLink="/vehicle/{{vehicle.vhcID}}">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
+        <img mat-card-avatar class="example-header-image" src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
         <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
         <mat-card-subtitle>
           <span>License Plate: {{vehicle.licensePlate}} </span>
