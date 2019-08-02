@@ -54,7 +54,8 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
 
     ReactiveFormsModule,
     ToolbarModule,
-
+    ScrollingModule,
+    ScrollDispatchModule,
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
@@ -62,8 +63,6 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
     MatMenuModule,
     MatListModule,
     MatCardModule,
-    ScrollingModule,
-    ScrollDispatchModule,
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,

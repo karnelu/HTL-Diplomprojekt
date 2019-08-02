@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class VehicleService {
 
-  private vehiclesUrl = 'http://localhost:8080/vehicle';
+  private vehiclesUrl = 'http://localhost:8080/vehicle/';
   private searchVehicleURL = 'http://localhost:8080/vehicle/search?type=brand&q=';
 
   httpOptions = {
@@ -29,8 +29,8 @@ export class VehicleService {
   }
 
   /** Post: update the vehicle on the server */
-  updateVehicle (vehicle: Vehicle): Observable<any> {
-  return this.http.post(this.vehiclesUrl, vehicle, this.httpOptions);
+  updateVehicle(vehicle: Vehicle): Observable<any> {
+  return this.http.post(this.vehiclesUrl + 'update', vehicle, this.httpOptions);
   }
 
 
@@ -42,6 +42,25 @@ export class VehicleService {
     return this.http.get<Vehicle[]>(this.searchVehicleURL + query).pipe(
       catchError(this.handleError)
     );
+  }
+
+  onUpload(selectedFile: File, id: number) {
+    const formData = new FormData();
+    formData.append('image', selectedFile, selectedFile.name);
+    this.http.post(this.vehiclesUrl + `${id}/upload`, formData, {
+      reportProgress: true,
+      observe: 'events',
+    })
+      .subscribe(res => {
+       /*  if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress' + Math.round(event.loaded / event.total) * 100 + '%');
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+        } */
+        console.log(res);
+
+      });
+
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
