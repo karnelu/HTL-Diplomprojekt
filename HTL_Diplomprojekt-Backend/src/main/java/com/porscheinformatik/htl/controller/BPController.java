@@ -145,4 +145,16 @@ public class BPController {
             return null;
         }
     }
+
+    @GetMapping("/search")
+    public List<BP> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
+        List<BP> searchResult = null;
+        switch (type){
+            case "name":searchResult = bpRepository.findByName(query);
+            case "email": searchResult = bpRepository.findByEmail(query);
+            case "city": searchResult = bpRepository.findByCity(query);
+        }
+        return searchResult;
+    }
+
 }
