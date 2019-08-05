@@ -72,5 +72,4 @@ export class BusinessPartnerService {
     );
   }
 
-
 }

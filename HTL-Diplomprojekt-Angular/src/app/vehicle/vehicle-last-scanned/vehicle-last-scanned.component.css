@@ -1,9 +1,20 @@
 mat-card {
-  height: 165px;
-  width: 100px;
+  height: 150px;
   margin-left: 16px;
-  transition: 1s;
 }
-mat-card.expanded {
-  height: 250px;
+.mat-card-image {
+  height: 128px;
+  width: 128px;
+  margin-bottom: 0;
+}
+
+.card-content {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+}
+
+.card-content .card-content-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

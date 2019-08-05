@@ -5,7 +5,7 @@
     <div matCardAvatar>
       <input type="file" name="file" id="file" class="inputfile" (change)="onFileSelected($event)" />
       <label for="file">
-        <img matCardAvatar src="/assets/img/baseline_camera_alt_black_48dp.png">
+        <img matCardAvatar src="http://localhost:8080/business-partner/{{data.businessPartner.bpID}}/getAvatar">
       </label>
     </div>
 
@@ -38,10 +38,10 @@
       <input matInput [(ngModel)]="data.businessPartner.zip" placeholder="PLZ">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="data.businessPartner.country" placeholder="Ort">
+      <input matInput [(ngModel)]="data.businessPartner.country" placeholder="Land">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Land">
+      <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Ort">
     </mat-form-field>
   </div>
   <button mat-button (click)="save()"> Save</button>

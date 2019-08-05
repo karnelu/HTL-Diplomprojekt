@@ -1,7 +1,5 @@
 .cdk-virtual-scroll-data-source-example .example-viewport {
-  height: 300px;
-  /* normal -> height: 200px */
-  /* If expanded then height: 400px */
+  height: 200px;
   width: 100vw;
   scroll-padding-bottom: 0;
 }
@@ -17,3 +15,4 @@ h3 {
   padding-top: 16px;
   padding-left: 16px;
 }
+
