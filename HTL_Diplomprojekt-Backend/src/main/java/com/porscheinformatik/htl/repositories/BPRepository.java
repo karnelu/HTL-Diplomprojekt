@@ -15,4 +15,13 @@ public interface BPRepository extends JpaRepository<BP, Long> {
     @Query("select b from BP b where b.lastUsed > ?1 order by b.lastUsed desc")
     List<BP> findLastUsedOrderedDesc(Date lastused);
 
+    @Query("select b from BP b where b.name like %?1%")
+    List<BP> findByName(String query);
+
+    @Query("select b from BP b where b.email like %?1%")
+    List<BP> findByEmail(String query);
+
+    @Query("select b from BP b where b.city like %?1%")
+    List<BP> findByCity(String query);
+
 }

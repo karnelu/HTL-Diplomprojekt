@@ -40,7 +40,6 @@ public class VHCController {
     @GetMapping("/{id}")
     public Vehicle getVHCById(@PathVariable Long id){
         Vehicle vhc = vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id));
-        System.out.println("ID");
         return vhc;
     }
 

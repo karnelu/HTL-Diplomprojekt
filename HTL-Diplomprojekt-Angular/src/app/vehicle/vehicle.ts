@@ -10,5 +10,4 @@ export class Vehicle {
   fuelType: string;
   condition: string;
   color: string;
-  image: string;
 }
