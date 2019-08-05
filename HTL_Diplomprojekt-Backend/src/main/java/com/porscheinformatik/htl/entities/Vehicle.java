@@ -17,21 +17,21 @@ public class Vehicle {
     @Column(name = "VIN")
     private String vin;
     @Column(name = "LICENSE_PLATE")
-    private String license_plate;
+    private String licensePlate;
     @Column(name = "BRAND")
     private String brand;
     @Column(name = "MODEL")
     private String model;
     @Column(name = "KM_READING")
-    private String kmreading;
+    private String kmReading;
     @Column(name = "PRODUCTION_YEAR")
-    private String production_year;
+    private String productionYear;
     @Column(name = "ENGINE_POWER")
-    private Integer hp;
+    private Integer enginePower;
     @Column(name = "VHC_STATUS")
     private String status;
     @Column(name = "FUELTYPE")
-    private String fueltype;
+    private String fuelType;
     @Column(name = "COLOR")
     private String color;
     @Column(name = "SCANNED")
@@ -47,12 +47,12 @@ public class Vehicle {
         this.brand=brand;
         this.model=model;
         this.vin=vin;
-        this.license_plate=license_plate;
-        this.kmreading = kmreading;
-        this.production_year=production_year;
-        this.hp=hp;
+        this.licensePlate=license_plate;
+        this.kmReading = kmreading;
+        this.productionYear=production_year;
+        this.enginePower=hp;
         this.status=status;
-        this.fueltype=fueltype;
+        this.fuelType=fueltype;
         this.color=color;
         this.scanned = Calendar.getInstance().getTime();
     }
@@ -66,11 +66,11 @@ public class Vehicle {
     }
 
     public String getLicensePlate() {
-        return license_plate;
+        return licensePlate;
     }
 
     public void setLicensePlate(String license_plate) {
-        this.license_plate = license_plate;
+        this.licensePlate = license_plate;
     }
 
     public void setTimeStamp(){
@@ -92,15 +92,15 @@ public class Vehicle {
     }
 
     public String getKmReading() {
-        return kmreading;
+        return kmReading;
     }
 
     public String getProductionYear() {
-        return production_year;
+        return productionYear;
     }
 
     public Integer getEnginePower() {
-        return hp;
+        return enginePower;
     }
 
     public String getCondition() {
@@ -108,7 +108,7 @@ public class Vehicle {
     }
 
     public String getFuelType() {
-        return fueltype;
+        return fuelType;
     }
 
     public String getColor() {
@@ -123,31 +123,31 @@ public class Vehicle {
         this.model = model;
     }
 
-    public void setKmreading(String kmreading) {
-        this.kmreading = kmreading;
+    public void setKmReading(String kmreading) {
+        this.kmReading = kmreading;
     }
 
-    public void setProductionyear(String buildyear) {
-        this.production_year = buildyear;
+    public void setProductionYear(String buildyear) {
+        this.productionYear = buildyear;
     }
 
-    public void setHp(Integer hp) {
-        this.hp = hp;
+    public void setEnginePower(Integer hp) {
+        this.enginePower = hp;
     }
 
     public void setCondition(String condition) {
         this.status = condition;
     }
 
-    public void setFueltype(String fueltype) {
-        this.fueltype = fueltype;
+    public void setFuelType(String fueltype) {
+        this.fuelType = fueltype;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public List<Appointment> getTerminlist(){
+    public List<Appointment> getTerminList(){
         return terminList;
     }
 
@@ -161,12 +161,14 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle: "+brand+";"+model+";"+ kmreading +";"+production_year+";"+hp+";"+color;
+        return "Vehicle: "+brand+";"+model+";"+ kmReading +";"+productionYear+";"+enginePower+";"+color;
     }
 
     public boolean validateVIN(){
         String message;
-        if(!Pattern.matches("^[0-9A-Z&&[^IOQ]]{15}$", this.vin)) return false;
-        else return true;
+        if(this.vin != null){
+            if(!Pattern.matches("^[0-9A-Z&&[^IOQ]]{15}$", this.vin)) return false;
+            else return true;
+        } else return true;
     }
 }

@@ -17,7 +17,7 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     List<Vehicle> findByScannedGreaterThan(Date scanned);
     List<Vehicle> findByBrandContaining(String name);
 
-    @Query("select v from Vehicle v where v.brand like %?1% or v.model like %?1% or v.license_plate like %?1%")
+    @Query("select v from Vehicle v where v.brand like %?1% or v.model like %?1% or v.licensePlate like %?1%")
     List<Vehicle> findAllContaining(String query);
 
 }
