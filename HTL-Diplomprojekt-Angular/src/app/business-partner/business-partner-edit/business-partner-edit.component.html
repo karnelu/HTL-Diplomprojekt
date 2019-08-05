@@ -2,9 +2,8 @@
 
 <div *ngIf="data.businessPartner" class="dialog-container">
   <mat-card-header>
-    <div matCardAvatar >
-    <input type="file" name="file" id="file" class="inputfile"
-       (change)="onFileSelected($event)"  />
+    <div matCardAvatar>
+      <input type="file" name="file" id="file" class="inputfile" (change)="onFileSelected($event)" />
       <label for="file">
         <img matCardAvatar src="/assets/img/baseline_camera_alt_black_48dp.png">
       </label>
@@ -45,7 +44,5 @@
       <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Land">
     </mat-form-field>
   </div>
-  <button mat-button  (click)="save()"> Save</button>
-
+  <button mat-button (click)="save()"> Save</button>
 </div>
-

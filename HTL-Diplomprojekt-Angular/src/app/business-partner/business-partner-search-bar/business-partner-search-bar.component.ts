@@ -40,8 +40,6 @@ export class BusinessPartnerSearchBarComponent implements OnInit {
       .subscribe(businessPartners => this.dataSource.data = businessPartners);
   }
 
-
-
   ngOnDestroy() {
     if (this.dataSource) {
       this.dataSource.disconnect();

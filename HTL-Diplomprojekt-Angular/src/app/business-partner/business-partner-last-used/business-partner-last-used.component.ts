@@ -1,9 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { BusinessPartnerService } from '../business-partner.service';
-import { ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-
 
 @Component({
   selector: 'app-business-partner-last-used',
@@ -15,7 +12,7 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   businessPartners: BusinessPartner[];
   expanded = [];
 
-  constructor(private businessPartnerService: BusinessPartnerService, private route: ActivatedRoute) { }
+  constructor(private businessPartnerService: BusinessPartnerService) { }
 
   ngOnInit() {
     this.getBusinessPartners();
@@ -28,6 +25,5 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   clicked() {
     console.log('I have been clicked');
   }
-
 
 }

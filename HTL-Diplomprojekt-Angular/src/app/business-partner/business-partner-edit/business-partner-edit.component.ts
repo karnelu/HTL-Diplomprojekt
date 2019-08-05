@@ -1,9 +1,6 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Inject, } from '@angular/core';
 import { BusinessPartnerService } from '../business-partner.service';
-import { BusinessPartner } from '../business-partner';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DialogData } from '../business-partner-detail/business-partner-detail.component';
 import { Location } from '@angular/common';
 
@@ -14,14 +11,9 @@ import { Location } from '@angular/common';
 })
 export class BusinessPartnerEditComponent implements OnInit {
 
-
-  @Output() saveFkt = new EventEmitter<void>();
   selectedFile: File = null;
-
   // This Variable checks if you selected a File
   fileSelected: boolean;
-
-
 
   constructor(
     private location: Location,
@@ -32,10 +24,8 @@ export class BusinessPartnerEditComponent implements OnInit {
   }
 
   onFileSelected(event) {
-
     this.selectedFile = <File>event.target.files[0];
     this.fileSelected = true;
-
   }
 
   save(): void {
@@ -45,12 +35,11 @@ export class BusinessPartnerEditComponent implements OnInit {
     } else {
       this.businessPartnerService.updateBusinessPartner(this.data.businessPartner).subscribe(() => this.dialogclose());
     }
-
   }
-
 
   dialogclose(): void {
     this.dialogRef.close(this.data.businessPartner);
   }
+
 }
 

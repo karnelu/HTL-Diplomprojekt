@@ -1,10 +1,9 @@
-import { Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, } from '@angular/router';
 import { BusinessPartnerService } from '../business-partner.service';
-import { switchMap } from "rxjs/operators";
 import { Location } from '@angular/common';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, } from '@angular/material/dialog';
 import { BusinessPartnerEditComponent } from '../business-partner-edit/business-partner-edit.component';
 
 export interface DialogData {
@@ -19,15 +18,10 @@ export interface DialogData {
 })
 export class BusinessPartnerDetailComponent implements OnInit {
 
-  @Output()
-
-  items = Array.from({ length: 10 }).map((_, i) => `Item #${i}`);
-
   businessPartner: BusinessPartner;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private businessPartnerService: BusinessPartnerService,
     private location: Location,
     private dialog: MatDialog,
@@ -45,7 +39,7 @@ export class BusinessPartnerDetailComponent implements OnInit {
     });
     dialogRef.beforeClosed().subscribe(result => {
       console.log('The dialog was closed');
-        this.getBusinessPartner();
+      this.getBusinessPartner();
     });
   }
 

@@ -12,8 +12,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule, MatIconModule, MatSidenavModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // Angular Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -32,11 +32,6 @@ import { ToolbarFullscreenDialogComponent } from '../toolbar/toolbar-fullscreen-
 import { ToolbarModule } from '../toolbar/toolbar.module';
 import { BusinessPartnerSearchBarComponent } from './business-partner-search-bar/business-partner-search-bar.component';
 
-
-
-
-
-
 import { MatSortModule, MatProgressSpinnerModule, MatTableModule } from '@angular/material';
 
 import { MatMenuModule } from '@angular/material/menu';
@@ -45,32 +40,14 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BusinessPartnerDetailFabComponent } from './business-partner-detail-fab/business-partner-detail-fab.component';
 
-import {OverlayModule} from '@angular/cdk/overlay';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { OverlayModule } from '@angular/cdk/overlay';
+import { BusinessPartnerNewAppointmentComponent } from './business-partner-new-appointment/business-partner-new-appointment.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +56,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     BusinessPartnerEditComponent,
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
+    BusinessPartnerNewAppointmentComponent,
 
   ],
   exports: [
@@ -87,6 +65,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     BusinessPartnerEditComponent,
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
+    BusinessPartnerNewAppointmentComponent,
   ],
   imports: [
     CommonModule,
@@ -115,7 +94,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatExpansionModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatPaginatorModule,OverlayModule,
+    MatPaginatorModule, OverlayModule,
 
     // Angular Flex
     FlexLayoutModule,
@@ -129,7 +108,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     // Routing
     BusinessPartnerRoutingModule,
   ],
-  entryComponents: [BusinessPartnerEditComponent],
+  entryComponents: [BusinessPartnerEditComponent, BusinessPartnerNewAppointmentComponent],
 })
 export class BusinessPartnerModule { }
 

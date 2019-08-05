@@ -1,7 +1,7 @@
 <div *ngIf="businessPartner">
   <mat-card class="business-partner-detail-card">
     <mat-card-header>
-          <img matCardAvatar src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/getAvatar">
+      <img matCardAvatar src="http://localhost:8080/business-partner/{{businessPartner.bpID}}/getAvatar">
       <mat-card-title>{{businessPartner.name}}</mat-card-title>
       <mat-card-subtitle>Write something</mat-card-subtitle>
     </mat-card-header>
@@ -31,11 +31,6 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<app-business-partner-detail-fab></app-business-partner-detail-fab>
+<app-business-partner-detail-fab [businessPartner]="businessPartner"></app-business-partner-detail-fab>
 <mat-divider class="container-divider"></mat-divider>
 <app-upcoming-appointments></app-upcoming-appointments>
-
-
-
-
-
