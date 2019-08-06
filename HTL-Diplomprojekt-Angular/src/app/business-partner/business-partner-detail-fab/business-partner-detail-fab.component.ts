@@ -16,7 +16,7 @@ export class BusinessPartnerDetailFabComponent implements OnInit {
 
   fabButtons = [
     {
-      icon: 'event',
+      icon: 'today',
       action: this.buttonEventAction,
     },
     {

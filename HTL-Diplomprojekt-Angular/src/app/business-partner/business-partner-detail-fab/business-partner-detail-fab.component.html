@@ -12,7 +12,7 @@
       <a *ngIf="btn.icon === 'sms'" href="sms:"><i class="material-icons">{{btn.icon}}</i></a>
       <a *ngIf="btn.icon === 'email'" href="mailto:{{businessPartner.email}}"><i
           class="material-icons">{{btn.icon}}</i></a>
-      <i *ngIf="btn.icon === 'event'" (click)="openNewAppointmentDialog(); onToggleFab()"
+      <i *ngIf="btn.icon === 'today'" (click)="openNewAppointmentDialog(); onToggleFab()"
         class="material-icons">{{btn.icon}}</i>
     </button>
   </div>

@@ -1,2 +1,52 @@
-<p>business-partner-new-appointment works!</p>
-<button mat-button [mat-dialog-close] >Close Me!</button>
+<!-- Toolbar Section -->
+<div class="container-toolbar">
+  <mat-toolbar class="mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
+
+      <button mat-icon-button [mat-dialog-close]="true">
+        <mat-icon>clear</mat-icon>
+      </button>
+
+      <span>New Appointment</span>
+      <span class="example-spacer"></span>
+      <button mat-button>Create</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<!-- Toolbar Section -->
+<div class="appointment-dialog-container">
+  <mat-card-header>
+    <img matCardAvatar src="/assets/img/baseline_today_black_48dp.png">
+    <mat-card-title>Termin1</mat-card-title>
+    <mat-card-subtitle>Subtitle</mat-card-subtitle>
+  </mat-card-header>
+
+  <div class="example-container">
+     <mat-form-field>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Action">
+        <mat-option value="option">Option1</mat-option>
+        <mat-option value="option">Option2</mat-option>
+        <mat-option value="option">Option3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="5"
+              cdkAutosizeMaxRows="10"></textarea>
+  </mat-form-field>
+</div>
+</div>

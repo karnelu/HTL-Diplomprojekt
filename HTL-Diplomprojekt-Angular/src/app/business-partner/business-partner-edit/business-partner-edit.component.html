@@ -5,7 +5,7 @@
     <div matCardAvatar>
       <input type="file" name="file" id="file" class="inputfile" (change)="onFileSelected($event)" />
       <label for="file">
-        <img matCardAvatar *ngIf="!fileSelected" src="http://localhost:8080/business-partner/{{data.businessPartner.bpID}}/getAvatar">
+        <img matCardAvatar *ngIf="!fileSelected" src="{{data.businessPartner.img}}">
         <img matCardAvatar *ngIf="fileSelected" [src]="imgUrl">
       </label>
     </div>
