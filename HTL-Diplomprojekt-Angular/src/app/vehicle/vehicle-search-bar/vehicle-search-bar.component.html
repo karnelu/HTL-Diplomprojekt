@@ -1,5 +1,4 @@
-
-  <div class="search-field">
+<div class="search-field">
   <form class="search-field-container">
     <mat-form-field appearance="outline" floatLabel="never" type="text">
       <mat-icon matPrefix>search</mat-icon>
@@ -7,28 +6,26 @@
       <mat-icon matSuffix *ngIf="searchBox.value" (click)="searchVehicle(''); searchBox.value=''">close</mat-icon>
     </mat-form-field>
   </form>
-  </div>
+</div>
 
-  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-    <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async" routerLink="/vehicle/{{vehicle.vhcID}}">
-      <mat-card-header>
-        <img mat-card-avatar class="example-header-image" src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
-        <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
-        <mat-card-subtitle>
-          <span>License Plate: {{vehicle.licensePlate}} </span>
-          <span>Production Year: {{vehicle.productionYear}} </span>
-          <span>Km Reading: {{vehicle.kmReading}} </span>
-          <span>Engine Power: {{vehicle.enginePower}} </span>
-          <span>Color: {{vehicle.color}} </span>
-        </mat-card-subtitle>
-      </mat-card-header>
-    </mat-card>
-  </cdk-virtual-scroll-viewport>
+<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+  <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async"
+    routerLink="/vehicle/{{vehicle.vhcID}}">
+    <mat-card-header>
+      <img mat-card-avatar class="example-header-image" src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+      <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="label-container">
+          <p><span>License Plate:</span> {{vehicle.licensePlate}} </p>
+          <p><span>Production Year:</span> {{vehicle.productionYear}} </p>
+          <p><span>Km Reading:</span> {{vehicle.kmReading}} </p>
+          <p><span>Engine Power:</span> {{vehicle.enginePower}} </p>
+          <p><span>Color:</span> {{vehicle.color}} </p>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</cdk-virtual-scroll-viewport>
 
-  <mat-paginator class="sticky-paginator mat-elevation-z4" [pageSizeOptions]="[5]" [hidePageSize]="true">
-  </mat-paginator>
-
-
-
-    
-  
+<mat-paginator class="sticky-paginator mat-elevation-z4" [pageSizeOptions]="[5]" [hidePageSize]="true">
+</mat-paginator>

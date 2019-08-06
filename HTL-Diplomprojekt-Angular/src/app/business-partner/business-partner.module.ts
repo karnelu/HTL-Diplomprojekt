@@ -49,6 +49,8 @@ import { BusinessPartnerDetailFabComponent } from './business-partner-detail-fab
 import { OverlayModule } from '@angular/cdk/overlay';
 import { BusinessPartnerNewAppointmentComponent } from './business-partner-new-appointment/business-partner-new-appointment.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { BusinessPartnerNewComponent } from './business-partner-new/business-partner-new.component';
+import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/business-partner-new-fab.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
     BusinessPartnerNewAppointmentComponent,
+    BusinessPartnerNewComponent,
+    BusinessPartnerNewFabComponent,
 
   ],
   exports: [
@@ -67,6 +71,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
     BusinessPartnerNewAppointmentComponent,
+    BusinessPartnerNewFabComponent,
+    BusinessPartnerNewComponent,
   ],
   imports: [
     CommonModule,
@@ -109,7 +115,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     // Routing
     BusinessPartnerRoutingModule,
   ],
-  entryComponents: [BusinessPartnerEditComponent, BusinessPartnerNewAppointmentComponent],
+  entryComponents: [BusinessPartnerEditComponent, BusinessPartnerNewAppointmentComponent, BusinessPartnerNewComponent,],
 })
 export class BusinessPartnerModule { }
 

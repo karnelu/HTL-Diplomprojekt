@@ -3,10 +3,9 @@
     <mat-card-header>
       <img matCardAvatar src="{{businessPartner.img}}">
       <mat-card-title>{{businessPartner.name}}</mat-card-title>
-      <mat-card-subtitle>Write something</mat-card-subtitle>
+      <mat-card-subtitle>Herr/Frau</mat-card-subtitle>
     </mat-card-header>
     <mat-list>
-      <h3 mat-subheader>Kontakt</h3>
       <mat-list-item>
         <mat-icon mat-list-icon>email</mat-icon>
         <h4 mat-line>{{businessPartner.email}}</h4>
@@ -15,7 +14,6 @@
         <mat-icon mat-list-icon>phone_android</mat-icon>
         <h4 mat-line>{{businessPartner.telephone}}</h4>
       </mat-list-item>
-      <h3 mat-subheader>Adresse</h3>
       <mat-list-item>
         <mat-icon mat-list-icon class="home-icon">home</mat-icon>
         <h4 mat-line>{{businessPartner.address}}</h4>

@@ -25,3 +25,11 @@
   background-color: black;
   z-index: -1;
 }
+
+.mat-toolbar-row {
+  padding: 0px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

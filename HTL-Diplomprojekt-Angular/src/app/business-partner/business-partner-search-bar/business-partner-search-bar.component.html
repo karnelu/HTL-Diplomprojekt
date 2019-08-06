@@ -12,10 +12,10 @@
 
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
   <mat-card class="search-card" *cdkVirtualFor="let businessPartner of businessPartners$ | async"
-    routerLink="/business-partner/{{businessPartner}}">
+    routerLink="/business-partner/{{businessPartner.bpID}}">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ businessPartner.brand + ' ' + businessPartner.model}}</mat-card-title>
+      <img mat-card-avatar src="{{businessPartner.img}}">
+      <mat-card-title>{{ businessPartner.name}}</mat-card-title>
       <mat-card-subtitle>
         <span>License Plate: {{businessPartner.licensePlate}} </span>
         <span>Production Year: {{businessPartner.productionYear}} </span>

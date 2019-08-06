@@ -1,5 +1,19 @@
-<app-toolbar-fullscreen-dialog></app-toolbar-fullscreen-dialog>
+<!-- Toolbar Section -->
+<div class="container-toolbar">
+  <mat-toolbar class="mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
 
+      <button mat-icon-button [mat-dialog-close]="true">
+        <mat-icon>clear</mat-icon>
+      </button>
+
+      <span>This is a Title</span>
+      <span class="example-spacer"></span>
+      <button mat-button (click)="save()">Save</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<!-- Toolbar Section -->
 <div *ngIf="data.businessPartner" class="dialog-container">
   <mat-card-header>
     <div matCardAvatar>
@@ -45,5 +59,4 @@
       <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Ort">
     </mat-form-field>
   </div>
-  <button mat-button (click)="save()"> Save</button>
 </div>

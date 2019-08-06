@@ -3,44 +3,23 @@
   display: flex;
   flex-direction: column;
   z-index: 100;
- 
-  
 }
 
 .search-field-container > * {
   width: 100vw;
 }
 
-.search-field{
+.search-field {
   height: 56px;
 }
-
-
 
 .search-card {
   margin: 8px;
 }
 
-
-
-
 .example-viewport {
   height: calc(100vh - 170px);
   width: 100vw;
-}
-
-
-
-
-
-
-
-
-
-
-
-.example-header-image {
-  background-size: cover;
 }
 
 .mat-card-avatar {
@@ -48,3 +27,15 @@
   margin-top: auto;
 }
 
+.label-container p {
+  margin: 0;
+}
+
+.label-container span {
+  border-block-end-width: 120px;
+  color: black;
+}
+.label-container {
+  margin-bottom: auto;
+  margin-top: auto;
+}
