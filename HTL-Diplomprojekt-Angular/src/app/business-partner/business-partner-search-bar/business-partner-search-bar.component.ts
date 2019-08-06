@@ -36,7 +36,7 @@ export class BusinessPartnerSearchBarComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.businessPartnerService.searchBusinessPartner(term)))
+      switchMap((term: string) => this.businessPartnerService.searchBusinessPartner(term, 'name')))
       .subscribe(businessPartners => this.dataSource.data = businessPartners);
   }
 

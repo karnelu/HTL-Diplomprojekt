@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class BusinessPartnerService {
 
   private businessPartnerURL = 'http://localhost:8080/business-partner/';
-  private searchBusinessPartnerURL = 'http://localhost:8080/business-partner/search?type=brand&q=';
+  private searchBusinessPartnerURL : string;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -48,7 +48,7 @@ export class BusinessPartnerService {
 
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
@@ -62,14 +62,14 @@ export class BusinessPartnerService {
     };
   }
 
-  searchBusinessPartner(query: string): Observable<BusinessPartner[]> {
+  searchBusinessPartner(query: string, filter: string): Observable<BusinessPartner[]> {
+    this.searchBusinessPartnerURL = this.businessPartnerURL + 'search?type=' + filter + '&q=' + query;
     if (!query.trim()) {
       // if not search term, return empty vehicles array.
       return of([]);
     }
-    return this.http.get<BusinessPartner[]>(this.searchBusinessPartnerURL + query).pipe(
+    return this.http.get<BusinessPartner[]>(this.searchBusinessPartnerURL).pipe(
       catchError(this.handleError)
     );
   }
-
 }
