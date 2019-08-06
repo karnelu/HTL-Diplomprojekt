@@ -25,6 +25,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -73,6 +74,7 @@ import { VehicleEditComponent } from './vehicle-edit/vehicle-edit.component';
     MatTableModule,
     MatSortModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
     
 
     VehicleRoutingModule

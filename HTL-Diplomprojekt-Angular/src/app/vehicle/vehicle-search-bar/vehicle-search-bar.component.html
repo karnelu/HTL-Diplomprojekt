@@ -12,20 +12,31 @@
   <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async"
     routerLink="/vehicle/{{vehicle.vhcID}}">
     <mat-card-header>
-      <img mat-card-avatar class="example-header-image" src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
-      <mat-card-title>{{ vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
-      <mat-card-subtitle>
-        <div class="label-container">
-          <p><span>License Plate:</span> {{vehicle.licensePlate}} </p>
-          <p><span>Production Year:</span> {{vehicle.productionYear}} </p>
-          <p><span>Km Reading:</span> {{vehicle.kmReading}} </p>
-          <p><span>Engine Power:</span> {{vehicle.enginePower}} </p>
-          <p><span>Color:</span> {{vehicle.color}} </p>
+        <mat-card-title>{{vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
+      </mat-card-header>
+    <mat-grid-list cols="4" [rowHeight]="fit">
+      <mat-grid-tile colspan="1" rowspan="1">
+        <img mat-card-avatar class="example-header-image"
+          src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <div class="text-inside-grid-label">
+            <p>License Plate:</p><!-- License Plate -->
+          <p>Color:</p><!-- Color -->
+          <p>Production Year:</p><!-- Prodcution year -->
         </div>
-      </mat-card-subtitle>
-    </mat-card-header>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="1" rowspan="1">
+          <div class="text-inside-grid-value">
+            <p>{{vehicle.licensePlate}}</p>
+            <p>{{vehicle.color}}</p>
+            <p>{{vehicle.productionYear}}</p>
+          </div>
+        </mat-grid-tile>
+    </mat-grid-list>
   </mat-card>
 </cdk-virtual-scroll-viewport>
 
 <mat-paginator class="sticky-paginator mat-elevation-z4" [pageSizeOptions]="[5]" [hidePageSize]="true">
 </mat-paginator>
+

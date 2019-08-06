@@ -7,7 +7,7 @@
         <mat-icon>clear</mat-icon>
       </button>
 
-      <span>This is a Title</span>
+      <span>Edit {{data.businessPartner.name}}</span>
       <span class="example-spacer"></span>
       <button mat-button (click)="save()">Save</button>
     </mat-toolbar-row>
@@ -23,40 +23,44 @@
         <img matCardAvatar *ngIf="fileSelected" [src]="imgUrl">
       </label>
     </div>
+    
 
     <mat-card-title>{{data.businessPartner.name}}</mat-card-title>
-    <mat-card-subtitle>Write Something</mat-card-subtitle>
+    <mat-card-subtitle>Contact Person</mat-card-subtitle>
   </mat-card-header>
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>person</mat-icon>
-    <input matInput [(ngModel)]="data.businessPartner.name" placeholder="Name">
+    <input matInput [(ngModel)]="data.businessPartner.name" placeholder="Name" autocomplete="off">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-icon class="description-icon" matPrefix>email</mat-icon>
-    <input matInput [(ngModel)]="data.businessPartner.email" placeholder="Email">
-  </mat-form-field>
+  
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>smartphone</mat-icon>
-    <input matInput [(ngModel)]="data.businessPartner.telephone" placeholder="Tel.Nr">
+    <input matInput [(ngModel)]="data.businessPartner.telephone" placeholder="Tel.Nr" autocomplete="off">
   </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+      <mat-icon class="description-icon" matPrefix>email</mat-icon>
+      <input matInput [(ngModel)]="data.businessPartner.email" placeholder="Email" autocomplete="off">
+    </mat-form-field>
+  
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>home</mat-icon>
-    <input matInput [(ngModel)]="data.businessPartner.address" placeholder="Straße">
+    <input matInput [(ngModel)]="data.businessPartner.address" placeholder="Address" autocomplete="off">
   </mat-form-field>
 
   <div class="home-container">
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="data.businessPartner.zip" placeholder="PLZ">
+      <input matInput [(ngModel)]="data.businessPartner.zip" placeholder="ZIP" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="data.businessPartner.country" placeholder="Land">
+      <input matInput [(ngModel)]="data.businessPartner.country" placeholder="Country" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput [(ngModel)]="data.businessPartner.city" placeholder="Ort">
+      <input matInput [(ngModel)]="data.businessPartner.city" placeholder="City" autocomplete="off">
     </mat-form-field>
   </div>
 </div>

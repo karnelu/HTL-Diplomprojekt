@@ -6,8 +6,6 @@ import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 
-
-
 @Component({
   selector: 'app-vehicle-search-bar',
   templateUrl: './vehicle-search-bar.component.html',

@@ -2,14 +2,16 @@
   <div class="container-toolbar">
     <mat-toolbar class="mat-elevation-z2" color="primary">
       <!-- Wenn geschaeftspartner-detail und fahrzeuge-detail ungleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
-      <mat-toolbar-row *ngIf="getrouter().url !== '/business-partner/1' && getrouter().url !== '/vehicle/1'">
+      <mat-toolbar-row
+        *ngIf="getrouter().url === '/business-partner' || getrouter().url  ==='/vehicle' || getrouter().url === '/dashboard' || getrouter().url === '/qr-scanner'">
         <button mat-icon-button (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
         <span> {{gettitle()}} </span>
       </mat-toolbar-row>
-       <!-- Wenn geschaeftspartner-detail oder fahrzeuge-detail gleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
-      <mat-toolbar-row *ngIf="getrouter().url === '/business-partner/1' || getrouter().url ===  '/vehicle/1'">
+      <!-- Wenn geschaeftspartner-detail oder fahrzeuge-detail gleich der aktuellen Router url ist, dann sollte folgenge toolbar angezeigt werden -->
+      <mat-toolbar-row
+        *ngIf=" getrouter().url !== '/business-partner' && getrouter().url !== '/vehicle' && getrouter().url !== '/dashboard' && getrouter().url !== '/qr-scanner'">
         <button mat-icon-button (click)="goBack()">
           <mat-icon>keyboard_backspace</mat-icon>
         </button>
@@ -25,7 +27,7 @@
   <!-- Ab hier beginnt der Inhalt von Sidenav -->
   <mat-drawer #drawer class="sidenav">
     <header class="header">
-      <img class="header_logo" src="assets/img/VU3_logo_iso_36px.png">
+      <img class="header_logo" src="assets/img/VU3_logo_iso_36px.png" (click)="drawer.toggle()" routerLink="/dashboard">
       <h4>CROSS 3 for Smartphone</h4>
     </header>
     <mat-divider></mat-divider>
@@ -47,5 +49,3 @@
   </mat-drawer>
   <router-outlet></router-outlet>
 </mat-drawer-container>
-
-

@@ -1,20 +1,35 @@
 <div *ngIf="vehicle">
   <div class="container-vehicle-detail">
     <mat-card class="vehicle-detail-card">
-      <mat-card-header>
-        <img mat-card-avatar class="example-header-image" src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+      <mat-card-header style="margin-bottom: 16px">
+        <img mat-card-avatar class="example-header-image"
+          src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
         <mat-card-title>{{vehicle.brand}} {{vehicle.model}}</mat-card-title>
         <mat-card-subtitle>{{vehicle.vehicleStatus}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-          <div><span>License Plate: {{vehicle.licensePlate}} </span></div>
-          <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
-          <div><span>Production Year: {{vehicle.productionYear}}</span></div>
-          <div><span>Engine Power: {{vehicle.enginePower}}</span></div>
-          <div><span>Vehicle Status: {{vehicle.condition}}</span></div>
-          <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
-          <div><span>Fuel Type: {{vehicle.fuelType}}</span></div>
-          <div><span>Color: {{vehicle.color}}</span></div>
+        <mat-grid-list cols="2" rowHeight="172px">
+          <mat-grid-tile colspan="1">
+            <div class="text-inside-grid-label">
+              <p>License Plate:</p>
+              <p>Color:</p>
+              <p>Production Year:</p>
+              <p>Km Readings:</p>
+              <p>Engine Power:</p>
+              <p>Fuel Type:</p>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="1" >
+            <div class="text-inside-grid-value">
+              <p>{{vehicle.licensePlate}}</p>
+              <p>{{vehicle.color}}</p>
+              <p>{{vehicle.productionYear}}</p>
+              <p>{{vehicle.kmReading}}</p>
+              <p>{{vehicle.enginePower}}</p>
+              <p>{{vehicle.enginePower}}</p>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="openEditDialog()">
@@ -24,3 +39,38 @@
     </mat-card>
   </div>
 </div>
+
+
+<!--  <div><span>License Plate: {{vehicle.licensePlate}} </span></div>
+          <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
+          <div><span>Production Year: {{vehicle.productionYear}}</span></div>
+          <div><span>Engine Power: {{vehicle.enginePower}}</span></div>
+          <div><span>Vehicle Status: {{vehicle.condition}}</span></div>
+          <div><span>Km Readings: {{vehicle.kmReading}}</span></div>
+          <div><span>Fuel Type: {{vehicle.fuelType}}</span></div>
+          <div><span>Color: {{vehicle.color}}</span></div> -->
+<!-- <mat-grid-list cols="3" rowHeight="140px">
+    <mat-grid-tile>
+      <img mat-card-avatar class="example-header-image"
+        src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="text-inside-grid-label">
+          <p>Registration:</p>
+        <p>Color:</p>
+        <p>Year:</p>
+        <p>Km:</p>
+        <p>Power:</p>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="text-inside-grid-value">
+          <p>{{vehicle.licensePlate}}</p>
+          <p>{{vehicle.color}}</p>
+          <p>{{vehicle.productionYear}}</p>
+          <p>{{vehicle.kmReading}}</p>
+          <p> {{vehicle.enginePower}}</p>
+        </div>
+      </mat-grid-tile>
+  </mat-grid-list>
+</mat-card> -->

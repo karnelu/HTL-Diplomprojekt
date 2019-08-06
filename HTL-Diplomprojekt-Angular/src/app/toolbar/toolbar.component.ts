@@ -14,6 +14,8 @@ export class ToolbarComponent implements OnInit {
 
   title = 'angularTitle';
 
+  
+
   constructor(private titleService: Title, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
   }
 

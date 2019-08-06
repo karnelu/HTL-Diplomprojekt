@@ -23,19 +23,28 @@
 }
 
 .mat-card-avatar {
+  border-radius: 4px;
+  height: 60px;
+  width: 60px;
   margin-bottom: auto;
   margin-top: auto;
 }
 
-.label-container p {
-  margin: 0;
-}
 
-.label-container span {
-  border-block-end-width: 120px;
-  color: black;
+.text-inside-grid-label{
+  position: absolute;
+  left: 12x;
 }
-.label-container {
-  margin-bottom: auto;
-  margin-top: auto;
+.text-inside-grid-value{
+  position: absolute;
+  left: 6px;
+
 }
+.text-inside-grid-label p {
+  margin-bottom: 0;
+  font-weight: bold;
+
+ }
+ .text-inside-grid-value p {
+  margin-bottom: 0;
+ }

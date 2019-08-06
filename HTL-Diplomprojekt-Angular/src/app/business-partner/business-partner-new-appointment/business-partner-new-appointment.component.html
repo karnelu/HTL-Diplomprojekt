@@ -17,8 +17,8 @@
 <div class="appointment-dialog-container">
   <mat-card-header>
     <img matCardAvatar src="/assets/img/baseline_today_black_48dp.png">
-    <mat-card-title>Termin1</mat-card-title>
-    <mat-card-subtitle>Subtitle</mat-card-subtitle>
+    <mat-card-title>Appointment</mat-card-title>
+    <mat-card-subtitle>Tets drive</mat-card-subtitle>
   </mat-card-header>
 
   <div class="example-container">
@@ -32,11 +32,11 @@
         <mat-option value="option">Option3</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Description</mat-label>
