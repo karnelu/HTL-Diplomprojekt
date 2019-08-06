@@ -1,7 +1,6 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -35,7 +34,7 @@ public class BP {
     private List<Appointment> terminList;
 
     @Column(name="Image")
-    private String imageDir;
+    private String img;
 
     public BP(){}
 
@@ -120,12 +119,12 @@ public class BP {
         return terminList;
     }
 
-    public void setImageDir(String name){
-        this.imageDir = name;
+    public void setImg(String name){
+        this.img = name;
     }
 
-    public String getImageDir(){
-        return imageDir;
+    public String getImg(){
+        return img;
     }
 
     public void setBpID(Long id){this.bpID=id;}

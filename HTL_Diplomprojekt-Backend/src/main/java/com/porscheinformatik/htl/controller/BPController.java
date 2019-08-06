@@ -1,6 +1,5 @@
 package com.porscheinformatik.htl.controller;
 
-import com.porscheinformatik.htl.Information;
 import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
@@ -17,8 +16,6 @@ import javax.imageio.ImageIO;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -32,8 +29,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/business-partner")
 public class BPController {
-    
-    private Information inf;
 
     @Autowired
     private BPRepository bpRepository;
@@ -82,7 +77,7 @@ public class BPController {
     public Map<String, String> createBP(@RequestBody BP bp) {
         HashMap<String, String> payload = new HashMap<>();
         try {
-            if (bp.getName().isEmpty()) payload.put("nopath", "Name can't be empty!");
+             if (bp.getName().isEmpty()) payload.put("nopath", "Name can't be empty!");
              else if (bp.getEmail().isEmpty()) payload.put("nopath", "Email can't be empty!");
              else if (MailValidation.isValid(bp.getEmail())){
                  bpRepository.save(bp);
@@ -107,13 +102,12 @@ public class BPController {
         StorageService storageService = new StorageService();
         if (storageService.storeBP(file, id)){
             BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
-            bp.setImageDir(storageService.getImageLocation());
+            bp.setImg("http://localhost:8080/business-partner/"+id.toString()+"/getAvatar?" +(int)(Math.random()*1000000));
             bpRepository.saveAndFlush(bp);
             payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {
             payload.put("nopath", "Upload failed " + file.getOriginalFilename() + "!");
         }
-
         return payload;
     }
 
@@ -124,7 +118,7 @@ public class BPController {
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         BufferedImage bufferedImage;
         try {
-            File image = new File(path+"/"+bp.getImageDir());
+            File image = new File(path+"/"+"avatar_"+id.toString()+".jpg");
             if(!image.exists()){
                 File def = new File(path+"/default.jpg");
                 bufferedImage = ImageIO.read(def);
@@ -147,7 +141,7 @@ public class BPController {
     }
 
     @GetMapping("/search")
-    public List<BP> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
+    public List<BP> searchBP(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
         List<BP> searchResult = null;
         switch (type){
             case "name":searchResult = bpRepository.findByName(query); break;
@@ -156,5 +150,4 @@ public class BPController {
         }
         return searchResult;
     }
-
 }

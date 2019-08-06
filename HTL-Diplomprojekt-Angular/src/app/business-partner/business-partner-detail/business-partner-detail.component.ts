@@ -35,10 +35,8 @@ export class BusinessPartnerDetailComponent implements OnInit {
       panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
       data: { businessPartner: this.businessPartner }
-
     });
-    dialogRef.beforeClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    dialogRef.afterClosed().subscribe(result => {
       this.getBusinessPartner();
     });
   }

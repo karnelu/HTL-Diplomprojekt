@@ -7,4 +7,5 @@ export class BusinessPartner {
   city: string;
   zip: number;
   country: string;
+  img: string;
 }

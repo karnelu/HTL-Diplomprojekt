@@ -9,8 +9,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -38,6 +43,7 @@ public class DemoApplication {
 						BP bp = new BP(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
 						if( i <= 10)bp.setTimeStamp();
 						else bp.setTimeStampBefore();
+						bp.setImg("http://localhost:8080/business-partner/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
 						bpRepository.save(bp);
 						i++;
 					}

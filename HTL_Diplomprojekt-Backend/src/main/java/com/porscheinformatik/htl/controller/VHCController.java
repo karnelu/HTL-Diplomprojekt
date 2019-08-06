@@ -1,7 +1,5 @@
 package com.porscheinformatik.htl.controller;
 
-import com.porscheinformatik.htl.Information;
-import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.exceptions.VHCNotFoundException;
@@ -32,8 +30,6 @@ import java.util.Map;
 @RequestMapping("/vehicle")
 public class VHCController {
 
-    private Information inf;
-
     @Autowired
     private VehicleRepository vhcRepo;
 
@@ -55,7 +51,6 @@ public class VHCController {
                 i--;
             }
         }
-
         return list;
     }
 
@@ -74,13 +69,14 @@ public class VHCController {
 
     @PostMapping("/new")
     @ResponseBody
-    public Information createVHC(@RequestBody Vehicle vhc) {
+    public HashMap<String, String> createVHC(@RequestBody Vehicle vhc) {
+        HashMap<String, String> payload = new HashMap<>();
         try {
-            if(!vhc.validateVIN()) inf.addMessage("VIN not Valid");
-            else if(vhc.getLicensePlate().isEmpty()) inf.addMessage("Licenseplate is empty");
+            if(!vhc.validateVIN()) payload.put("nopath", "VIN not Valid");
+            else if(vhc.getLicensePlate().isEmpty()) payload.put("nopath", "Licenseplate is empty");
             else {
                 vhcRepo.save(vhc);
-                inf.addMessage("Successfully Added");
+                payload.put("nopath","Successfully Added");
             }
         } catch (ConstraintViolationException ex) {
             String message;
@@ -89,15 +85,14 @@ public class VHCController {
                 path = cv.getPropertyPath().toString();
                 message = cv.getMessage();
                 path = Character.toUpperCase(path.charAt(0)) + path.substring(1);
-                inf.addMessage(path, path + " " + message);
+                payload.put(path,path + " " + message);
             }
         }
-        return inf;
+        return payload;
     }
 
     @GetMapping("/search")
     public List<Vehicle> searchVehicle(@RequestParam(name="type") String type, @RequestParam(name = "q") String query){
-        query.toLowerCase();
         return vhcRepo.findAllContaining(query);
     }
 
@@ -118,7 +113,7 @@ public class VHCController {
     }
     @GetMapping("/{id}/getAvatar")
     @ResponseBody
-    public HttpEntity<byte[]> getBPImage(@PathVariable Long id){
+    public HttpEntity<byte[]> getVHCImage(@PathVariable Long id){
         String path = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/vehicle").toString();
         Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         BufferedImage bufferedImage;
