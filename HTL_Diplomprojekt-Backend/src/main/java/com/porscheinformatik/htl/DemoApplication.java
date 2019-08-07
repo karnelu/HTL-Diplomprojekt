@@ -68,6 +68,7 @@ public class DemoApplication {
 						Vehicle vhc = new Vehicle(data[3], data[4], data[1], data[2], data[5], data[6], Integer.parseInt(data[7]), data[8], data[9], data[10]);
 						//if( i <= 10)vhc.setTimeStamp();
 						//else vhc.setTimeStampBefore();
+						vhc.setImg("http://localhost:8080/vehicle/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
 						vhcRepo.save(vhc);
 						i++;
 					}

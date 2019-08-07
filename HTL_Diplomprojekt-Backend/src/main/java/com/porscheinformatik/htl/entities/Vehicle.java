@@ -41,7 +41,7 @@ public class Vehicle {
     private List<Appointment> terminList;
 
     @Column(name="IMAGE")
-    private String imageDir;
+    private String img;
 
     public Vehicle(String brand, String model, String vin, String license_plate, String kmreading, String production_year, Integer hp, String status, String fueltype, String color){
         this.brand=brand;
@@ -151,12 +151,12 @@ public class Vehicle {
         return terminList;
     }
 
-    public void setImageDir(String name){
-        this.imageDir = name;
+    public void setImg(String name){
+        this.img = name;
     }
 
-    public String getImageDir(){
-        return imageDir;
+    public String getImg(){
+        return img;
     }
 
     @Override
