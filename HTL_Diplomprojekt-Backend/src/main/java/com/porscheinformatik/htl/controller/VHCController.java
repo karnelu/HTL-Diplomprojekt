@@ -103,7 +103,7 @@ public class VHCController {
         StorageService storageService = new StorageService();
         if (storageService.storeVHC(file, id)){
             Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id));
-            vehicle.setImageDir(storageService.getImageLocation());
+            vehicle.setImg("http://localhost:8080/vehicle/"+id.toString()+"/getAvatar?" +(int)(Math.random()*1000000));
             vhcRepo.saveAndFlush(vehicle);
             payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {
@@ -118,7 +118,7 @@ public class VHCController {
         Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         BufferedImage bufferedImage;
         try {
-            File image = new File(path+"/"+vehicle.getImageDir());
+            File image = new File(path+"/"+vehicle.getImg());
             if(!image.exists()){
                 File def = new File(path+"/default.jpg");
                 bufferedImage = ImageIO.read(def);
