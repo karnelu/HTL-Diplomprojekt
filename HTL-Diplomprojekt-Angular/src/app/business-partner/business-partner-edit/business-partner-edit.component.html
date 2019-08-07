@@ -23,7 +23,6 @@
         <img matCardAvatar *ngIf="fileSelected" [src]="imgUrl">
       </label>
     </div>
-    
 
     <mat-card-title>{{data.businessPartner.name}}</mat-card-title>
     <mat-card-subtitle>Contact Person</mat-card-subtitle>
@@ -34,18 +33,18 @@
     <input matInput [(ngModel)]="data.businessPartner.name" placeholder="Name" autocomplete="off">
   </mat-form-field>
 
-  
+
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>smartphone</mat-icon>
     <input matInput [(ngModel)]="data.businessPartner.telephone" placeholder="Tel.Nr" autocomplete="off">
   </mat-form-field>
-  
+
   <mat-form-field class="example-full-width">
       <mat-icon class="description-icon" matPrefix>email</mat-icon>
       <input matInput [(ngModel)]="data.businessPartner.email" placeholder="Email" autocomplete="off">
     </mat-form-field>
-  
+
 
   <mat-form-field class="example-full-width">
     <mat-icon class="description-icon" matPrefix>home</mat-icon>

@@ -10,10 +10,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { MatButtonModule, MatIconModule, MatSidenavModule, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatSidenavModule, MatNativeDateModule, MatGridListModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
 // Angular Animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,7 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // Components
 import { BusinessPartnerLastUsedComponent } from './business-partner-last-used/business-partner-last-used.component';
 import { BusinessPartnerDetailComponent } from './business-partner-detail/business-partner-detail.component';
-import {TextFieldModule} from '@angular/cdk/text-field';
+import { TextFieldModule } from '@angular/cdk/text-field';
 // Routing
 import { BusinessPartnerRoutingModule } from './business-partner-routing.module';
 import { BusinessPartnerEditComponent } from './business-partner-edit/business-partner-edit.component';
@@ -48,7 +49,7 @@ import { BusinessPartnerDetailFabComponent } from './business-partner-detail-fab
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { BusinessPartnerNewAppointmentComponent } from './business-partner-new-appointment/business-partner-new-appointment.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { BusinessPartnerNewComponent } from './business-partner-new/business-partner-new.component';
 import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/business-partner-new-fab.component';
 
@@ -101,7 +102,13 @@ import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/busin
     MatExpansionModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatPaginatorModule, OverlayModule,MatDatepickerModule,MatNativeDateModule,TextFieldModule,
+    MatPaginatorModule,
+    OverlayModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TextFieldModule,
+    MatGridListModule,
+    MatStepperModule,
 
     // Angular Flex
     FlexLayoutModule,

@@ -1,52 +1,43 @@
 .vehicle-detail-card {
-    margin-top: 16px;
-    margin-left: 16px;
-    margin-right: 16px;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
 
-  }
-  
+h2 {
+  padding-top: 16px;
+  padding-left: 16px;
+}
 
-  
+.example-header-image {
+  background-size: cover;
+}
 
-  h2 {
-    padding-top: 16px;
-    padding-left: 16px;
-  }
-  
-  .example-header-image {
-    background-size: cover;
-  }
-  
-  .vehicle-detail-card .home-icon {
-    padding-bottom: 44px;
-  }
-  .container-divider {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-  
-  
-  .myapp-no-padding-dialog .mat-dialog-container {
-    padding: 0;
-  }
-  
-  .text-inside-grid-label{
-    
-    position: absolute;
-    left: 0px;
-    top: 16px;
-  }
-  .text-inside-grid-value{
-    
-    position: absolute;
-    left: 0px;
-  }
-  .text-inside-grid-label p {
-    margin-bottom: 6px;
-    font-weight: bold;
-  
-   }
-   .text-inside-grid-value p {
-    margin-bottom: 6px;
-   }
-  
+.vehicle-detail-card .home-icon {
+  padding-bottom: 44px;
+}
+.container-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+.text-inside-grid-label {
+  position: absolute;
+  left: 0px;
+
+}
+.text-inside-grid-value {
+  position: absolute;
+  left: 0px;
+}
+.text-inside-grid-label p {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.text-inside-grid-value p {
+  margin-bottom: 6px;
+}

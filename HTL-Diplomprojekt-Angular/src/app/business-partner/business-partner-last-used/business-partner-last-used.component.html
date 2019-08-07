@@ -1,5 +1,5 @@
 <div class="cdk-virtual-scroll-data-source-example">
-  <h3>Last Used Business Partners</h3>
+  <h3>Recent Used Business Partners</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
     <mat-card *ngFor="let businessPartner of businessPartners; let i = index" [ngClass]="{expanded: expanded[i]}">
       <img mat-card-image src="{{businessPartner.img}}" alt="photo"

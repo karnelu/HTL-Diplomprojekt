@@ -1,5 +1,5 @@
 <div class="cdk-virtual-scroll-data-source-example">
-  <h3>Last Used Vehicles</h3>
+  <h3>Recent Used Vehicles</h3>
   <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="10" class="example-viewport">
     <mat-card *cdkVirtualFor="let vehicle of vehicles$ | async ; let i = index">
       <img mat-card-image src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar" alt="photo"

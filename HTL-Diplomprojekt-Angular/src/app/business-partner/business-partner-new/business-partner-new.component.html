@@ -1,17 +1,56 @@
 <!-- Toolbar Section -->
 <div class="container-toolbar">
-    <mat-toolbar class="mat-elevation-z2" color="primary">
-      <mat-toolbar-row>
+  <mat-toolbar class="mat-elevation-z2" color="primary">
+    <mat-toolbar-row>
 
-        <button mat-icon-button [mat-dialog-close]="true">
-          <mat-icon>clear</mat-icon>
-        </button>
+      <button mat-icon-button [mat-dialog-close]="true">
+        <mat-icon>clear</mat-icon>
+      </button>
 
-        <span>New Businesspartner</span>
-        <span class="example-spacer"></span>
-        <button mat-button>Create</button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div>
-  <!-- Toolbar Section -->
-<button mat-button [mat-dialog-close]>Close Me!</button>
+      <span>New Businesspartner</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<!-- Toolbar Section -->
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form class="example-full-width" [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Contact</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Te.Nr" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-flat-button color="primary" matStepperNext>Continue</button>
+        <button mat-flat-button (click)="dialogclose()">Cancel</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form class="example-full-width" [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="ZIP" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Country" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="City" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-flat-button color="primary" matStepperNext>Finish</button>
+        <button mat-flat-button matStepperPrevious>Cancel</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-vertical-stepper>
