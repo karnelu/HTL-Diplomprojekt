@@ -15,6 +15,8 @@
 
 .search-card {
   margin: 8px;
+  padding: 0;
+  border-radius: 0;
 }
 
 .example-viewport {
@@ -22,29 +24,33 @@
   width: 100vw;
 }
 
-.mat-card-avatar {
-  border-radius: 4px;
-  height: 60px;
-  width: 60px;
-  margin-bottom: auto;
-  margin-top: auto;
-}
-
-
-.text-inside-grid-label{
+.text-label {
   position: absolute;
-  left: 12x;
 }
-.text-inside-grid-value{
-  position: absolute;
-  left: 6px;
-
+.text-value {
+  position: relative;
+  left: 26px;
+  top: 32px;
+  display: block;
 }
-.text-inside-grid-label p {
+.text-label p {
   margin-bottom: 0;
   font-weight: bold;
-
- }
- .text-inside-grid-value p {
+  padding-left: 16px;
+}
+.text-value p {
   margin-bottom: 0;
- }
+  width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.avatar-img {
+  height: 100px;
+  width: 100px;
+}
+
+mat-card-title {
+  margin-bottom: 0px !important;
+  margin-top: 8px;
+}

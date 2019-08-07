@@ -5,3 +5,7 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.example-full-width mat-form-field {
+  width: 100%;
+}

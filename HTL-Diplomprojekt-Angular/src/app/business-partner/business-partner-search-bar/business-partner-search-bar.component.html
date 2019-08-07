@@ -13,17 +13,23 @@
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
   <mat-card class="search-card" *cdkVirtualFor="let businessPartner of businessPartners$ | async"
     routerLink="/business-partner/{{businessPartner.bpID}}">
-    <mat-card-header>
-      <img mat-card-avatar src="{{businessPartner.img}}">
-      <mat-card-title>{{ businessPartner.name}}</mat-card-title>
-      <mat-card-subtitle>
-        <span>License Plate: {{businessPartner.licensePlate}} </span>
-        <span>Production Year: {{businessPartner.productionYear}} </span>
-        <span>Km Reading: {{businessPartner.kmReading}} </span>
-        <span>Engine Power: {{businessPartner.enginePower}} </span>
-        <span>Color: {{businessPartner.color}} </span>
-      </mat-card-subtitle>
-    </mat-card-header>
+    <div fxLayout="row">
+      <img class="avatar-img" src="{{businessPartner.img}}">
+      <div flexLayout="column">
+        <mat-card-header>
+          <mat-card-title>{{businessPartner.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="text-label">
+            <p>{{businessPartner.country}}</p>
+            <p>{{businessPartner.zip}} {{businessPartner.city}}</p>
+            <p>{{businessPartner.address}}</p>
+          </div>
+        </mat-card-content>
+      </div>
+      <div class="text-value">
+      </div>
+    </div>
   </mat-card>
 </cdk-virtual-scroll-viewport>
 

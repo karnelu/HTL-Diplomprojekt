@@ -1,12 +1,17 @@
 .vehicle-detail-card {
-    margin-top: 16px;
-    margin-left: 16px;
-    margin-right: 16px;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
 
-  }
-  
+h2 {
+  padding-top: 16px;
+  padding-left: 16px;
+}
 
-  
+.example-header-image {
+  background-size: cover;
+}
 
   h2 {
     padding-top: 16px;
