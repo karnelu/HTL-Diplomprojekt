@@ -43,13 +43,9 @@ export class VehicleDetailComponent implements OnInit {
       data: { vehicle: this.vehicle }
 
     });
-    dialogRef.beforeClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if (!result) {
-        this.vehicle = result;
-      } else {
         this.getVehicle();
-      }
     });
   }
 

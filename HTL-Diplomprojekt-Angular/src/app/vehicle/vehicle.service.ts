@@ -19,12 +19,12 @@ export class VehicleService {
   constructor(private http: HttpClient) { }
 
   getVehicles(): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(this.vehiclesUrl + '/getLastScanned');
+    return this.http.get<Vehicle[]>(this.vehiclesUrl + '/getLastUsed');
   }
 
   /** GET vehicle by id.*/
   getVehicle(id: number): Observable<Vehicle> {
-    const url = `${this.vehiclesUrl}/${id}`;
+    const url = `${this.vehiclesUrl}${id}`;
     return this.http.get<Vehicle>(url);
   }
 

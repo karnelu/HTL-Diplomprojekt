@@ -3,9 +3,9 @@
     <mat-card class="vehicle-detail-card">
       <mat-card-header style="margin-bottom: 16px">
         <img mat-card-avatar class="example-header-image"
-          src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+          src="{{vehicle.img}}">
         <mat-card-title>{{vehicle.brand}} {{vehicle.model}}</mat-card-title>
-        <mat-card-subtitle>{{vehicle.vehicleStatus}}</mat-card-subtitle>
+        <mat-card-subtitle>{{vehicle.condition}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <mat-grid-list cols="2" rowHeight="172px">
@@ -26,7 +26,7 @@
               <p>{{vehicle.productionYear}}</p>
               <p>{{vehicle.kmReading}}</p>
               <p>{{vehicle.enginePower}}</p>
-              <p>{{vehicle.enginePower}}</p>
+              <p>{{vehicle.fuelType}}</p>
             </div>
           </mat-grid-tile>
         </mat-grid-list>

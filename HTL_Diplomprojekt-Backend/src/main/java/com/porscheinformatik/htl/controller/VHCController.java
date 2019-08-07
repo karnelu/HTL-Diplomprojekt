@@ -36,14 +36,15 @@ public class VHCController {
     @GetMapping("/{id}")
     public Vehicle getVHCById(@PathVariable Long id){
         Vehicle vhc = vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id));
-        return vhc;
+        vhc.setTimeStamp();
+        return vhcRepo.save(vhc);
     }
 
-    @GetMapping("/getLastScanned")
+    @GetMapping("/getLastUsed")
     public List<Vehicle> getLastUsedVHC(){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.WEEK_OF_YEAR, -1);
-        List<Vehicle> list = vhcRepo.findLastScanned(cal.getTime());
+        List<Vehicle> list = vhcRepo.findLastUsed(cal.getTime());
         if(list.size() > 10){
             int i = list.size()-1;
             while(i>=10){
@@ -118,7 +119,7 @@ public class VHCController {
         Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         BufferedImage bufferedImage;
         try {
-            File image = new File(path+"/"+vehicle.getImg());
+            File image = new File(path+"/"+"avatar_" + id.toString() + ".jpg");
             if(!image.exists()){
                 File def = new File(path+"/default.jpg");
                 bufferedImage = ImageIO.read(def);

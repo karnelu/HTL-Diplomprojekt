@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { VehicleService } from '../vehicle.service';
-import { Vehicle } from '../vehicle';
-import { Observable } from 'rxjs';
+import { VehicleService } from "../vehicle.service";
+import { Vehicle } from "../vehicle";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-vehicle-last-scanned",
@@ -14,18 +14,15 @@ export class VehicleLastScannedComponent implements OnInit {
 
   constructor(private vehicleService: VehicleService) {}
 
-  clicked() {
-    console.log("I have been clicked");
-
-  }
-
-  ngOnInit() { 
+  ngOnInit() {
     this.getVehicles();
   }
 
   getVehicles(): void {
     this.vehicles$ = this.vehicleService.getVehicles();
   }
-
-
+  
+  clicked() {
+    console.log("I have been clicked");
+  }
 }

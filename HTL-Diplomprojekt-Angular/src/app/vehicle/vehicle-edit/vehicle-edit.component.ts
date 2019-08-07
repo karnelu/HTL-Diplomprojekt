@@ -16,6 +16,9 @@ export class VehicleEditComponent implements OnInit {
   // This Variable checks if you selected a File
   fileSelected: boolean;
 
+  public imagePath;
+  imgUrl: any;
+
   constructor(
     public dialogRef: MatDialogRef<VehicleEditComponent>,
     @Inject
@@ -27,10 +30,12 @@ export class VehicleEditComponent implements OnInit {
   }
 
   onFileSelected(event) {
+    var reader = new FileReader();
     this.selectedFile = <File>event.target.files[0];
+    reader.readAsDataURL(this.selectedFile)
+    reader.onload = (_event) => {this.imgUrl = reader.result}
     this.fileSelected = true;
   }
-
   save(): void {
     if (this.fileSelected === true) {
       this.vehicleService.updateVehicle(this.data.vehicle).subscribe(() => this.dialogclose());

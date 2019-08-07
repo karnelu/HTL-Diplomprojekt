@@ -34,8 +34,8 @@ public class Vehicle {
     private String fuelType;
     @Column(name = "COLOR")
     private String color;
-    @Column(name = "SCANNED")
-    private Date scanned;
+    @Column(name = "LASTUSED")
+    private Date lastUsed;
 
     @OneToMany(mappedBy = "vehicle")
     private List<Appointment> terminList;
@@ -54,7 +54,7 @@ public class Vehicle {
         this.status=status;
         this.fuelType=fueltype;
         this.color=color;
-        this.scanned = Calendar.getInstance().getTime();
+        this.lastUsed = Calendar.getInstance().getTime();
     }
 
     public Vehicle(){}
@@ -62,7 +62,7 @@ public class Vehicle {
     public void setTimeStampBefore(){
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.WEEK_OF_YEAR, -2);
-        this.scanned = cal.getTime();
+        this.lastUsed = cal.getTime();
     }
 
     public String getLicensePlate() {
@@ -74,10 +74,8 @@ public class Vehicle {
     }
 
     public void setTimeStamp(){
-        this.scanned = Calendar.getInstance().getTime();
+        this.lastUsed = Calendar.getInstance().getTime();
     }
-
-    public Date getScanned(){return scanned;}
 
     public Long getVhcID() {
         return vhcID;

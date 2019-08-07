@@ -1,6 +1,5 @@
 <!-- Toolbar Section -->
-<div class="container-toolbar">
-  <mat-toolbar class="mat-elevation-z2" color="primary">
+  <mat-toolbar class="mat-toolbar-fixed mat-elevation-z2" color="primary">
     <mat-toolbar-row>
 
       <button mat-icon-button [mat-dialog-close]="true">
@@ -12,7 +11,7 @@
       <button mat-button (click)="save()">Save</button>
     </mat-toolbar-row>
   </mat-toolbar>
-</div>
+
 <!-- Toolbar Section -->
 <div *ngIf="data.businessPartner" class="dialog-container">
   <mat-card-header>

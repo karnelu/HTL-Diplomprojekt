@@ -2,6 +2,13 @@
   margin: 16px;
 }
 
+.mat-toolbar-fixed {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1001; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
 .example-form {
   width: 100%;
 }
@@ -24,4 +31,12 @@
   opacity: 0;
   background-color: black;
   z-index: -1;
+}
+
+.mat-toolbar-row {
+  padding: 0px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

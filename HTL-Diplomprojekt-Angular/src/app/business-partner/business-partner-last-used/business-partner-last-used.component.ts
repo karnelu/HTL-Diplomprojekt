@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessPartner } from '../business-partner';
 import { BusinessPartnerService } from '../business-partner.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-business-partner-last-used',
@@ -9,7 +10,7 @@ import { BusinessPartnerService } from '../business-partner.service';
 })
 export class BusinessPartnerLastUsedComponent implements OnInit {
 
-  businessPartners: BusinessPartner[];
+  businessPartners$: Observable<BusinessPartner[]>;
   expanded = [];
 
   constructor(private businessPartnerService: BusinessPartnerService) { }
@@ -19,7 +20,7 @@ export class BusinessPartnerLastUsedComponent implements OnInit {
   }
 
   getBusinessPartners(): void {
-    this.businessPartnerService.getBusinessPartners().subscribe(businessPartners => this.businessPartners = businessPartners);
+    this.businessPartners$ = this.businessPartnerService.getBusinessPartners();
   }
 
   clicked() {

@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-    @Query("select v from Vehicle v where v.scanned > ?1 order by v.scanned desc")
-    List<Vehicle> findLastScanned(Date scanned);
+    @Query("select v from Vehicle v where v.lastUsed > ?1 order by v.lastUsed desc")
+    List<Vehicle> findLastUsed(Date lastused);
 
-    List<Vehicle> findByScannedGreaterThan(Date scanned);
+    List<Vehicle> findByLastUsedGreaterThan(Date scanned);
     List<Vehicle> findByBrandContaining(String name);
 
     @Query("select v from Vehicle v where v.brand like %?1% or v.model like %?1% or v.licensePlate like %?1%")
