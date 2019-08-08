@@ -24,4 +24,6 @@ public interface BPRepository extends JpaRepository<BP, Long> {
     @Query("select b from BP b where b.city like %?1%")
     List<BP> findByCity(String query);
 
+    @Query("select b from BP b where b.img IS NULL")
+    BP findByAvatarNull();
 }

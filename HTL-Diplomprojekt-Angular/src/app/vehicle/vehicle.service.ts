@@ -3,13 +3,14 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { connection } from '../connection'
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
-
-  private vehiclesUrl = 'http://localhost:8080/vehicle/';
+  private conn= new connection;
+  private vehiclesUrl = this.conn.host + this.conn.vehicle;
   private searchVehicleURL = 'http://localhost:8080/vehicle/search?type=brand&q=';
 
   httpOptions = {
@@ -19,7 +20,7 @@ export class VehicleService {
   constructor(private http: HttpClient) { }
 
   getVehicles(): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(this.vehiclesUrl + '/getLastUsed');
+    return this.http.get<Vehicle[]>(this.vehiclesUrl + 'getLastUsed');
   }
 
   /** GET vehicle by id.*/

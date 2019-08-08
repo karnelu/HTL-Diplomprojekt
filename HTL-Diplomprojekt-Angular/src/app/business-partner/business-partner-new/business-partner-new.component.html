@@ -18,13 +18,13 @@
     <form class="example-full-width" [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Contact</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Name" formControlName="firstCtrl" required>
+        <input matInput placeholder="Name" formControlName="firstCtrl" required [(ngModel)]="businessPartner.name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+        <input matInput placeholder="Email" formControlName="firstCtrl" required [(ngModel)]="businessPartner.email">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Te.Nr" formControlName="firstCtrl" required>
+        <input matInput placeholder="Te.Nr" formControlName="firstCtrl" required [(ngModel)]="businessPartner.telephone">
       </mat-form-field>
       <div>
         <button mat-flat-button color="primary" matStepperNext>Continue</button>
@@ -36,19 +36,19 @@
     <form class="example-full-width" [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Address</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required [(ngModel)]="businessPartner.address">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="ZIP" formControlName="secondCtrl" required>
+        <input matInput placeholder="ZIP" formControlName="secondCtrl" required [(ngModel)]="businessPartner.zip">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Country" formControlName="secondCtrl" required>
+        <input matInput placeholder="Country" formControlName="secondCtrl" required [(ngModel)]="businessPartner.country">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="City" formControlName="secondCtrl" required>
+        <input matInput placeholder="City" formControlName="secondCtrl" required [(ngModel)]="businessPartner.city">
       </mat-form-field>
       <div>
-        <button mat-flat-button color="primary" matStepperNext>Finish</button>
+        <button mat-flat-button color="primary" (click)="createBusinessPartner()">Finish</button>
         <button mat-flat-button matStepperPrevious>Cancel</button>
       </div>
     </form>

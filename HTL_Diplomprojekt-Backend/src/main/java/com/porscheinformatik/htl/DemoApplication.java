@@ -69,6 +69,7 @@ public class DemoApplication {
 						//if( i <= 10)vhc.setTimeStamp();
 						//else vhc.setTimeStampBefore();
 						vhc.setImg("http://localhost:8080/vehicle/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
+						vhc.setTimeStamp();
 						vhcRepo.save(vhc);
 						i++;
 					}

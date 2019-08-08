@@ -2,6 +2,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Location } from '@angular/common';
+import { BusinessPartnerService } from '../business-partner.service';
+import { BusinessPartner } from '../business-partner';
+
 @Component({
   selector: 'app-business-partner-new',
   templateUrl: './business-partner-new.component.html',
@@ -11,7 +14,11 @@ export class BusinessPartnerNewComponent implements OnInit {
   isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  constructor(  public dialogRef: MatDialogRef<BusinessPartnerNewComponent> ,private _formBuilder: FormBuilder,) { }
+  businessPartner= new BusinessPartner;
+
+  constructor(  public dialogRef: MatDialogRef<BusinessPartnerNewComponent>,
+                private _formBuilder: FormBuilder,
+                private service: BusinessPartnerService) { }
 
   ngOnInit() {
 
@@ -24,5 +31,8 @@ export class BusinessPartnerNewComponent implements OnInit {
   }
   dialogclose(): void {
     this.dialogRef.close();
+  }
+  createBusinessPartner(): void{
+    this.service.newBusinessPartner(this.businessPartner).subscribe();
   }
 }
