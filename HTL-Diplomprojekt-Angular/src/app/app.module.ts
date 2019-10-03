@@ -38,7 +38,10 @@ import { AppointmentModule } from './appointment/appointment.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 
+=======
+>>>>>>> d944d181d5a6e3605a4033a37e2345a3a4edfca8
 
 
 
