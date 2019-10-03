@@ -38,7 +38,7 @@ import { AppointmentModule } from './appointment/appointment.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 
 
@@ -78,7 +78,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     DashboardModule,
     AppointmentModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule,
 
     AppRoutingModule,
 

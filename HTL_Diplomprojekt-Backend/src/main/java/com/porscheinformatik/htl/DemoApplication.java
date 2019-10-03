@@ -27,14 +27,13 @@ public class DemoApplication {
 	@Bean
 	public CommandLineRunner loadData(BPRepository bpRepository, VehicleRepository vhcRepo){
 		return (args) -> {
-
+			String ip = "localhost:8080";
 			if (bpRepository.findAll().isEmpty()){
 				try {
-
 					String Path = System.getProperty("user.dir") + "/src/main/java/com/porscheinformatik/htl/gp_init.csv";
 					BufferedReader reader = new BufferedReader(new FileReader(Path));
 
-					// Reading first line..
+					// Reading first line...
 					String[] header = reader.readLine().split(",");
 					String line;
 					int i = 0;
@@ -43,7 +42,7 @@ public class DemoApplication {
 						BP bp = new BP(data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
 						if( i <= 10)bp.setTimeStamp();
 						else bp.setTimeStampBefore();
-						bp.setImg("http://localhost:8080/business-partner/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
+						bp.setImg("http://"+ip+"/business-partner/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
 						bpRepository.save(bp);
 						i++;
 					}
@@ -68,7 +67,7 @@ public class DemoApplication {
 						Vehicle vhc = new Vehicle(data[3], data[4], data[1], data[2], data[5], data[6], Integer.parseInt(data[7]), data[8], data[9], data[10]);
 						//if( i <= 10)vhc.setTimeStamp();
 						//else vhc.setTimeStampBefore();
-						vhc.setImg("http://localhost:8080/vehicle/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
+						vhc.setImg("http://"+ip+"/vehicle/"+(i+1)+"/getAvatar?" +(int)(Math.random()*1000000));
 						vhc.setTimeStamp();
 						vhcRepo.save(vhc);
 						i++;
@@ -80,7 +79,4 @@ public class DemoApplication {
 			}
 		};
 	}
-
-
-
 }
