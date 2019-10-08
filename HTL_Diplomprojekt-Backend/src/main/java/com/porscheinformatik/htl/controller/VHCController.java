@@ -1,5 +1,6 @@
 package com.porscheinformatik.htl.controller;
 
+import com.porscheinformatik.htl.IPConfig;
 import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.exceptions.VHCNotFoundException;
@@ -32,6 +33,8 @@ public class VHCController {
 
     @Autowired
     private VehicleRepository vhcRepo;
+
+    private IPConfig ipConfig;
 
     @GetMapping("/{id}")
     public Vehicle getVHCById(@PathVariable Long id){
@@ -104,7 +107,7 @@ public class VHCController {
         StorageService storageService = new StorageService();
         if (storageService.storeVHC(file, id)){
             Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id));
-            vehicle.setImg("http://localhost:8080/vehicle/"+id.toString()+"/getAvatar?" +(int)(Math.random()*1000000));
+            vehicle.setImg("http://"+ipConfig.toString()+"/vehicle/"+id.toString()+"/getAvatar?" +(int)(Math.random()*1000000));
             vhcRepo.saveAndFlush(vehicle);
             payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {

@@ -1,5 +1,6 @@
 package com.porscheinformatik.htl.controller;
 
+import com.porscheinformatik.htl.IPConfig;
 import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
@@ -32,6 +33,8 @@ public class BPController {
 
     @Autowired
     private BPRepository bpRepository;
+
+    private IPConfig ipConfig;
 
 
     @GetMapping("/{id}/detail")
@@ -85,7 +88,7 @@ public class BPController {
                  bpRepository.save(bp);
 
                  BP bp1 = bpRepository.findByAvatarNull();
-                 bp1.setImg("http://localhost:8080/business-partner/"+bp.getbpID()+"/getAvatar?" +(int)(Math.random()*1000000));
+                 bp1.setImg("http://"+ ipConfig.toString() +"/business-partner/"+bp.getbpID()+"/getAvatar?" +(int)(Math.random()*1000000));
                  bpRepository.save(bp1);
 
             } else System.out.println("Email not valid");
