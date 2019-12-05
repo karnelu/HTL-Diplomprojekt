@@ -8,11 +8,11 @@
     <mat-list>
       <mat-list-item>
         <mat-icon mat-list-icon>phone_android</mat-icon>
-        <h4 mat-line>{{businessPartner.telephone}}</h4>
+      <a mat-line href="tel:{{businessPartner.telephone}}">{{businessPartner.telephone}}</a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon>email</mat-icon>
-        <h4 mat-line>{{businessPartner.email}}</h4>
+      <a mat-line href="mailto:{{businessPartner.email}}">{{businessPartner.email}} </a>
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon class="home-icon">home</mat-icon>

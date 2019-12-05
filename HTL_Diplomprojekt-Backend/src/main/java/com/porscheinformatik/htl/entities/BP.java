@@ -119,8 +119,8 @@ public class BP {
         return terminList;
     }
 
-    public void setImg(String name){
-        this.img = name;
+    public void setImg(String url){
+        this.img =url;
     }
 
     public String getImg(){

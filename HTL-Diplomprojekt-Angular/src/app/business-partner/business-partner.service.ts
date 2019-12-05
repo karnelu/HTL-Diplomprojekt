@@ -3,13 +3,15 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { BusinessPartner } from './business-partner';
 import { catchError, map, tap } from 'rxjs/operators';
+import { connection } from '../connection'
 
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessPartnerService {
 
-  private businessPartnerURL = 'http://localhost:8080/business-partner/';
+  private conn= new connection;
+  private businessPartnerURL = this.conn.host + this.conn.businesspartner;
   private searchBusinessPartnerURL : string;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -71,5 +73,11 @@ export class BusinessPartnerService {
     return this.http.get<BusinessPartner[]>(this.searchBusinessPartnerURL).pipe(
       catchError(this.handleError)
     );
+  }
+
+  newBusinessPartner(bp: BusinessPartner): Observable<any>{
+    console.log(this.businessPartnerURL);
+    return this.http.post(this.businessPartnerURL + 'new', bp, this.httpOptions).pipe(
+      catchError(this.handleError<BusinessPartner[]>('updateBusinessPartner', [])));
   }
 }

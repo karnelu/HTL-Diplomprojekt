@@ -1,5 +1,6 @@
 package com.porscheinformatik.htl.controller;
 
+import com.porscheinformatik.htl.IPConfig;
 import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
@@ -32,6 +33,8 @@ public class BPController {
 
     @Autowired
     private BPRepository bpRepository;
+
+    private IPConfig ipConfig;
 
 
     @GetMapping("/{id}/detail")
@@ -76,12 +79,19 @@ public class BPController {
     @ResponseBody
     public Map<String, String> createBP(@RequestBody BP bp) {
         HashMap<String, String> payload = new HashMap<>();
+        System.out.println("NEW");
         try {
              if (bp.getName().isEmpty()) payload.put("nopath", "Name can't be empty!");
              else if (bp.getEmail().isEmpty()) payload.put("nopath", "Email can't be empty!");
              else if (MailValidation.isValid(bp.getEmail())){
+                 bp.setTimeStamp();
                  bpRepository.save(bp);
-            }
+
+                 BP bp1 = bpRepository.findByAvatarNull();
+                 bp1.setImg("http://"+ ipConfig.toString() +"/business-partner/"+bp.getbpID()+"/getAvatar?" +(int)(Math.random()*1000000));
+                 bpRepository.save(bp1);
+
+            } else System.out.println("Email not valid");
         } catch (ConstraintViolationException ex) {
             String message;
             String path;
@@ -102,7 +112,6 @@ public class BPController {
         StorageService storageService = new StorageService();
         if (storageService.storeBP(file, id)){
             BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
-            bp.setImg("http://localhost:8080/business-partner/"+id.toString()+"/getAvatar?" +(int)(Math.random()*1000000));
             bpRepository.saveAndFlush(bp);
             payload.put("nopath", "You successfully uploaded " + file.getOriginalFilename() + "!");
         } else {

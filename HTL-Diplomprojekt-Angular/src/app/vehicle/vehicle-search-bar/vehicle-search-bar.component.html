@@ -12,7 +12,7 @@
   <mat-card class="search-card" *cdkVirtualFor="let vehicle of vehicles$ | async"
     routerLink="/vehicle/{{vehicle.vhcID}}">
     <div fxLayout="row" >
-      <img class="avatar-img"src="http://localhost:8080/vehicle/{{vehicle.vhcID}}/getAvatar">
+      <img class="avatar-img" src="{{vehicle.img}}">
       <div flexLayout="column">
         <mat-card-header>
           <mat-card-title>{{vehicle.brand + ' ' + vehicle.model}}</mat-card-title>
