@@ -1,0 +1,17 @@
+com\porscheinformatik\htl\controller\VHCController.class
+com\porscheinformatik\htl\exceptions\VHCNotFoundException.class
+com\porscheinformatik\htl\exceptions\BPNotFoundException.class
+com\porscheinformatik\htl\repositories\BPRepository.class
+com\porscheinformatik\htl\Information.class
+com\porscheinformatik\htl\entities\Appointment.class
+com\porscheinformatik\htl\storage\StorageService.class
+com\porscheinformatik\htl\MailValidation.class
+com\porscheinformatik\htl\entities\BP.class
+com\porscheinformatik\htl\DemoApplication.class
+com\porscheinformatik\htl\entities\Vehicle.class
+com\porscheinformatik\htl\repositories\AppointmentRepository.class
+com\porscheinformatik\htl\controller\BPController.class
+com\porscheinformatik\htl\exceptions\BPNotFoundAdvice.class
+com\porscheinformatik\htl\IPConfig.class
+com\porscheinformatik\htl\ICS_Generator.class
+com\porscheinformatik\htl\repositories\VehicleRepository.class
