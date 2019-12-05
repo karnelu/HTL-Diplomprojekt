@@ -136,11 +136,11 @@ public class BPController {
                 bufferedImage = ImageIO.read(image);
             }
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ImageIO.write(bufferedImage, "png", bos);
+            ImageIO.write(bufferedImage, "jpg", bos);
             byte[] img = bos.toByteArray();
 
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.IMAGE_PNG);
+            headers.setContentType(MediaType.IMAGE_JPEG);
             headers.setContentLength(img.length);
             return new HttpEntity<>(img, headers);
         } catch (IOException e){
