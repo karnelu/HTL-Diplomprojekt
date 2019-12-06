@@ -1,8 +1,8 @@
-import { BusinessPartnerNewAppointmentComponent } from './../business-partner-new-appointment/business-partner-new-appointment.component';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { businessPartnerDetailFabAnimations } from './business-partner.detail-fab.animations';
 import { BusinessPartner } from '../business-partner';
 import { MatDialog } from '@angular/material';
+import { NewBusinessPartnerAppointmentComponent } from 'src/app/appointment/new-business-partner-appointment/new-business-partner-appointment.component';
 
 @Component({
   selector: 'app-business-partner-detail-fab',
@@ -56,7 +56,7 @@ export class BusinessPartnerDetailFabComponent implements OnInit {
   }
 
   openNewAppointmentDialog(): void {
-    const dialogRef = this.dialog.open(BusinessPartnerNewAppointmentComponent, {
+    const dialogRef = this.dialog.open(NewBusinessPartnerAppointmentComponent, {
       maxWidth: '100vw',
       height: '100vh',
       hasBackdrop: false,

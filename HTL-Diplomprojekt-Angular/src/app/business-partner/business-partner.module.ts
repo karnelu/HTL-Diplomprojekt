@@ -14,7 +14,6 @@ import { BusinessPartnerLastUsedComponent } from './business-partner-last-used/b
 import { BusinessPartnerEditComponent } from './business-partner-edit/business-partner-edit.component';
 import { BusinessPartnerSearchBarComponent } from './business-partner-search-bar/business-partner-search-bar.component';
 import { BusinessPartnerDetailFabComponent } from './business-partner-detail-fab/business-partner-detail-fab.component';
-import { BusinessPartnerNewAppointmentComponent } from './business-partner-new-appointment/business-partner-new-appointment.component';
 import { BusinessPartnerNewComponent } from './business-partner-new/business-partner-new.component';
 import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/business-partner-new-fab.component';
 
@@ -25,7 +24,6 @@ import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/busin
     BusinessPartnerEditComponent,
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
-    BusinessPartnerNewAppointmentComponent,
     BusinessPartnerNewComponent,
     BusinessPartnerNewFabComponent,
   ],
@@ -35,7 +33,6 @@ import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/busin
     BusinessPartnerEditComponent,
     BusinessPartnerSearchBarComponent,
     BusinessPartnerDetailFabComponent,
-    BusinessPartnerNewAppointmentComponent,
     BusinessPartnerNewFabComponent,
     BusinessPartnerNewComponent,
   ],
@@ -46,7 +43,7 @@ import { BusinessPartnerNewFabComponent } from './business-partner-new-fab/busin
     HttpClientModule,
     BusinessPartnerRoutingModule,
   ],
-  entryComponents: [BusinessPartnerEditComponent, BusinessPartnerNewAppointmentComponent, BusinessPartnerNewComponent,],
+  entryComponents: [BusinessPartnerEditComponent, BusinessPartnerNewComponent,],
 })
 export class BusinessPartnerModule { }
 
