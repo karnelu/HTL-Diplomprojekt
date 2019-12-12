@@ -19,4 +19,31 @@
     width: 100%;
   }
   
-  
+.date-container mat-form-field{
+  width: 45% !important;;
+}
+
+.time-container mat-icon{
+  vertical-align: middle;
+  height: 30px; 
+
+}
+
+.time-picker{
+  margin-left: 10%;
+  width: 30% !important;
+}
+
+.time-container mat-form-field{
+  width: 25% !important;
+}
+.end-date{
+  margin: 0;
+  font-size: 18px;
+}
+.start-date{
+  margin: 0;
+  font-size: 18px;
+}
+
+
