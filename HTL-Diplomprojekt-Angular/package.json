@@ -1,16 +1,18 @@
 {
-  "name": "material",
-  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve ",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+	"postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "~0.801.2",
+    "@angular/cli": "~8.1.2",
+    "@angular/compiler-cli": "~8.2.0-next.2",
     "@angular/animations": "^8.2.0-next.2",
     "@angular/cdk": "^8.1.1",
     "@angular/common": "~8.2.0-next.2",
