@@ -10,7 +10,7 @@ import java.util.Date;
 public class Appointment {
 
     @Transient
-    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyyHH:mm");
+    private final DateFormat format = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,9 +38,8 @@ public class Appointment {
     public Appointment(String start_date, String end_date, String start_time, String end_time, String title, String description){
 
         try {
-            System.out.println(start_date);
-            this.start_date=format.parse(start_date + start_time);
-            this.end_date=format.parse(end_date + end_time);
+            this.start_date=format.parse(start_date.substring(0,9) + start_time);
+            this.end_date=format.parse(end_date.substring(0,9) + end_time);
         } catch (ParseException e) {
             e.printStackTrace();
         }
