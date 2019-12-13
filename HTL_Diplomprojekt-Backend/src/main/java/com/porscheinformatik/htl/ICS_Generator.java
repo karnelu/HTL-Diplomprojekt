@@ -20,9 +20,9 @@ public class ICS_Generator {
         DateFormat timeformat = new SimpleDateFormat("HHmmss");
 
         this.start_date= dateformat.format(termin.getStart_date());
-        this.start_time= timeformat.format(termin.getStart_time());
+       // this.start_time= timeformat.format(termin.getStart_time());
         this.end_date= dateformat.format(termin.getEnd_date());
-        this.end_time= timeformat.format(termin.getEnd_time());
+       // this.end_time= timeformat.format(termin.getEnd_time());
         this.description=termin.getDescription();
         this.summary=termin.getTitle();
         this.location=termin.getLocation();

@@ -2,14 +2,15 @@ package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
 public class Appointment {
 
-    private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private DateFormat timeFormat = new SimpleDateFormat("HH:mm");
+    @Transient
+    private final DateFormat format = new SimpleDateFormat("dd/MM/yyyyHH:mm");
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,29 +22,30 @@ public class Appointment {
     private String location="";
     @Column(name = "START_DATE")
     private Date start_date;
-    @Column(name = "START_TIME")
-    private Date start_time;
     @Column(name = "END_DATE")
     private Date end_date;
-    @Column(name = "END_TIME")
-    private Date end_time;
     @Column(name = "DESCRIPTION")
-    private String description="";
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "GP_ID")
-    private BP bp;
+    private BP bp = null;
 
     @ManyToOne
     @JoinColumn(name = "VHC_ID")
-    private Vehicle vehicle;
+    private Vehicle vehicle = null;
 
-    public Appointment(Date start_date, Date end_date, Date start_time, Date end_time, String title){
-        this.start_date=start_date;
-        this.end_date=end_date;
-        this.start_time=start_time;
-        this.end_time=end_time;
+    public Appointment(String start_date, String end_date, String start_time, String end_time, String title, String description){
+
+        try {
+            System.out.println(start_date);
+            this.start_date=format.parse(start_date + start_time);
+            this.end_date=format.parse(end_date + end_time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.title=title;
+        this.description=description;
     }
 
     public Long getId() {
@@ -74,13 +76,6 @@ public class Appointment {
         this.start_date = start_date;
     }
 
-    public Date getStart_time() {
-        return start_time;
-    }
-
-    public void setStart_time(Date start_time) {
-        this.start_time = start_time;
-    }
 
     public Date getEnd_date() {
         return end_date;
@@ -88,14 +83,6 @@ public class Appointment {
 
     public void setEnd_date(Date end_date) {
         this.end_date = end_date;
-    }
-
-    public Date getEnd_time() {
-        return end_time;
-    }
-
-    public void setEnd_time(Date end_time) {
-        this.end_time = end_time;
     }
 
     public String getDescription() {
@@ -124,6 +111,6 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Appointment: " + start_date + ";" + end_date + ";" + start_time +";" + end_time + ";" + title + ";" + location;
+        return "Appointment: " + start_date + ";" + end_date + ";" + title + ";" + location;
     }
 }
