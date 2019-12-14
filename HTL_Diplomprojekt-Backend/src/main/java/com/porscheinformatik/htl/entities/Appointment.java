@@ -13,7 +13,7 @@ public class Appointment {
     private final DateFormat format = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "TITEL")
@@ -28,12 +28,12 @@ public class Appointment {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "GP_ID")
-    private BP bp = null;
+    @JoinColumn(name = "BP_ID")
+    private BP bp;
 
     @ManyToOne
     @JoinColumn(name = "VHC_ID")
-    private Vehicle vehicle = null;
+    private Vehicle vehicle;
 
     public Appointment(String start_date, String end_date, String start_time, String end_time, String title, String description){
 
@@ -74,7 +74,6 @@ public class Appointment {
     public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
-
 
     public Date getEnd_date() {
         return end_date;

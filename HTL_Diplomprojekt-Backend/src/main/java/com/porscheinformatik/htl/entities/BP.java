@@ -1,9 +1,7 @@
 package com.porscheinformatik.htl.entities;
 
 import javax.persistence.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class BP {
@@ -31,7 +29,7 @@ public class BP {
     private Date lastUsed;
 
     @OneToMany(mappedBy = "bp")
-    private List<Appointment> terminList;
+    private List<Appointment> terminList = new ArrayList<>();
 
     @Column(name="Image")
     private String img;
@@ -117,6 +115,10 @@ public class BP {
 
     public List<Appointment> getTerminList(){
         return terminList;
+    }
+
+    public void addTermin(Appointment appointment){
+        this.terminList.add(appointment);
     }
 
     public void setImg(String url){

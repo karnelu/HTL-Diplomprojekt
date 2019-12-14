@@ -12,7 +12,7 @@ export class AppointmentService {
 
 
   private conn= new connection;
-  private appointmentUrl = this.conn + this.conn.appointment;
+  private appointmentUrl = this.conn.host + this.conn.appointment;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
