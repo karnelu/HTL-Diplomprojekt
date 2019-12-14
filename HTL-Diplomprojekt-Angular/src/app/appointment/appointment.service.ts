@@ -36,13 +36,13 @@ export class AppointmentService {
     };
   }
 
-  getAppointments(bpID: number): Observable<Appointment[]>{
-    console.log(bpID);
-    return this.http.get<Appointment[]>(this.businessPartnerUrl + bpID + '/getAppointments');
+  getAppointments(bpid: number): Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(this.businessPartnerUrl + bpid + '/getAppointments');
+    //return this.http.get<Appointment[]>(this.businessPartnerUrl + bpID + '/getAppointments');
   }
  
   getAppointment(appointmentID: number): Observable<Appointment>{
-    return this.http.get<Appointment>(this.appointmentUrl + appointmentID +'/getAppointment')
+    return this.http.get<Appointment>(this.appointmentUrl + appointmentID +'/getAppointment');
   }
 
 }

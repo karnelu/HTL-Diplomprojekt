@@ -14,7 +14,7 @@ export class UpcomingAppointmentsComponent implements OnInit {
 
   @Input() bpID: number;
   @Input() businessPartner: BusinessPartner;
-  appointments: Observable<Appointment[]>;
+  appointments: Appointment[];
   appointment = new Appointment;
  
 
@@ -25,13 +25,11 @@ export class UpcomingAppointmentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.businessPartner = new BusinessPartner();
-    this.businessPartner.bpID = this.bpID;
     this.getAppointments();
   }
 
   getAppointments(): void {
-    this.appointments = this.appointmentService.getAppointments(this.businessPartner.bpID);  
+    this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  
   }
 
 }
