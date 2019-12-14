@@ -30,5 +30,5 @@
   </mat-card>
 </div>
 <app-business-partner-detail-fab [businessPartner]="businessPartner"></app-business-partner-detail-fab>
-<mat-divider class="container-divider"></mat-divider>
-<app-upcoming-appointments></app-upcoming-appointments>
+<mat-divider class="container-divider"></mat-divider> 
+<app-upcoming-appointments [bpID]="businessPartner.bpID" [businessPartner]="businessPartner.bpID"></app-upcoming-appointments>

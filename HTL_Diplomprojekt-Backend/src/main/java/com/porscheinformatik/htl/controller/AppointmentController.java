@@ -45,10 +45,6 @@ public class AppointmentController {
                 payload.put(path, message);
             }
         }
-
-        bp = bpRepository.findBPById(bpid);
-        System.out.println(bp.getTerminList());
-
         return payload;
     }
 }

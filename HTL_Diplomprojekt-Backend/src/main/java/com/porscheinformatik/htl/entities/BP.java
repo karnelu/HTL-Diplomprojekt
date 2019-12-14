@@ -113,10 +113,6 @@ public class BP {
         this.country = country;
     }
 
-    public List<Appointment> getTerminList(){
-        return terminList;
-    }
-
     public void addTermin(Appointment appointment){
         this.terminList.add(appointment);
     }

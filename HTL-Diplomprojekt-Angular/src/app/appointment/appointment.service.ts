@@ -13,6 +13,7 @@ export class AppointmentService {
 
   private conn= new connection;
   private appointmentUrl = this.conn.host + this.conn.appointment;
+  private businessPartnerUrl = this.conn.host + this.conn.businesspartner;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -35,6 +36,13 @@ export class AppointmentService {
     };
   }
 
-
+  getAppointments(bpID: number): Observable<Appointment[]>{
+    console.log(bpID);
+    return this.http.get<Appointment[]>(this.businessPartnerUrl + bpID + '/getAppointments');
+  }
+ 
+  getAppointment(appointmentID: number): Observable<Appointment>{
+    return this.http.get<Appointment>(this.appointmentUrl + appointmentID +'/getAppointment')
+  }
 
 }

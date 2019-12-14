@@ -1,9 +1,9 @@
-<div class="appointment-container">
+<div *ngIf = "appointments" class="appointment-container">
   <h2>Upcoming Appointments</h2>
-  <mat-card class="appointment-card" *ngFor="let item of items">
+  <mat-card class="appointment-card" *ngFor="let appointment of appointments">
     <mat-card-header>
       <mat-icon class="today" mat-card-avatar>today</mat-icon>
-      <mat-card-title> Appointment 1 </mat-card-title>
+      <mat-card-title>{{appointment.title}} </mat-card-title>
       <mat-card-subtitle> Test drive </mat-card-subtitle>
     </mat-card-header>
     <mat-list>
@@ -27,7 +27,7 @@
       </button>
     </mat-card-actions>
   </mat-card>
-</div>
+</div> 
  
 
 
