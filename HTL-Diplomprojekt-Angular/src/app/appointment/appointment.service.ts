@@ -19,8 +19,8 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) { }
 
-  newAppointment(appointment: Appointment): Observable<any>{
-    return this.http.post<Appointment>('http://localhost:8080/appointment/new', appointment, this.httpOptions).pipe(
+  newAppointment(bpID: number, appointment: Appointment): Observable<any>{
+    return this.http.post<Appointment>(this.appointmentUrl + 'new?bpid='+ bpID, appointment, this.httpOptions).pipe(
       catchError(this.handleError<Appointment[]>('new', [])));
   }
 
