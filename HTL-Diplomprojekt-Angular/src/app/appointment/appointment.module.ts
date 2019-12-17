@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-appointments.component';
 import { AppointmentComponent } from './appointment.component';
 import { NewBusinessPartnerAppointmentComponent } from './new-business-partner-appointment/new-business-partner-appointment.component';
+import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
 
 @NgModule({
-  declarations: [UpcomingAppointmentsComponent, AppointmentComponent, NewBusinessPartnerAppointmentComponent],
+  declarations: [UpcomingAppointmentsComponent, AppointmentComponent, NewBusinessPartnerAppointmentComponent, AppointmentEditComponent],
   imports: [
     CommonImportsModule,
     AppointmentRoutingModule,
