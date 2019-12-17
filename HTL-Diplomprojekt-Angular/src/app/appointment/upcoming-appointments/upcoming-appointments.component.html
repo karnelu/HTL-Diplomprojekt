@@ -1,23 +1,27 @@
-<div *ngIf="appointments" class="appointment-container">
+<div *ngIf = "appointments" class="appointment-container">
   <h2>Upcoming Appointments</h2>
   <mat-card class="appointment-card" *ngFor="let appointment of appointments">
     <mat-card-header>
-      <mat-icon class="today" mat-card-avatar>today</mat-icon>
+      <mat-icon class="today" mat-card-avatar>event</mat-icon>
       <mat-card-title>{{appointment.title}} </mat-card-title>
-      <mat-card-subtitle> Test drive </mat-card-subtitle>
+      <mat-card-subtitle> {{appointment.action}}</mat-card-subtitle>
     </mat-card-header>
     <mat-list>
       <mat-list-item>
-        <mat-icon mat-list-icon> event_busy</mat-icon>
-        <h4 mat-line>12.12.2019</h4>
+        <mat-icon>event_available</mat-icon>
+        <a>{{appointment.start_date}}</a>
+        <mat-icon class="schedule" >schedule</mat-icon>
+        <a>{{appointment.start_time}}</a>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon>schedule</mat-icon>
-        <h4 mat-line>12:45</h4>
+        <mat-icon> event_busy</mat-icon>
+        <a>{{appointment.end_date}}</a>
+        <mat-icon class="schedule" >schedule</mat-icon>
+        <a>{{appointment.end_time}}</a>
       </mat-list-item>
     </mat-list>
     <mat-card-actions>
-      <button mat-button (click)="test()">
+      <button mat-button>
         <mat-icon>edit</mat-icon>
         EDIT
       </button>

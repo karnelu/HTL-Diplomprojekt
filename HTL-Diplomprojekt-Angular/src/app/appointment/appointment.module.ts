@@ -23,6 +23,6 @@ import { AppointmentEditComponent } from './appointment-edit/appointment-edit.co
     UpcomingAppointmentsComponent,
     NewBusinessPartnerAppointmentComponent,
   ],
-  entryComponents: [NewBusinessPartnerAppointmentComponent]
+  entryComponents: [NewBusinessPartnerAppointmentComponent, AppointmentEditComponent]
 })
 export class AppointmentModule { }

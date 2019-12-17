@@ -3,6 +3,8 @@ import { businessPartnerDetailFabAnimations } from './business-partner.detail-fa
 import { BusinessPartner } from '../business-partner';
 import { MatDialog } from '@angular/material';
 import { NewBusinessPartnerAppointmentComponent } from 'src/app/appointment/new-business-partner-appointment/new-business-partner-appointment.component';
+import { Appointment } from 'src/app/appointment/appointment';
+import { AppointmentService } from 'src/app/appointment/appointment.service';
 
 @Component({
   selector: 'app-business-partner-detail-fab',
@@ -13,6 +15,7 @@ import { NewBusinessPartnerAppointmentComponent } from 'src/app/appointment/new-
 export class BusinessPartnerDetailFabComponent implements OnInit {
 
   @Input() businessPartner: BusinessPartner;
+ 
 
   fabButtons = [
     {
@@ -36,7 +39,7 @@ export class BusinessPartnerDetailFabComponent implements OnInit {
   buttons = [];
   fabTogglerState = 'inactive';
 
-  constructor(private dialog: MatDialog, ) { }
+  constructor(private dialog: MatDialog, private appointmentService: AppointmentService ) { }
 
   ngOnInit() {
   }
@@ -65,7 +68,6 @@ export class BusinessPartnerDetailFabComponent implements OnInit {
       data: {
         businessPartner: this.businessPartner
       }
-
     });
     dialogRef.beforeClosed().subscribe(result => {
       console.log('The dialog was closed');

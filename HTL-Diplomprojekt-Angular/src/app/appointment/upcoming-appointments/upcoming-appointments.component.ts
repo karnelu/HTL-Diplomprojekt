@@ -24,7 +24,6 @@ export class UpcomingAppointmentsComponent implements OnInit {
   items = Array.from({length: 5}).map((_, i) => `Item #${i}`);
 
   constructor(private appointmentService: AppointmentService,private route: ActivatedRoute,
-    private location: Location,
     private dialog: MatDialog,) { 
    
   }
@@ -41,7 +40,10 @@ export class UpcomingAppointmentsComponent implements OnInit {
       panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
     });
+
   }
+
+  //fixx the refresh for appointments !
 
   getAppointments(): void {
     this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  
