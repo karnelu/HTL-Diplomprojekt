@@ -2,6 +2,7 @@ package com.porscheinformatik.htl.controller;
 
 import com.porscheinformatik.htl.IPConfig;
 import com.porscheinformatik.htl.MailValidation;
+import com.porscheinformatik.htl.entities.Appointment;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
@@ -158,5 +159,11 @@ public class BPController {
             case "city": searchResult = bpRepository.findByCity(query); break;
         }
         return searchResult;
+    }
+
+    @GetMapping("/{id}/getAppointments")
+    public List<Appointment> getAppointments(@PathVariable Long id){
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        return bp.appointmentList();
     }
 }

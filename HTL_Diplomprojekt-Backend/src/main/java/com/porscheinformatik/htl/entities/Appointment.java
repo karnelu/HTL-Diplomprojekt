@@ -11,6 +11,10 @@ public class Appointment {
 
     @Transient
     private final DateFormat format = new SimpleDateFormat("yyyy-MM-ddHH:mm");
+    @Transient
+    private final DateFormat timeformat = new SimpleDateFormat("HH:mm");
+    @Transient
+    private final DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +23,7 @@ public class Appointment {
     @Column(name = "TITEL")
     private String title;
     @Column(name = "ACTION")
-    private String location="";
+    private String action;
     @Column(name = "START_DATE")
     private Date start_date;
     @Column(name = "END_DATE")
@@ -34,6 +38,8 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "VHC_ID")
     private Vehicle vehicle;
+
+    public Appointment(){}
 
     public Appointment(String start_date, String end_date, String start_time, String end_time, String title, String description){
 
@@ -59,28 +65,12 @@ public class Appointment {
         this.title = title;
     }
 
-    public String getLocation() {
-        return location;
+    public String getAction() {
+        return action;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Date getStart_date() {
-        return start_date;
-    }
-
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
-    }
-
-    public Date getEnd_date() {
-        return end_date;
-    }
-
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setAction(String location) {
+        this.action = location;
     }
 
     public String getDescription() {
@@ -91,24 +81,40 @@ public class Appointment {
         this.description = description;
     }
 
-    public BP getBp() {
-        return bp;
-    }
+    //public BP getBp() {
+    //    return bp;
+    //}
 
     public void setBp(BP bp) {
         this.bp = bp;
     }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
+    //public Vehicle getVehicle() {
+    //    return vehicle;
+    //}
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
 
+    public String getStart_date(){
+        return dateformat.format(end_date);
+    }
+
+    public String getStart_time(){
+        return timeformat.format(start_date);
+    }
+
+    public String getEnd_date(){
+        return dateformat.format(start_date);
+    }
+
+    public String getEnd_time(){
+        return timeformat.format(end_date);
+    }
+
     @Override
     public String toString() {
-        return "Appointment: " + start_date + ";" + end_date + ";" + title + ";" + location;
+        return "Appointment: " + start_date + ";" + end_date + ";" + title + ";" + action;
     }
 }

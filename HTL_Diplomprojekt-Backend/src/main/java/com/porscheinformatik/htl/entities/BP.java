@@ -117,6 +117,10 @@ public class BP {
         this.terminList.add(appointment);
     }
 
+    public List<Appointment> appointmentList(){
+        return this.terminList;
+    }
+
     public void setImg(String url){
         this.img =url;
     }

@@ -25,7 +25,7 @@ public class ICS_Generator {
        // this.end_time= timeformat.format(termin.getEnd_time());
         this.description=termin.getDescription();
         this.summary=termin.getTitle();
-        this.location=termin.getLocation();
+        this.location=termin.getAction();
     }
 
     public void setLocation(String location) {
