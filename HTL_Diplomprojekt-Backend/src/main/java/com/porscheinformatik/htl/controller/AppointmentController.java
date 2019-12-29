@@ -4,6 +4,7 @@ import com.porscheinformatik.htl.entities.Appointment;
 import com.porscheinformatik.htl.entities.BP;
 import com.porscheinformatik.htl.repositories.AppointmentRepository;
 import com.porscheinformatik.htl.repositories.BPRepository;
+import com.porscheinformatik.htl.exceptions.AppointmentNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,4 +49,28 @@ public class AppointmentController {
         return payload;
     }
 
+    @GetMapping("/{id}/getAppointment")
+    public Appointment getAppointment(@PathVariable Long id){
+        return appointmentRepository.findById(id).orElseThrow(() -> new AppointmentNotFoundException(id));
+    }
+
+    @PostMapping("/{id}/update")
+    @ResponseBody
+    public Map<String, String> updateAppointment(@RequestBody Appointment appointment){
+        HashMap<String, String> payload = new HashMap<>();
+        try {
+            appointmentRepository.save(appointment);
+            payload.put("nopath","Successfully updated!");
+        }catch (ConstraintViolationException ex) {
+            String message;
+            String path;
+            for (ConstraintViolation<?> cv : ex.getConstraintViolations()) {
+                path = cv.getPropertyPath().toString();
+                message = cv.getMessage();
+                path = Character.toUpperCase(path.charAt(0)) + path.substring(1);
+                payload.put(path, message);
+            }
+        }
+        return payload;
+    }
 }
