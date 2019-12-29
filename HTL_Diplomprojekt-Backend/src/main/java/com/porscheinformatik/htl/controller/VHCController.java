@@ -6,10 +6,14 @@ import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.exceptions.VHCNotFoundException;
 import com.porscheinformatik.htl.repositories.VehicleRepository;
 import com.porscheinformatik.htl.storage.StorageService;
+import org.apache.tomcat.util.file.ConfigurationSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +24,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -144,6 +150,13 @@ public class VHCController {
         }
     }
     @GetMapping("/{id}/download")
-
-
+    @ResponseBody
+    public ResponseEntity<ByteArrayResource> download(@PathVariable Long id) throws IOException{
+        Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/pdf/vehicle_"+id.toString()+".pdf");
+        byte[] data = Files.readAllBytes(rootLocation);
+        ByteArrayResource resource = new ByteArrayResource(data);
+        MediaType mediaType = MediaType.APPLICATION_PDF;
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename=vehicle_"+id.toString()+".pdf")
+                .contentType(mediaType).contentLength(data.length).body(resource);
+    }
 }
