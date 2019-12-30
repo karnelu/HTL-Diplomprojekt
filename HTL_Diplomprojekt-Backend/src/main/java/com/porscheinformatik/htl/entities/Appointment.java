@@ -12,9 +12,9 @@ public class Appointment {
     @Transient
     private final DateFormat format = new SimpleDateFormat("yyyy-MM-ddHH:mm");
     @Transient
-    private final DateFormat timeformat = new SimpleDateFormat("HH:mm");
+    private final DateFormat timeformat = new SimpleDateFormat("HHmmss");
     @Transient
-    private final DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+    private final DateFormat dateformat = new SimpleDateFormat("yyyyMMdd");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
