@@ -1,5 +1,6 @@
 package com.porscheinformatik.htl;
 
+import com.google.zxing.WriterException;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -9,6 +10,7 @@ import com.porscheinformatik.htl.entities.Vehicle;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -16,10 +18,13 @@ public class PDF_Generator {
 
     public static void generatePDF(Vehicle vehicle){
         Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images");
+        Path qrcodepath = Paths.get(System.getProperty("user.dir")+"/src/main/resources/images/qrcodes/qr_vehicle_"+vehicle.getVhcID().toString()+".png");
         String filename = "vehicle_" + vehicle.getVhcID().toString() + ".pdf";
         Document document = new Document();
 
+
         try{
+            if (!Files.exists(qrcodepath))QR_Generator.createQRImage(vehicle.getVhcID());
             PdfWriter.getInstance(document, new FileOutputStream(rootLocation.toString() + "/pdf/" + filename));
             document.open();
 
@@ -63,7 +68,7 @@ public class PDF_Generator {
             document.add(table);
             document.add(qrcode);
             document.close();
-        }catch (DocumentException | IOException e){
+        }catch (DocumentException | IOException | WriterException e){
             e.printStackTrace();
         }
     }

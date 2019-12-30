@@ -1,6 +1,7 @@
 package com.porscheinformatik.htl.controller;
 
 import com.porscheinformatik.htl.IPConfig;
+import com.porscheinformatik.htl.PDF_Generator;
 import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.exceptions.VHCNotFoundException;
@@ -125,7 +126,7 @@ public class VHCController {
     @ResponseBody
     public HttpEntity<byte[]> getVHCImage(@PathVariable Long id){
         String path = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/vehicle").toString();
-        Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        Vehicle vehicle = vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id));
         BufferedImage bufferedImage;
         try {
             File image = new File(path+"/"+"avatar_" + id.toString() + ".jpg");
@@ -153,6 +154,7 @@ public class VHCController {
     @ResponseBody
     public ResponseEntity<ByteArrayResource> download(@PathVariable Long id) throws IOException{
         Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/pdf/vehicle_"+id.toString()+".pdf");
+        if (!Files.exists(rootLocation)) PDF_Generator.generatePDF(vhcRepo.findById(id).orElseThrow(() -> new VHCNotFoundException(id)));
         byte[] data = Files.readAllBytes(rootLocation);
         ByteArrayResource resource = new ByteArrayResource(data);
         MediaType mediaType = MediaType.APPLICATION_PDF;
