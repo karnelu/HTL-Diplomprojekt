@@ -49,4 +49,10 @@ export class UpcomingAppointmentsComponent implements OnInit {
     this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  
   }
 
+  deleteAppointment(appointmentID: number): void{
+    this.appointmentService.deleteAppointment(appointmentID).subscribe(res=> {
+      console.log(res + "Appointment deleted");
+    });
+  }
+
 }

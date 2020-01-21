@@ -38,11 +38,16 @@ export class AppointmentService {
 
   getAppointments(bpid: number): Observable<Appointment[]>{
     return this.http.get<Appointment[]>(this.businessPartnerUrl + bpid + '/getAppointments');
-    //return this.http.get<Appointment[]>(this.businessPartnerUrl + bpID + '/getAppointments');
   }
  
   getAppointment(appointmentID: number): Observable<Appointment>{
     return this.http.get<Appointment>(this.appointmentUrl + appointmentID +'/getAppointment');
+  }
+
+  deleteAppointment(appointmentID: number): Observable<{}>{
+    return this.http.delete(this.appointmentUrl + appointmentID, this.httpOptions).pipe(
+      catchError(this.handleError('deleteHero'))
+    );
   }
 
 }
