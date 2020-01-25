@@ -11,3 +11,63 @@
       <button mat-button >Save</button>
     </mat-toolbar-row>
   </mat-toolbar>
+  <!-- Toolbar Section -->
+<div class="appointment-dialog-container">
+  <mat-card-header>
+    <img matCardAvatar src="/assets/img/baseline_today_black_48dp.png">
+    <mat-card-title>Appointment</mat-card-title>
+    <mat-card-subtitle>Test drive</mat-card-subtitle>
+  </mat-card-header>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput [(ngModel)] ="data.appointment.title" placeholder="Title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(ngModel)]="data.appointment.action" placeholder="Action">
+        <mat-option value="Probefahrt">Probefahrt</mat-option>
+        <mat-option value="Reperatur">Reperatur</mat-option>
+        <mat-option value="Service">Service</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Vehicle">
+        <mat-option value="Option1">Option1</mat-option>
+        <mat-option value="Option2">Option2</mat-option>
+        <mat-option value="Option3">Option3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-card-title class="start-date">Start Date</mat-card-title>
+    <div class="date-container">
+      <mat-form-field class="date-picker">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="data.appointment.start_date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+      <a class="time-container">
+        <mat-form-field class="time-picker">
+          <input matInput type="time" [(ngModel)]="data.appointment.start_time">
+          <mat-icon matPrefix>watch_later</mat-icon>
+        </mat-form-field>
+      </a>
+    </div>
+    <mat-card-title class="end-date">End Date</mat-card-title>
+    <div class="date-container">
+      <mat-form-field class="date-picker">
+        <input matInput [matDatepicker]="picker2" [(ngModel)]="data.appointment.end_date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker2></mat-datepicker>
+      </mat-form-field>
+      <a class="time-container">
+        <mat-form-field class="time-picker">
+          <input matInput type="time" [(ngModel)]="data.appointment.end_time">
+          <mat-icon matPrefix>watch_later</mat-icon>
+        </mat-form-field>
+      </a>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="10" [(ngModel)]="data.appointment.description"></textarea>
+    </mat-form-field>
+  </div>
+</div>

@@ -6,6 +6,9 @@ import { BusinessPartner } from 'src/app/business-partner/business-partner';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AppointmentEditComponent } from '../appointment-edit/appointment-edit.component';
+export interface DialogData {
+  appointment: Appointment;
+}
 
 
 @Component({
@@ -17,9 +20,10 @@ export class UpcomingAppointmentsComponent implements OnInit {
 
   @Input() bpID: number;
   @Input() businessPartner: BusinessPartner;
-  appointments: Appointment[];
-  appointment = new Appointment;
  
+
+  appointments: Appointment[];
+  appointment: Appointment;
 
   items = Array.from({length: 5}).map((_, i) => `Item #${i}`);
 
@@ -30,20 +34,26 @@ export class UpcomingAppointmentsComponent implements OnInit {
 
   ngOnInit() {
     this.getAppointments();
+    
   }
 
-  openDialog(): void {
+  openDialog(appointment: Appointment): void {
     const dialogRef = this.dialog.open(AppointmentEditComponent, {
       maxWidth: '100vw',
       height: '100vh',
       hasBackdrop: false,
       panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
+      data: { appointment: appointment }
     });
 
   }
 
   //fixx the refresh for appointments !
+
+  getAppointment(){
+    
+  }
 
   getAppointments(): void {
     this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  
