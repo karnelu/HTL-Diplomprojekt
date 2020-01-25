@@ -29,3 +29,20 @@ h2 {
 mat-list-item a{
   padding-left: 10px;
 }
+
+
+.save_delete{
+ position: absolute;
+ right: 16px;
+ bottom: 6px;
+}
+
+.clear{
+  position: absolute;
+  top:3px;
+  right: 3px;
+}
+
+.action_buttons button{
+  margin: 0 !important;
+}

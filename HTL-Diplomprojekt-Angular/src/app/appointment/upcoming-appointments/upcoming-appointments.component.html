@@ -2,6 +2,9 @@
   <h2>Upcoming Appointments</h2>
   <mat-card class="appointment-card" *ngFor="let appointment of appointments">
     <mat-card-header>
+      <button class="clear" mat-icon-button (click)="deleteAppointment(appointment.id)">
+        <mat-icon >clear</mat-icon>
+      </button>
       <mat-icon class="today" mat-card-avatar>event</mat-icon>
       <mat-card-title>{{appointment.title}} </mat-card-title>
       <mat-card-subtitle> {{appointment.action}}</mat-card-subtitle>
@@ -21,14 +24,17 @@
       </mat-list-item>
     </mat-list>
     <mat-card-actions>
-      <button mat-button>
-        <mat-icon>edit</mat-icon>
-        EDIT
+      <div class="action_buttons">
+      <button mat-button (click)="openDialog()">
+        <mat-icon>edit</mat-icon> EDIT
       </button>
       <button mat-button>
-        <mat-icon>email</mat-icon>
-        SEND
+        <mat-icon>email</mat-icon> SEND
       </button>
+      <button mat-button>
+        <mat-icon>save_alt</mat-icon> .ICS
+      </button>
+    </div>
     </mat-card-actions>
   </mat-card>
 </div> 
