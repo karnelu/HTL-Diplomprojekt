@@ -21,7 +21,7 @@ export class NewBusinessPartnerAppointmentComponent implements OnInit {
   constructor(private _ngZone: NgZone, private service: AppointmentService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<NewBusinessPartnerAppointmentComponent>,) { }
 
   ngOnInit() {
-
+    
   }
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.

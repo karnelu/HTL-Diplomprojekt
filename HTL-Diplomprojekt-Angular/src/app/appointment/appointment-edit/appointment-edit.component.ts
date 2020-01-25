@@ -12,26 +12,41 @@ import { Appointment } from '../appointment';
 })
 export class AppointmentEditComponent implements OnInit {
 
- 
+  
+  start_Date = new Date;
+  end_Date = new Date;
 
   constructor(
     public dialogRef: MatDialogRef<AppointmentEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData, private appointmentService: AppointmentService, ) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, private appointmentService: AppointmentService, ) { 
+      let start_Date = this.data.appointment.start_date;
+
+    }
+
+
 
   ngOnInit() {
+    
+   
+    
+    
     console.log(this.data.appointment);
   }
 
 
   saveAppointment(){
     
+    
+    this.start_Date = new Date(this.data.appointment.start_date);
+    this.end_Date = new Date(this.data.appointment.end_date);
+    
     var starttimeformat = this.data.appointment.start_time.split(":");
-    this.data.appointment.start_date.setHours(+starttimeformat[0]);
-    this.data.appointment.start_date.setMinutes(+starttimeformat[1]);
+    this.data.appointment.start_date= this.start_Date.setHours(+starttimeformat[0]);
+    this.data.appointment.start_date = this.start_Date.setMinutes(+starttimeformat[1]);
 
     var endtimeformat = this.data.appointment.end_time.split(":");
-    this.data.appointment.end_date.setHours(+endtimeformat[0]);
-    this.data.appointment.end_date.setMinutes(+endtimeformat[1]);
+    this.data.appointment.end_date = this.end_Date.setHours(+endtimeformat[0]);
+    this.data.appointment.end_date = this.end_Date.setMinutes(+endtimeformat[1]);
     
     this.appointmentService.updateAppointment(this.data.appointment).subscribe(()=>this.dialogclose());
   }

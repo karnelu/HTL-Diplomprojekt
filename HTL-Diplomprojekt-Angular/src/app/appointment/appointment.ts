@@ -4,10 +4,10 @@ export class Appointment{
     id: String;
     title: String;
     action: String;
-    start_date: Date;
-    start_time: string;
-    end_date: Date;
-    end_time: string;
+    start_date: any;
+    start_time: any;
+    end_date: any;
+    end_time: any;
     description: string; 
     bp: BusinessPartner;
 }
