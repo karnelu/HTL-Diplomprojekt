@@ -24,6 +24,15 @@ export class AppointmentEditComponent implements OnInit {
 
 
   saveAppointment(){
+    
+    var starttimeformat = this.data.appointment.start_time.split(":");
+    this.data.appointment.start_date.setHours(+starttimeformat[0]);
+    this.data.appointment.start_date.setMinutes(+starttimeformat[1]);
+
+    var endtimeformat = this.data.appointment.end_time.split(":");
+    this.data.appointment.end_date.setHours(+endtimeformat[0]);
+    this.data.appointment.end_date.setMinutes(+endtimeformat[1]);
+    
     this.appointmentService.updateAppointment(this.data.appointment).subscribe(()=>this.dialogclose());
   }
  
