@@ -69,9 +69,9 @@ public class Appointment {
         this.description = description;
     }
 
-    //public BP getBp() {
-    //    return bp;
-    //}
+    public BP getBp() {
+        return bp;
+    }
 
     public void setBp(BP bp) {
         this.bp = bp;

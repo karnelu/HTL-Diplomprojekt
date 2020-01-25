@@ -62,7 +62,7 @@ public class AppointmentController {
         return appointmentRepository.findById(id).orElseThrow(() -> new AppointmentNotFoundException(id));
     }
 
-    @PostMapping("/{id}/update")
+    @PostMapping("/update")
     @ResponseBody
     public Map<String, String> updateAppointment(@RequestBody Appointment appointment){
         HashMap<String, String> payload = new HashMap<>();

@@ -1,3 +1,5 @@
+import { BusinessPartner } from '../business-partner/business-partner';
+
 export class Appointment{
     id: String;
     title: String;
@@ -7,5 +9,5 @@ export class Appointment{
     end_date: Date;
     end_time: string;
     description: string; 
-    
+    bp: BusinessPartner;
 }

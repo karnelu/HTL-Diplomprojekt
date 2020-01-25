@@ -40,4 +40,52 @@
     flex: 1 1 auto;
   }
   
+  .mat-toolbar-row {
+    padding: 0px;
+  }
   
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .appointment-dialog-container {
+    margin: 16px;
+  }
+  .example-header-image {
+  
+    background-size: cover;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }.example-container > * {
+    width: 100%;
+  }
+  
+.date-container mat-form-field{
+  width: 45% !important;;
+}
+
+.time-container mat-icon{
+  vertical-align: middle;
+  height: 30px; 
+
+}
+
+.time-picker{
+  margin-left: 10%;
+  width: 30% !important;
+}
+
+.time-container mat-form-field{
+  width: 25% !important;
+}
+.end-date{
+  margin: 0;
+  font-size: 18px;
+}
+.start-date{
+  margin: 0;
+  font-size: 18px;
+}
+
+

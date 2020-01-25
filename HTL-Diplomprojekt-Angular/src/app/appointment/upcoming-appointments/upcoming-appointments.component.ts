@@ -45,15 +45,17 @@ export class UpcomingAppointmentsComponent implements OnInit {
       panelClass: 'myapp-no-padding-dialog',
       width: '100vw',
       data: { appointment: appointment }
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAppointments();
     });
 
   }
 
   //fixx the refresh for appointments !
 
-  getAppointment(){
-    
-  }
+ 
 
   getAppointments(): void {
     this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  

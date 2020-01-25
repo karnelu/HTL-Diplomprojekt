@@ -15,7 +15,10 @@ export class AppointmentService {
   private appointmentUrl = this.conn.host + this.conn.appointment;
   private businessPartnerUrl = this.conn.host + this.conn.businesspartner;
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json', 
+      'Acces-Control-Allow-Origin': '*',
+  })
   };
 
   constructor(private http: HttpClient) { }
@@ -45,9 +48,14 @@ export class AppointmentService {
   }
 
   deleteAppointment(appointmentID: number): Observable<{}>{
-    return this.http.delete(this.appointmentUrl + appointmentID, this.httpOptions).pipe(
+    return this.http.delete(this.appointmentUrl + 'delete?id='+ appointmentID, this.httpOptions).pipe(
       catchError(this.handleError('deleteHero'))
     );
+  }
+
+  updateAppointment(appointment: Appointment): Observable<any> {
+    return this.http.post(this.appointmentUrl + 'update', appointment, this.httpOptions).pipe(
+      catchError(this.handleError<Appointment[]>('updateAppointment', [])));
   }
 
 }

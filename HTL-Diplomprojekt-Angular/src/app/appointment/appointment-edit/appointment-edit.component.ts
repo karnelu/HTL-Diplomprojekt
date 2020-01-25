@@ -22,6 +22,13 @@ export class AppointmentEditComponent implements OnInit {
     console.log(this.data.appointment);
   }
 
+
+  saveAppointment(){
+    this.appointmentService.updateAppointment(this.data.appointment).subscribe(()=>this.dialogclose());
+  }
+ 
+
+
   dialogclose(): void {
     this.dialogRef.close();
   }
