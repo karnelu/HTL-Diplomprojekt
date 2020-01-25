@@ -85,8 +85,12 @@ public class Appointment {
         this.vehicle = vehicle;
     }
 
+    public void setStart_date(Date date){
+        System.out.println(date);
+        this.start_date=date;}
+
     public String getStart_date(){
-        return dateformat.format(end_date);
+        return dateformat.format(start_date);
     }
 
     public String getStart_time(){
@@ -94,7 +98,7 @@ public class Appointment {
     }
 
     public String getEnd_date(){
-        return dateformat.format(start_date);
+        return dateformat.format(end_date);
     }
 
     public String getEnd_time(){
