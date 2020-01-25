@@ -58,4 +58,8 @@ export class AppointmentService {
       catchError(this.handleError<Appointment[]>('updateAppointment', [])));
   }
 
+  getIcsFile(appointmentID: number){
+    return this.http.get(this.appointmentUrl + 'download?id='+ appointmentID, this.httpOptions); 
+  }
+
 }

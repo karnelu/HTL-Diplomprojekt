@@ -3,7 +3,7 @@ import { Appointment } from 'src/app/appointment/appointment';
 import { AppointmentService } from '../appointment.service';
 import { Observable } from 'rxjs';
 import { BusinessPartner } from 'src/app/business-partner/business-partner';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AppointmentEditComponent } from '../appointment-edit/appointment-edit.component';
 export interface DialogData {
@@ -28,7 +28,7 @@ export class UpcomingAppointmentsComponent implements OnInit {
   items = Array.from({length: 5}).map((_, i) => `Item #${i}`);
 
   constructor(private appointmentService: AppointmentService,private route: ActivatedRoute,
-    private dialog: MatDialog,) { 
+    private dialog: MatDialog, private router: Router) { 
    
   }
 
@@ -67,4 +67,9 @@ export class UpcomingAppointmentsComponent implements OnInit {
     });
   }
 
+
+  downloadIcsFile(appointmentID: number){
+    const url= 'http://localhost:8080/appointment/download?id='+ appointmentID;
+    window.open(url);
+  }
 }

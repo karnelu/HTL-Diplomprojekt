@@ -19,8 +19,7 @@ export class AppointmentEditComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AppointmentEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, private appointmentService: AppointmentService, ) { 
-      let start_Date = this.data.appointment.start_date;
-
+  
     }
 
 
