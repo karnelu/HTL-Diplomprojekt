@@ -92,4 +92,17 @@ public class AppointmentController {
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename="+timeStamp+".ics")
                 .contentLength(data.length).body(resource);
     }
+    @DeleteMapping("/delete")
+    public Map<String,String> deleteAppointment(@RequestParam(name = "id") Long id){
+        String status;
+        HashMap<String, String> payload = new HashMap<>();
+        try{
+            appointmentRepository.deleteById(id);
+            status="200 OK";
+        }catch (Exception e){
+            status="404 NOT FOUND";
+        }
+       payload.put("HTTP", status);
+        return payload;
+    }
 }
