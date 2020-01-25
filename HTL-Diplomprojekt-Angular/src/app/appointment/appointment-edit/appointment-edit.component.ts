@@ -13,8 +13,8 @@ import { Appointment } from '../appointment';
 export class AppointmentEditComponent implements OnInit {
 
   
-  start_Date = new Date;
-  end_Date = new Date;
+  start_Date : Date;
+  end_Date : Date;
 
   constructor(
     public dialogRef: MatDialogRef<AppointmentEditComponent>,
