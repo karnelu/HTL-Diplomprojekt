@@ -99,4 +99,5 @@ export class BusinessPartnerDetailFabComponent implements OnInit {
   clicked() {
     return console.log('Hello');
   }
+
 }

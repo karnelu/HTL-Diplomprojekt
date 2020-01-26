@@ -18,6 +18,7 @@ import { BusinessPartnerComponent } from './business-partner/./business-partner.
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { Title } from '@angular/platform-browser';
+import { AppointmentDeleteDialogComponent } from './appointment/appointment-delete-dialog/appointment-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { Title } from '@angular/platform-browser';
     VehicleComponent,
     BusinessPartnerComponent,
     ToolbarComponent,
+    AppointmentDeleteDialogComponent,
   ],
   imports: [
     CommonImportsModule,

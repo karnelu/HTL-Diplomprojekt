@@ -2,7 +2,7 @@
   <h2>Upcoming Appointments</h2>
   <mat-card class="appointment-card" *ngFor="let appointment of appointments">
     <mat-card-header>
-      <button class="clear" mat-icon-button (click)="deleteAppointment(appointment.id)">
+      <button class="clear" mat-icon-button (click)="openDeleteDialog(appointment)">
         <mat-icon >clear</mat-icon>
       </button>
       <mat-icon class="today" mat-card-avatar>event</mat-icon>

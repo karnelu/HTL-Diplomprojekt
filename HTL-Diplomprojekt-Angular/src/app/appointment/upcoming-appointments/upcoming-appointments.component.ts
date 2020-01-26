@@ -6,8 +6,10 @@ import { BusinessPartner } from 'src/app/business-partner/business-partner';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AppointmentEditComponent } from '../appointment-edit/appointment-edit.component';
+import { AppointmentDeleteDialogComponent } from '../appointment-delete-dialog/appointment-delete-dialog.component';
 export interface DialogData {
   appointment: Appointment;
+  
 }
 
 
@@ -36,6 +38,17 @@ export class UpcomingAppointmentsComponent implements OnInit {
     this.getAppointments();
     
   }
+
+  openDeleteDialog(appointment: Appointment): void{
+    const dialogRef = this.dialog.open(AppointmentDeleteDialogComponent,{
+      panelClass: 'myapp-no-padding-dialog',
+      data: {appointment: appointment}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAppointments();
+    });
+  }
+
 
   openDialog(appointment: Appointment): void {
     const dialogRef = this.dialog.open(AppointmentEditComponent, {

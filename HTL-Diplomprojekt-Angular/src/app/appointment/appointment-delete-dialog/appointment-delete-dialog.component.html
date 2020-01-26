@@ -1,0 +1,12 @@
+<mat-card class="dialog-delete">
+    <h3>Delete Appointment?</h3>
+    <a>
+        Are you sure to delete the Appointment: 
+        <a class="appointment-title">{{data.appointment.title}}</a>
+    </a>
+    <mat-card-actions align = 'end'>
+      <button mat-button (click)="dialogclose()">CANCEL</button>
+      <button mat-button (click)="deleteAppointment(data.appointment.id)">DELETE</button>
+    </mat-card-actions>
+</mat-card>
+  

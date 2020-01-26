@@ -11,6 +11,7 @@ import { UpcomingAppointmentsComponent } from './upcoming-appointments/upcoming-
 import { AppointmentComponent } from './appointment.component';
 import { NewBusinessPartnerAppointmentComponent } from './new-business-partner-appointment/new-business-partner-appointment.component';
 import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
+import { AppointmentDeleteDialogComponent } from './appointment-delete-dialog/appointment-delete-dialog.component';
 
 @NgModule({
   declarations: [UpcomingAppointmentsComponent, AppointmentComponent, NewBusinessPartnerAppointmentComponent, AppointmentEditComponent],
@@ -23,6 +24,6 @@ import { AppointmentEditComponent } from './appointment-edit/appointment-edit.co
     UpcomingAppointmentsComponent,
     NewBusinessPartnerAppointmentComponent,
   ],
-  entryComponents: [NewBusinessPartnerAppointmentComponent, AppointmentEditComponent]
+  entryComponents: [AppointmentDeleteDialogComponent,NewBusinessPartnerAppointmentComponent, AppointmentEditComponent]
 })
 export class AppointmentModule { }
