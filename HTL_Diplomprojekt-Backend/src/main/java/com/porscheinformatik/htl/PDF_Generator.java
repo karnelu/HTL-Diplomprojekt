@@ -68,6 +68,7 @@ public class PDF_Generator {
             document.add(table);
             document.add(qrcode);
             document.close();
+
         }catch (DocumentException | IOException | WriterException e){
             e.printStackTrace();
         }

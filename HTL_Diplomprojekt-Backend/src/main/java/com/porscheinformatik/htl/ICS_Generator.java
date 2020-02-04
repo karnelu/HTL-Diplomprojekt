@@ -14,7 +14,7 @@ public class ICS_Generator {
 public ICS_Generator(){
         }
 
-public static byte[] write(Appointment appointment){
+public static byte[] write(Appointment appointment, String bpemail){
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
@@ -38,6 +38,7 @@ public static byte[] write(Appointment appointment){
         bos.write(("DTSTART:"+startdate+"T"+starttime+"Z\r\n").getBytes(StandardCharsets.UTF_8));
         bos.write(("DTEND:"+enddate+"T"+endtime+"Z\r\n").getBytes(StandardCharsets.UTF_8));
         bos.write(("DTSTAMP:"+currdate[0]+"T"+currdate[1]+"Z\r\n").getBytes(StandardCharsets.UTF_8));
+        bos.write(("ATTENDEE;ROLE=REQ-PARTICIPANT;User:MAILTO:"+bpemail+"\r\n").getBytes(StandardCharsets.UTF_8));
         bos.write("END:VEVENT\r\n".getBytes(StandardCharsets.UTF_8));
         bos.write("END:VCALENDAR\r\n".getBytes(StandardCharsets.UTF_8));
         }

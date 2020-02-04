@@ -86,7 +86,7 @@ public class AppointmentController {
     public ResponseEntity<ByteArrayResource> download(@RequestParam(name = "id") Long id) throws IOException {
         Appointment appointment = appointmentRepository.findById(id).orElseThrow(() -> new AppointmentNotFoundException(id));
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        byte[] data = ICS_Generator.write(appointment);
+        byte[] data = ICS_Generator.write(appointment,appointment.getBp().getEmail());
         ByteArrayResource resource = new ByteArrayResource(data);
         //MediaType mediaType = MediaType.APPLICATION_;
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename="+timeStamp+".ics")

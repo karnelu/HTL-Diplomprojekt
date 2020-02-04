@@ -26,7 +26,7 @@ public class QR_Generator{
 
     public static void createQRImage(Long vhcid) throws WriterException, IOException {
         Path rootLocation = Paths.get(System.getProperty("user.dir") + "/src/main/resources/images/qrcodes");
-        String url = "http://" + IPConfig.getConfig() + "/vehicle/" + vhcid.toString();
+        String url = "/vehicle/" + vhcid.toString();
         String filename = "qr_vehicle_" + vhcid.toString() + ".png";
         File qrFile = new File(rootLocation.toString() + "/" + filename);
 
