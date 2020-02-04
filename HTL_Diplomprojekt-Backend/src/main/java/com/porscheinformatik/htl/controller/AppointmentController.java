@@ -1,5 +1,6 @@
 package com.porscheinformatik.htl.controller;
 
+import com.porscheinformatik.htl.EmailHandler;
 import com.porscheinformatik.htl.ICS_Generator;
 import com.porscheinformatik.htl.entities.Appointment;
 import com.porscheinformatik.htl.entities.BP;
@@ -13,8 +14,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import javax.validation.constraints.Email;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -103,6 +106,16 @@ public class AppointmentController {
             status="404 NOT FOUND";
         }
        payload.put("HTTP", status);
+        return payload;
+    }
+
+    @PutMapping("/send")
+    @ResponseBody
+    public Map<String, String> sendEmail(@RequestBody Map<String, String> email, @RequestParam(name="id") Long id) throws MessagingException {
+        Appointment appointment = appointmentRepository.findById(id).orElseThrow(() -> new AppointmentNotFoundException(id));
+        HashMap<String, String> payload = new HashMap<>();
+        System.out.println(email.get("email"));
+        payload.put("Status", EmailHandler.sendEmail(email.get("email"), appointment));
         return payload;
     }
 }
