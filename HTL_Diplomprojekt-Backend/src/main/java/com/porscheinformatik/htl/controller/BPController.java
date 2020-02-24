@@ -4,6 +4,7 @@ import com.porscheinformatik.htl.IPConfig;
 import com.porscheinformatik.htl.MailValidation;
 import com.porscheinformatik.htl.entities.Appointment;
 import com.porscheinformatik.htl.entities.BP;
+import com.porscheinformatik.htl.entities.Vehicle;
 import com.porscheinformatik.htl.exceptions.BPNotFoundException;
 import com.porscheinformatik.htl.repositories.BPRepository;
 import com.porscheinformatik.htl.storage.StorageService;
@@ -165,5 +166,11 @@ public class BPController {
     public List<Appointment> getAppointments(@PathVariable Long id){
         BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
         return bp.appointmentList();
+    }
+
+    @GetMapping("/{id}/getVehicles")
+    public List<Vehicle> getVehicles(@PathVariable Long id){
+        BP bp = bpRepository.findById(id).orElseThrow(() -> new BPNotFoundException(id));
+        return bp.vhcList();
     }
 }

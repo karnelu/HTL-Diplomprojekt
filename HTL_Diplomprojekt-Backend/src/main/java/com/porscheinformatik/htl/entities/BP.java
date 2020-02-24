@@ -28,8 +28,11 @@ public class BP {
     @Column(name="LASTUSED")
     private Date lastUsed;
 
-    @OneToMany(mappedBy = "bp")
+    @OneToMany(mappedBy = "bp", fetch = FetchType.EAGER)
     private List<Appointment> terminList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "bp", fetch = FetchType.EAGER)
+    private List<Vehicle> vehicleList = new ArrayList<>();
 
     @Column(name="Image")
     private String img;
@@ -120,6 +123,10 @@ public class BP {
     public List<Appointment> appointmentList(){
         return this.terminList;
     }
+
+    public void addVehicle(Vehicle vehicle){this.vehicleList.add(vehicle);}
+
+    public List<Vehicle> vhcList(){return this.vehicleList;}
 
     public void setImg(String url){
         this.img =url;

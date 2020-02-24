@@ -40,6 +40,10 @@ public class Vehicle {
     @OneToMany(mappedBy = "vehicle")
     private List<Appointment> terminList;
 
+    @ManyToOne
+    @JoinColumn(name = "BP_ID")
+    private BP bp;
+
     @Column(name="IMAGE")
     private String img;
 
@@ -155,6 +159,10 @@ public class Vehicle {
 
     public String getImg(){
         return img;
+    }
+
+    public void setBp(BP bp) {
+        this.bp = bp;
     }
 
     @Override
