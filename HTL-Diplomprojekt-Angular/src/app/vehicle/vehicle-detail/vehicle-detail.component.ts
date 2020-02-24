@@ -6,7 +6,7 @@ import { Vehicle } from '../vehicle';
 import { Location } from '@angular/common';
 import { VehicleEditComponent } from '../vehicle-edit/vehicle-edit.component';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-
+import { connection } from 'src/app/connection';
 export interface DialogData {
   vehicle: Vehicle;
 
@@ -20,6 +20,7 @@ export interface DialogData {
 export class VehicleDetailComponent implements OnInit {
 
   vehicle: Vehicle;
+  private connection = new connection;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,4 +64,12 @@ export class VehicleDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  downloadPdf(vehicleID: number): void{
+    const pdfDownloadUrl= this.connection.host + '/vehicle/'+vehicleID+'/download';
+    window.open(pdfDownloadUrl);
+  }
+
+
+
 }

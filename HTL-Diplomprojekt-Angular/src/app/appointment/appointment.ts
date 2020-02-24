@@ -1,4 +1,5 @@
 import { BusinessPartner } from '../business-partner/business-partner';
+import { Vehicle } from '../vehicle/vehicle';
 
 export class Appointment{
     id: String;
@@ -10,4 +11,5 @@ export class Appointment{
     end_time: any;
     description: string; 
     bp: BusinessPartner;
+    vehicle: Vehicle;
 }

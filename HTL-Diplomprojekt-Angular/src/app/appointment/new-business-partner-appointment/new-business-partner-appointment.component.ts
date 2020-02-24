@@ -5,6 +5,7 @@ import { Appointment } from '../appointment';
 import { AppointmentService } from '../appointment.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material'
 import { concat } from 'rxjs';
+import { Vehicle } from 'src/app/vehicle/vehicle';
 
 @Component({
   selector: 'app-new-business-partner-appointment',
@@ -13,15 +14,16 @@ import { concat } from 'rxjs';
 })
 export class NewBusinessPartnerAppointmentComponent implements OnInit {
 
-
+  
+  vehicles: Vehicle[];
   appointment= new Appointment;
- 
+
   autosize: CdkTextareaAutosize;
   
   constructor(private _ngZone: NgZone, private service: AppointmentService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<NewBusinessPartnerAppointmentComponent>,) { }
 
   ngOnInit() {
-    
+    this.getBusinessPartnerVehicle();
   }
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.
@@ -39,14 +41,20 @@ export class NewBusinessPartnerAppointmentComponent implements OnInit {
     this.appointment.end_date.setHours(+endtimeformat[0]);
     this.appointment.end_date.setMinutes(+endtimeformat[1]);
 
+    
     this.service.newAppointment(this.data.businessPartner.bpID,this.appointment).subscribe(res=> {
       console.log(res);
     });
     this.dialogRef.close();
   }
 
+  getBusinessPartnerVehicle(): void{
+    this.service.getBusinessPartnerVehicle(this.data.businessPartner.bpID).subscribe(res=> this.vehicles = res);
+  }
   
-
-
+  selectVehicle(vehicle: Vehicle): void{
+    this.appointment.vehicle = vehicle;
+    console.log(vehicle);
+  }
   
 }

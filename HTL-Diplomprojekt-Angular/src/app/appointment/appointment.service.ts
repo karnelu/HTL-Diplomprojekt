@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { connection } from 'src/app/connection';
 import { Observable, of} from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Vehicle } from '../vehicle/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,14 @@ export class AppointmentService {
 
   getIcsFile(appointmentID: number){
     return this.http.get(this.appointmentUrl + 'download?id='+ appointmentID, this.httpOptions); 
+  }
+
+  getBusinessPartnerVehicle(bpID: number): Observable <Vehicle[]>{
+    return this.http.get<Vehicle[]>(this.businessPartnerUrl + bpID + '/getVehicles', this.httpOptions);
+  }
+
+  sendEmail(bpEmail: any, appointmentID: String): Observable<any>{
+    return this.http.put(this.appointmentUrl +'send?id=' + appointmentID, {'email': bpEmail}, this.httpOptions);
   }
 
 }

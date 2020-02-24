@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToolbarModule } from '../toolbar/toolbar.module';
 import { VehicleRoutingModule } from './vehicle-routing.module';
 
+import { ZXingScannerModule} from '@zxing/ngx-scanner';
+
 @NgModule({
   declarations: [
     VehicleDetailComponent,
@@ -28,7 +30,8 @@ import { VehicleRoutingModule } from './vehicle-routing.module';
     CommonImportsModule,
     HttpClientModule,
     ToolbarModule,
-    VehicleRoutingModule
+    VehicleRoutingModule,
+    ZXingScannerModule,
   ],
   exports: [
     VehicleLastScannedComponent,

@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogData } from 'src/app/appointment/upcoming-appointments/upcoming-appointments.component';
 import { AppointmentService } from '../appointment.service';
 import { Appointment } from '../appointment';
+import { Vehicle } from 'src/app/vehicle/vehicle';
 
 @Component({
   selector: 'app-appointment-edit',
@@ -12,9 +13,12 @@ import { Appointment } from '../appointment';
 })
 export class AppointmentEditComponent implements OnInit {
 
-  
+
+  vehicles: Vehicle[];
   start_Date : Date;
   end_Date : Date;
+ 
+  
 
   constructor(
     public dialogRef: MatDialogRef<AppointmentEditComponent>,
@@ -25,6 +29,7 @@ export class AppointmentEditComponent implements OnInit {
 
 
   ngOnInit() {
+    this.getBusinessPartnerVehicle();
     
    
     
@@ -54,5 +59,14 @@ export class AppointmentEditComponent implements OnInit {
 
   dialogclose(): void {
     this.dialogRef.close();
+  }
+
+  getBusinessPartnerVehicle(): void{
+    this.appointmentService.getBusinessPartnerVehicle(this.data.appointment.bp.bpID).subscribe(res=> this.vehicles = res);
+  }
+  
+  selectVehicle(vehicle: Vehicle): void{
+    this.data.appointment.vehicle = vehicle;
+    console.log(vehicle);
   }
 }

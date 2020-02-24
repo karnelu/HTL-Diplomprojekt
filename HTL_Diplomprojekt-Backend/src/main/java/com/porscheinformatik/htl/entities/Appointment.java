@@ -77,9 +77,9 @@ public class Appointment {
         this.bp = bp;
     }
 
-    //public Vehicle getVehicle() {
-    //    return vehicle;
-    //}
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;

@@ -1,0 +1,9 @@
+
+zxing-scanner::ng-deep video{
+    position: absolute;
+    top: 0;
+    /* height: calc((100vh - 56px)) !important; */
+    height: 100vh !important;
+    object-fit: contain;
+  
+}

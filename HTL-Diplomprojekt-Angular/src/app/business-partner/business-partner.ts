@@ -1,3 +1,5 @@
+import { Vehicle } from '../vehicle/vehicle';
+
 export class BusinessPartner {
   bpID: number;
   name: string;

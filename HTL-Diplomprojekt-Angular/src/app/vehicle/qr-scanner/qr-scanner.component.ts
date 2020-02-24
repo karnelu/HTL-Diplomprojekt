@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrScannerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  scanSuccessHandler(string: String){
+    console.log(string);
+    this.router.navigateByUrl(''+string);
   }
 
 }

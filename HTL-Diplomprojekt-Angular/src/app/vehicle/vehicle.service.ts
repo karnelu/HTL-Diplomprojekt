@@ -11,7 +11,7 @@ import { connection } from '../connection'
 export class VehicleService {
   private conn= new connection;
   private vehiclesUrl = this.conn.host + this.conn.vehicle;
-  private searchVehicleURL = 'http://localhost:8080/vehicle/search?type=brand&q=';
+  private searchVehicleURL = this.vehiclesUrl + 'search?type=brand&q=';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

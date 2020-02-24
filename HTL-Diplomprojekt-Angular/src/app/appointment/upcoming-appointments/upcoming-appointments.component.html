@@ -28,7 +28,7 @@
       <button mat-button (click)="openDialog(appointment)">
         <mat-icon>edit</mat-icon> EDIT
       </button>
-      <button mat-button>
+      <button mat-button (click)="sendEmail(appointment.id)">
         <mat-icon>email</mat-icon> SEND
       </button>
       <button mat-button (click)="downloadIcsFile(appointment.id)">

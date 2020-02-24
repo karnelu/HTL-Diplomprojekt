@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { AppointmentEditComponent } from '../appointment-edit/appointment-edit.component';
 import { AppointmentDeleteDialogComponent } from '../appointment-delete-dialog/appointment-delete-dialog.component';
+import { connection } from 'src/app/connection';
 export interface DialogData {
   appointment: Appointment;
   
@@ -22,8 +23,8 @@ export class UpcomingAppointmentsComponent implements OnInit {
 
   @Input() bpID: number;
   @Input() businessPartner: BusinessPartner;
+  private connection= new connection;
  
-
   appointments: Appointment[];
   appointment: Appointment;
 
@@ -67,9 +68,6 @@ export class UpcomingAppointmentsComponent implements OnInit {
   }
 
   //fixx the refresh for appointments !
-
- 
-
   getAppointments(): void {
     this.appointmentService.getAppointments(this.businessPartner.bpID).subscribe(appointments => this.appointments = appointments);  
   }
@@ -80,9 +78,13 @@ export class UpcomingAppointmentsComponent implements OnInit {
     });
   }
 
-
   downloadIcsFile(appointmentID: number){
-    const url= 'http://localhost:8080/appointment/download?id='+ appointmentID;
-    window.open(url);
+    const  icsDownloadUrl = this.connection.host + '/appointment/download?id='+ appointmentID;
+    window.open(icsDownloadUrl);
   }
+
+  sendEmail(appointmentID:String): void{
+    this.appointmentService.sendEmail(this.businessPartner.email,appointmentID).subscribe();
+  }
+
 }

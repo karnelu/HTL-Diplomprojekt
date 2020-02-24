@@ -149,9 +149,9 @@ public class Vehicle {
         this.color = color;
     }
 
-    public List<Appointment> getTerminList(){
-        return terminList;
-    }
+    //public List<Appointment> getTerminList(){
+    //    return terminList;
+    //}
 
     public void setImg(String name){
         this.img = name;

@@ -30,10 +30,8 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-select placeholder="Vehicle">
-        <mat-option value="Option1">Option1</mat-option>
-        <mat-option value="Option2">Option2</mat-option>
-        <mat-option value="Option3">Option3</mat-option>
+      <mat-select [(ngModel)]="data.appointment.vehicle.brand + data.appointment.vehicle.model" placeholder="Vehicle">
+        <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.brand + vehicle.model" (click)="selectVehicle(vehicle)">{{vehicle.brand}} {{vehicle.model}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-card-title class="start-date">Start Date</mat-card-title>
